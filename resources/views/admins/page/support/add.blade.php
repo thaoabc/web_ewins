@@ -1,6 +1,6 @@
 @extends('admins.layout.master-layout')
 @section('title')
-    Thêm tin tức
+    Thêm tin hỗ trợ
 @endsection
 
 @section('content')
@@ -8,11 +8,11 @@
     <div class="container-fluid">
             <section class="content-header">
                 <h1>
-                    Thêm tin tức
+                    Thêm tin hỗ trợ
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Thêm tin tức</li>
+                    <li class="active">Thêm tin hỗ trợ</li>
                 </ol>
             </section>
             <hr>
@@ -20,17 +20,17 @@
             <section class="content">
                 <div class="row">
                 <div class="box-header">
-                    <a href="{{route('new.list')}}" class="btn btn-primary">Danh sách</a>
+                    <a href="{{route('support.list')}}" class="btn btn-primary">Danh sách</a>
                 </div>
                     <div class="col-xs-12">
                         <div class="box">
-                                <form role="form" method="POST" action="{{route('new.add')}}" enctype="multipart/form-data">
+                                <form role="form" method="POST" action="{{route('support.add')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
 
                         <div class="form-group">
                             <label>Title (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập tiêu đề tin tức" name="title"
+                            <input type="text" class="form-control" placeholder="Nhập tiêu đề tin hỗ trợ" name="title"
                                    value="{{ old('title') }}">
                             <p style="color:red">{{ $errors->first('title') }}</p>
                         </div>
@@ -43,26 +43,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Nội dung (*)</label>
-                            <input type="text" class="form-control" placeholder="Nội dung" name="content"
-                                   value="{{ old('content') }}">
-                            <p style="color:red">{{ $errors->first('content') }}</p>
-                        </div>
-
-                        {{--  <div class="form-group">
                             <label for="exampleInputEmail1">Nội dung (*)</label>
                             <textarea name="content" rows="10" placeholder="Nhập nội dung"
                                         class="form-control">{{ old('content') }}</textarea>
-                        </div>  --}}
-                        <div class="form-group">
-                            <label>Chọn ảnh</label>
-                            <input type="file" id="image" name="image" onchange="showIMG()">
-                        </div>
-                        <p style="color:red">{{ $errors->first('image') }}</p>
-                        <div class="form-group">
-                            <div id="viewImg">
-
-                            </div>
                         </div>
                         
                         <div class="box-footer">
@@ -78,7 +61,7 @@
 </div>
 
 <script language="JavaScript">
-        CKEDITOR.replace('contentt', {
+        CKEDITOR.replace('content', {
                     filebrowserBrowseUrl: '{{asset("")}}ckfinder/ckfinder.html',
                     filebrowserImageBrowseUrl: '{{asset("")}}ckfinder/ckfinder.html?type=Images',
                     filebrowserFlashBrowseUrl: '{{asset("")}}ckfinder/ckfinder.html?type=Flash',

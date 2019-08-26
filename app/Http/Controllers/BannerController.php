@@ -10,10 +10,7 @@ class BannerController extends Controller
 {
     public function list()
     {
-        $array['banner']=DB::table('banner')
-                        ->join('new','new.id','=','banner.id_new')
-                        ->select('banner.*','banner.id as id_banner','new.title')
-                        ->get();
+        $array['banner']=DB::table('banner')->get();
         return view('admins.page.banner.list',$array);
     }
 
@@ -25,6 +22,13 @@ class BannerController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request,
+        [
+            'image' => 'required',
+        ],
+        [
+            'image.required' => 'Ảnh là trường bắt buộc',
+        ]);
         if ($request->hasFile('image')) {
             $file=$request->file('image');
             $name=$file->getClientOriginalName();
@@ -33,7 +37,6 @@ class BannerController extends Controller
         }
         DB::table('banner')->insert([
             'image' => $name,
-            'id_new' => $request->id_new,
             'status' => 0,
         ]);
 
@@ -43,8 +46,7 @@ class BannerController extends Controller
     public function edit($id)
     {
         $array['banner']=DB::table('banner')->find($id);
-        $new['new']=DB::table('new')->get();
-        return view('admins.page.banner.edit',$array,$new);
+        return view('admins.page.banner.edit',$array);
     }
 
     public function update(Request $request,$id)
@@ -72,7 +74,6 @@ class BannerController extends Controller
 
         DB::table('banner')->where('id',$id)->update([
             'image' => $name,
-            'id_new' => $request->id_new,
             'status' => $status,
         ]);
 

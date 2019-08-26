@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInforCityTable extends Migration
+class CreateTalentWinsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateInforCityTable extends Migration
      */
     public function up()
     {
-        Schema::create('infor_company', function (Blueprint $table) {
+        Schema::create('talent_wins', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('masothue');
-            $table->string('phone');
-            $table->string('email');
+            $table->string('title');
+            $table->string('summary');
+            $table->string('content');
+            $table->integer('status')->default(0);
+            $table->string('slug');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateInforCityTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('infor_city');
+        Schema::dropIfExists('talent_wins');
     }
 }

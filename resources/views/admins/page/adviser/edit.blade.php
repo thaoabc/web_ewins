@@ -24,21 +24,6 @@
                                 <form role="form" method="POST" action="{{Route('adviser.edit',['id'=>$adviser->id])}}" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
-
-                        <div class="form-group">
-                            <label>Tên (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập tiêu đề cố vấn" name="name"
-                                   value="{{ $adviser->name }}">
-                            <p style="color:red">{{ $errors->first('name') }}</p>
-                        </div>
-
-                         <div class="form-group">
-                            <label>Chức vụ (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập chức vụ người cố vấn" name="position"
-                                   value="{{ $adviser->position }}">
-                            <p style="color:red">{{ $errors->first('position') }}</p>
-                        </div>
-
                         <div class="form-group">
                             <label>Thông tin (*)</label>
                             <input type="text" class="form-control" placeholder="Nhập thông tin người cố vấn" name="information"
@@ -59,6 +44,7 @@
                         
                         <div class="box-footer">
                         <button type="submit" class="btn btn-primary">Sửa</button>
+                        <a href="{{Route('banner.list')}}"><button type="submit" class="btn btn-default">Quay lại</button></a>
                     </div>
                 </form>
                         </div>
