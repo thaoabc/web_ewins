@@ -1,6 +1,6 @@
 @extends('admins.layout.master-layout')
 @section('title')
-    Danh sách banner
+    Danh sách tin hỗ trợ
 @endsection
 
 @section('content')
@@ -8,11 +8,11 @@
     <div class="container-fluid">
             <section class="content-header">
                 <h1>
-                    Danh sách banner
+                    Danh sách tin hỗ trợ
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Danh sách banner</li>
+                    <li class="active">Danh sách tin hỗ trợ</li>
                 </ol>
             </section>
             <hr>
@@ -20,7 +20,7 @@
             <section class="content">
                 <div class="row">
                 <div class="box-header">
-                    <a href="{{route('banner.add')}}" class="btn btn-primary">Thêm banner</a>
+                    <a href="{{route('support.add')}}" class="btn btn-primary">Thêm tin hỗ trợ</a>
                 </div>
                     <div class="col-xs-12">
                         <div class="box">
@@ -28,20 +28,24 @@
                                 <table id="example1" class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th class="col-md-2">Ảnh</th>
+                                        <th class="col-md-2">Tiêu đề</th>
+                                        <th class="col-md-2">Tóm tắt</th>
+                                        <th class="col-md-2">Nội dung</th>
                                         <th class="col-md-2">Trạng thái</th>
                                         <th class="col-md-3">Hành động</th>
 
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($banner as $value)
+                                    @foreach($support as $value)
                                         <tr class="odd gradeX" >
-                                            <td ><img width="100px" src="{{asset('assets/img_banner/'.$value->image)}}"></td>
+                                            <td >{{$value->title}}</td>
+                                            <td >{{$value->summary}}</td>
+                                            <td >{{$value->content}}</td>
                                             <td >{{$value->status}}</td>
                                             <td>
-                                                <a class="btn btn-default" href="{{Route('banner.edit',['id'=> $value->id]) }}" title="Edit"><i class="fas fa-pencil-ruler"></i> Sửa</a>
-                                                <a href="{{Route('banner.delete',['id'=> $value->id]) }}" class="btn btn-danger" onclick="return confirmAction()">Xóa</a>
+                                                <a class="btn btn-default" href="{{Route('support.edit',['id'=> $value->id]) }}" title="Edit"><i class="fas fa-pencil-ruler"></i> Sửa</a>
+                                                <a href="{{Route('support.delete',['id'=> $value->id]) }}" class="btn btn-danger" onclick="return confirmAction()">Xóa</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -74,7 +78,7 @@
                     
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h2 class="modal-title">Banner</h2>
+                        <h2 class="modal-title">Thông tin người dùng tin hỗ trợ</h2>
                         {{-- <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button> --}}
                     </div>
                     

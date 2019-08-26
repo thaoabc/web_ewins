@@ -79,6 +79,24 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::post('edit/{id}','BannerController@update')->name('banner.edit');
 		Route::get('delete/{id}','BannerController@delete')->name('banner.delete');
 	});
+
+	Route::prefix('talent_wins')->group(function () {
+		Route::get('list','TalentWinsController@list')->name('talent_wins.list');
+		Route::get('add','TalentWinsController@add')->name('talent_wins.add');
+		Route::post('add','TalentWinsController@store')->name('talent_wins.add');
+		Route::get('edit/{id}','TalentWinsController@edit')->name('talent_wins.edit');
+		Route::post('edit/{id}','TalentWinsController@update')->name('talent_wins.edit');
+		Route::get('delete/{id}','TalentWinsController@delete')->name('talent_wins.delete');
+	});
+
+	Route::prefix('support')->group(function () {
+		Route::get('list','SupportController@list')->name('support.list');
+		Route::get('add','SupportController@add')->name('support.add');
+		Route::post('add','SupportController@store')->name('support.add');
+		Route::get('edit/{id}','SupportController@edit')->name('support.edit');
+		Route::post('edit/{id}','SupportController@update')->name('support.edit');
+		Route::get('delete/{id}','SupportController@delete')->name('support.delete');
+	});
 });
 
 

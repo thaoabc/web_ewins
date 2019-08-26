@@ -24,15 +24,6 @@
                                 <form role="form" method="POST" action="{{Route('banner.edit',['id'=>$banner->id])}}" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
-
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Tên tin tức</label>
-                            <select name="id_new" class="form-control">
-                                @foreach($new as $value)
-                                <option value="{{$value->id}}">{{$value->title}}</option>
-                                @endforeach
-                            </select>
-                        </div>
                         <div class="form-group">
                             <label>Đăng bài</label>
                             <input type="checkbox" name="status" value="1">
@@ -49,6 +40,7 @@
                         
                         <div class="box-footer">
                         <button type="submit" class="btn btn-primary">Sửa</button>
+                        <a href="{{Route('banner.list')}}"><button type="submit" class="btn btn-default">Quay lại</button></a>
                     </div>
                 </form>
                         </div>

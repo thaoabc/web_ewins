@@ -32,6 +32,7 @@ class NewController extends Controller
                 'title' => 'required|min:5',
                 'summary' => 'required|min:10',
                 'content' => 'required|min:20',
+                'image' => 'required',
             ],
             [
                 'title.required' => 'Tiêu đề là trường bắt buộc',
@@ -40,6 +41,7 @@ class NewController extends Controller
                 'summary.min' => 'Tóm tắt có ít nhất 10 ký tự',
                 'content.required' => ' Nội dung là trường bắt buộc',
                 'content.min' => 'Nội dung có ít nhất 20 ký tự',
+                'image.required' => 'Ảnh là trường bắt buộc',
             ]
         );
 

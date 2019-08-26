@@ -29,18 +29,10 @@
                     <div class="box-body">
 
                         <div class="form-group">
-                        <label for="exampleFormControlInput1">Tên tin tức</label>
-                        <select name="id_new" class="form-control">
-                            @foreach($new as $value)
-                            <option value="{{$value->id}}">{{$value->title}}</option>
-                            @endforeach
-                        </select>
-                        </div>
-
-                        <div class="form-group">
                             <label>Chọn ảnh</label>
                             <input type="file" id="image" name="image" onchange="showIMG()">
                         </div>
+                        <p style="color:red">{{ $errors->first('image') }}</p>
                         <div class="form-group">
                             <div id="viewImg">
 

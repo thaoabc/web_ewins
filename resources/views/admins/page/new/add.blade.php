@@ -63,6 +63,7 @@
                             <label>Chọn ảnh</label>
                             <input type="file" id="image" name="image" onchange="showIMG()">
                         </div>
+                        <p style="color:red">{{ $errors->first('image') }}</p>
                         <div class="form-group">
                             <div id="viewImg">
 

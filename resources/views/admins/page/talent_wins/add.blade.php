@@ -1,6 +1,6 @@
 @extends('admins.layout.master-layout')
 @section('title')
-    Sửa tin tức
+    Thêm tin talent wins
 @endsection
 
 @section('content')
@@ -8,74 +8,48 @@
     <div class="container-fluid">
             <section class="content-header">
                 <h1>
-                    Sửa tin tức
+                    Thêm tin talent wins
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Sửa tin tức</li>
+                    <li class="active">Thêm tin talent wins</li>
                 </ol>
             </section>
             <hr>
 
             <section class="content">
                 <div class="row">
+                <div class="box-header">
+                    <a href="{{route('talent_wins.list')}}" class="btn btn-primary">Danh sách</a>
+                </div>
                     <div class="col-xs-12">
                         <div class="box">
-                                <form role="form" method="POST" action="{{Route('new.edit',['id'=>$new->id])}}" enctype="multipart/form-data">
+                                <form role="form" method="POST" action="{{route('talent_wins.add')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
-                        <div class="form-group">
-                            <label>Loại tin tức (*)</label>
-                            <select name="cate_new" class="form-control">
-                                
-                                @foreach ($cate_new as $cate_new)
-                                    <option value="{{$cate_new->id}}">{{$cate_new->name}}</option>
-                                @endforeach
-                                
-                                
-                            </select>
-                            <p style="color:red">{{ $errors->first('cate_new') }}</p>
-                        </div>
 
                         <div class="form-group">
                             <label>Title (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập tiêu đề tin tức" name="title"
-                                   value="{{ $new->title }}">
+                            <input type="text" class="form-control" placeholder="Nhập tiêu đề tin talent wins" name="title"
+                                   value="{{ old('title') }}">
                             <p style="color:red">{{ $errors->first('title') }}</p>
                         </div>
 
                          <div class="form-group">
                             <label>Tóm tắt (*)</label>
                             <input type="text" class="form-control" placeholder="Tóm tắt" name="summary"
-                                   value="{{ $new->summary }}">
+                                   value="{{ old('summary') }}">
                             <p style="color:red">{{ $errors->first('summary') }}</p>
                         </div>
 
-                         <div class="form-group">
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Nội dung (*)</label>
                             <textarea name="content" rows="10" placeholder="Nhập nội dung"
-                                        class="form-control">{{ $new->content }}</textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Đăng bài</label>
-                            <input type="checkbox" name="status" value="1">
-                        </div>
-
-                       
-                        <div class="form-group">
-                            <label>Chọn ảnh</label>
-                            <input type="file" id="image" name="image" onchange="showIMG()">
-                        </div>
-                        <div class="form-group">
-                            <div id="viewImg">
-
-                            </div>
+                                        class="form-control">{{ old('content') }}</textarea>
                         </div>
                         
                         <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Sửa</button>
-                        <a href="{{Route('new.list')}}"><button type="submit" class="btn btn-default">Quay lại</button></a>
+                        <button type="submit" class="btn btn-primary">Thêm</button>
                     </div>
                 </form>
                         </div>

@@ -50,6 +50,30 @@
                     <li><a href="{{Route('banner.add')}}"><i class="fa fa-circle-o"></i> Thêm banner</a></li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>Talent wins</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{Route('talent_wins.list')}}"><i class="fa fa-circle-o"></i>Danh sách tin talent wins</a></li>
+                    <li><a href="{{Route('talent_wins.add')}}"><i class="fa fa-circle-o"></i> Thêm tin</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>Hỗ trợ</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{Route('support.list')}}"><i class="fa fa-circle-o"></i>Danh sách tin hỗ trợ</a></li>
+                    <li><a href="{{Route('support.add')}}"><i class="fa fa-circle-o"></i> Thêm tin hỗ trợ</a></li>
+                </ul>
+            </li>
             <li class="active treeview">
                 <a href="#">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
