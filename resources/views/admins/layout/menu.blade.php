@@ -34,20 +34,31 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{Route('new.list')}}"><i class="fa fa-circle-o"></i>Danh sách tin tức</a></li>
-                    <li><a href="{{Route('cate_new.list')}}"><i class="fa fa-circle-o"></i> Thêm loại tin tức</a></li>
-                    <li><a href="{{Route('new.add')}}"><i class="fa fa-circle-o"></i> Thêm tin tức</a></li>
+                    <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
                 </ul>
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-table"></i> <span>Banner</span>
+                    <i class="fa fa-table"></i> <span>Liên hệ</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{Route('banner.list')}}"><i class="fa fa-circle-o"></i>Danh sách banner</a></li>
-                    <li><a href="{{Route('banner.add')}}"><i class="fa fa-circle-o"></i> Thêm banner</a></li>
+                    <li><a href="{{Route('contact.list')}}"><i class="fa fa-circle-o"></i>Danh sách liên hệ</a></li>
+                    <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>Cố vấn</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{Route('adviser.list')}}"><i class="fa fa-circle-o"></i>Danh sách cố vấn</a></li>
+                    <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
                 </ul>
             </li>
             <li class="treeview">

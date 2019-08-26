@@ -18,10 +18,15 @@ Route::get('home', function () {
     return view('pages.home');
 })->name('home');
 
-
 Route::get('lienhe', function () {
     return view('pages.lienhe');
 })->name('lienhe');
+
+Route::post('lienhe','NewController@insert_contact')->name('contact.add');
+
+Route::get('admin/contact/delete/{id}','NewController@delete_contact')->name('contact.delete');
+
+Route::get('admin/contact/edit/{id}-{status}','NewController@edit_contact')->name('contact.edit');
 
 Route::get('tinTuc', function () {
 	return view('pages.tinTuc');
@@ -63,21 +68,17 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::get('delete/{id}','NewController@delete')->name('new.delete');
 	});
 
-	Route::prefix('cate_new')->group(function () {
-		Route::get('list','CateNewController@list')->name('cate_new.list');
-		Route::post('add','CateNewController@store')->name('cate_new.add');
-		Route::post('edit','CateNewController@edit')->name('cate_new.edit');
-		Route::post('update','CateNewController@update')->name('cate_new.edit');
-		Route::get('delete/{id}','CateNewController@delete')->name('cate_new.delete');
+	Route::prefix('contact')->group(function () {
+		Route::get('list','NewController@list_contact')->name('contact.list');
 	});
 
-	Route::prefix('banner')->group(function () {
-		Route::get('list','BannerController@list')->name('banner.list');
-		Route::get('add','BannerController@add')->name('banner.add');
-		Route::post('add','BannerController@store')->name('banner.add');
-		Route::get('edit/{id}','BannerController@edit')->name('banner.edit');
-		Route::post('edit/{id}','BannerController@update')->name('banner.edit');
-		Route::get('delete/{id}','BannerController@delete')->name('banner.delete');
+	Route::prefix('adviser')->group(function () {
+		Route::get('list','NewController@list_adviser')->name('adviser.list');
+		Route::get('add','NewController@add_adviser')->name('adviser.add');
+		Route::post('add','NewController@insert_adviser')->name('adviser.add');
+		Route::get('edit/{id}','NewController@edit_adviser')->name('adviser.edit');
+		Route::post('edit/{id}','NewController@update_adviser')->name('adviser.edit');
+		Route::get('delete/{id}','NewController@delete_adviser')->name('adviser.delete');
 	});
 
 	Route::prefix('talent_wins')->group(function () {

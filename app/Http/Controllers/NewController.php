@@ -12,17 +12,14 @@ class NewController extends Controller
     {
         $array['new']=DB::table('new')
                         ->join('admin','admin.id','=','new.id_admin')
-                        ->join('cate_new','cate_new.id','=','new.cate_new')
-                        ->select('new.*','admin.name as name','cate_new.name as name_cate_new')
+                        ->select('new.*','admin.name as name')
                         ->get();
-        
         return view('admins.page.new.list',$array);
     }
 
     public function add()
     {
-        $array['cate_new']=DB::table('cate_new')->get();
-        return view('admins.page.new.add',$array);
+        return view('admins.page.new.add');
     }
 
     public function store(Request $request)
@@ -58,7 +55,6 @@ class NewController extends Controller
             'image' => $name,
             'slug' => str_slug($request->title),
             'id_admin' => 1,
-            'cate_new' => $request->cate_new,
             'status' => 0,
         ]);
 
@@ -68,8 +64,7 @@ class NewController extends Controller
     public function edit($id)
     {
         $array['new']=DB::table('new')->find($id);
-        $cate_new['cate_new']=DB::table('cate_new')->get();
-        return view('admins.page.new.edit',$array,$cate_new);
+        return view('admins.page.new.edit',$array);
     }
 
     public function update(Request $request,$id)
@@ -117,7 +112,6 @@ class NewController extends Controller
             'image' => $name,
             'slug' => str_slug($request->title),
             'id_admin' => 1,
-            'cate_new' => $request->cate_new,
             'status' => $status,
         ]);
 
@@ -132,5 +126,186 @@ class NewController extends Controller
         }
         DB::table('new')->where('id',$id)->delete();
         return redirect()->route('new.list');
+    }
+
+    // danh sách liên hệ
+    public function list_contact(){
+        $array['contact']=DB::table('contact')
+                        ->select('contact.*')
+                        ->get();
+        return view('admins.page.contact.list',$array);
+    }
+
+    // Chuyển trang liên hệ
+    public function add_contact(Request $request){
+        return view('pages.lienhe');
+    }
+
+    // Tạo liên hệ
+    public function insert_contact(Request $request){
+        
+        $this->validate($request,
+            [
+                'name' => 'required',
+                'email' => 'required|email',
+                'phone' => 'required|min:10|max:10,integer',
+                'name_city' => 'required',
+                'address_city' => 'required',
+                'content' => 'required'
+            ],
+            [
+                'name.required' => 'Tên đề là trường bắt buộc',
+                'email.required' => 'Email là trường bắt buộc',
+                'email.email' => 'Email phải đúng định dạng',
+                'phone.required' => ' Số điện thoại là trường bắt buộc',
+                'phone.integer' => ' Số điện thoại phải là số nguyên',
+                'phone.min:10' => ' Số điện thoại phải gồm 10 số',
+                'name_city.required' => 'Tên công ty là trường bắt buộc',
+                'address_city.required' => 'Địa chỉ công ty là trường bắt buộc',
+                'content.required' => 'Nội dung là trường bắt buộc',
+            ]
+        );
+        DB::table('contact')->insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'name_city' => $request->name_city,
+            'address_city' => $request->address_city,
+            'content' => $request->content,
+            'status' => 0
+        ]);
+        return redirect()->route('lienhe');
+    }
+
+    // Xóa liên hệ
+    public function delete_contact($id)
+    {
+        DB::table('contact')->where('id',$id)->delete();
+        return redirect()->route('contact.list');
+    }
+
+    // Sửa liên hệ thành đã xem
+    public function edit_contact(Request $request,$id,$status){
+        DB::table('contact')->where('id',$id)->update([
+            'status' => $status
+        ]);
+
+        return redirect()->route('contact.list');
+    }
+
+    // Sửa liên hệ thành đã phản hồi
+    public function feedback_contact(Requset $request,$id){
+        DB::table('contact')->where('id',$id)->update([
+            'status' => 2
+        ]);
+
+        return redirect()->route('contact.list');
+    }
+
+    // danh sách cố vấn
+    public function list_adviser(){
+        $array['adviser']=DB::table('adviser')
+                        ->select('adviser.*')
+                        ->get();
+        return view('admins.page.adviser.list',$array);
+    }
+
+    // chuyển trang thêm cố vấn
+    public function add_adviser()
+    {
+        return view('admins.page.adviser.add');
+    }
+
+    // Thêm cố vấn
+    public function insert_adviser(Request $request){
+        $this->validate($request,
+            [
+                'name' => 'required',
+                'image' => 'required|image',
+                'position' => 'required',
+                'information' => 'required'
+            ],
+            [
+                'name.required' => 'Tên đề là trường bắt buộc',
+                'image.required' => 'Ảnh là trường bắt buộc',
+                'image.image' => 'Bắt buộc phải là ảnh',
+                'position.required' => ' Chức vụ là trường bắt buộc',
+                'information.integer' => ' Thông tin là trường bắt buộc'
+            ]
+        );
+
+        if ($request->hasFile('image')) {
+            $file=$request->file('image');
+            $name=$file->getClientOriginalName();
+    
+            $file->move('assets/img_adviser/',$name);
+        }
+
+        DB::table('adviser')->insert([
+            'name' => $request->name,
+            'image' => $name,
+            'position' => $request->position,
+            'information' => $request->information
+        ]);
+        return redirect()->route('adviser.list');
+    }
+
+    // xóa cố vấn
+    public function delete_adviser($id)
+    {
+        $img_old=DB::table('adviser')->find($id)->image;
+        if(file_exists('assets/img_adviser/'.$img_old)&&($img_old !='')){
+            unlink('assets/img_adviser/'.$img_old);
+        }
+        DB::table('adviser')->where('id',$id)->delete();
+        return redirect()->route('adviser.list');
+    }
+
+    public function edit_adviser($id)
+    {
+        $array['adviser']=DB::table('adviser')->find($id);
+        return view('admins.page.adviser.edit',$array);
+    }
+
+    public function update_adviser(Request $request,$id)
+    {
+        $this->validate($request,
+        [
+            'name' => 'required',
+            'image' => 'required|image',
+            'position' => 'required',
+            'information' => 'required'
+        ],
+        [
+            'name.required' => 'Tên đề là trường bắt buộc',
+            'image.required' => 'Ảnh là trường bắt buộc',
+            'image.image' => 'Bắt buộc phải là ảnh',
+            'position.required' => ' Chức vụ là trường bắt buộc',
+            'information.integer' => ' Thông tin là trường bắt buộc'
+        ]
+        );
+        
+        $img_old=DB::table('adviser')->find($id)->image;
+
+        if($request->hasFile('image')){
+            $file=$request->file('image');
+            $name=$file->getClientOriginalName();
+            if(file_exists('assets/img_adviser/'.$img_old)&&($img_old !='')){
+                unlink('assets/img_adviser/'.$img_old);
+            }
+            $file->move('assets/img_adviser/',$name);
+        }
+        else{
+            $name=$img_old;
+        }
+
+        DB::table('adviser')->where('id',$id)->update([
+            'name' => $request->name,
+            'image' => $name,
+            'position' => $request->position,
+            'information' => $request->information
+        ]);
+
+        return redirect()->route('adviser.list');
     }
 }
