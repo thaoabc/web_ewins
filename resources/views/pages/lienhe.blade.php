@@ -22,33 +22,40 @@
         <div class="row">
         
           <div class="col-sm-6" style="background-color: #F0FFF0; border-radius: 50px">
-            <form  style="padding: 10px 20px">
+            <form  style="padding: 10px 20px" method="POST" action="{{route('contact.add')}}">
+            @csrf
             <h6 class="text-center mt-3" style="color:green">Anh Chị vui lòng để lại thông tin liên hệ</h6>
             <h6 class="text-center" style="color:green">để được eWins tư vấn, hỗ trợ</h6>
 
             <div class="form-group mb-0">
                 <label for="email" class="text-ct">Tên Công ty</label>
-                <input type="email" class="form-control " id="email" placeholder="Nhập tên Công ty..." name="email">
+                <input type="text" class="form-control " id="email" placeholder="Nhập tên Công ty..." name="name_city">
+                <p style="color:red">{{ $errors->first('name_city') }}</p>
               </div>
               <div class="form-group mb-0">
                 <label for="email" class="text-ct">Họ tên</label>
-                <input type="email" class="form-control" id="email" placeholder="Nhập họ và tên..." name="email">
+                <input type="text" class="form-control" id="email" placeholder="Nhập họ và tên..." name="name">
+                <p style="color:red">{{ $errors->first('name') }}</p>
               </div>
               <div class="form-group mb-0">
                 <label for="email" class="text-ct">Địa chỉ Công ty</label>
-                <input type="email" class="form-control" id="email" placeholder="Nhập địa chỉ Công ty..." name="email">
+                <input type="text" class="form-control" id="email" placeholder="Nhập địa chỉ Công ty..." name="address_city">
+                <p style="color:red">{{ $errors->first('address_city') }}</p>
               </div>
               <div class="form-group mb-0">
                 <label for="email" class="text-ct">Số điện thoại</label>
-                <input type="email" class="form-control d-right" id="email" placeholder="Nhập số điện thoại" name="email">
+                <input type="text" class="form-control d-right" id="email" placeholder="Nhập số điện thoại" name="phone">
+                <p style="color:red">{{ $errors->first('phone') }}</p>
               </div>
               <div class="form-group mb-0">
                 <label for="email" class="text-ct">Email</label>
                 <input type="email" class="form-control d-right" id="email" placeholder="Nhập địa chỉ email..." name="email">
+                <p style="color:red">{{ $errors->first('email') }}</p>
               </div>
               <div class="form-group">
                 <label for="comment" class="text-ct">Nội dung</label>
-                <textarea class="form-control" rows="4" id="comment" placeholder="Nhập nội dung" name="text"></textarea>
+                <textarea class="form-control" rows="4" id="comment" placeholder="Nhập nội dung" name="content"></textarea>
+                <p style="color:red">{{ $errors->first('content') }}</p>
               </div>
               <div class="form-group form-check">
                 <label class="form-check-label">

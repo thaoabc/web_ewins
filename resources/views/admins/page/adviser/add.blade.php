@@ -1,6 +1,6 @@
 @extends('admins.layout.master-layout')
 @section('title')
-    Sửa banner
+    Thêm cố vấn
 @endsection
 
 @section('content')
@@ -8,38 +8,51 @@
     <div class="container-fluid">
             <section class="content-header">
                 <h1>
-                    Sửa banner
+                    Thêm tin tức
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Sửa banner</li>
+                    <li class="active">Thêm cố vấn</li>
                 </ol>
             </section>
             <hr>
 
             <section class="content">
                 <div class="row">
+                <div class="box-header">
+                    <a href="{{route('adviser.list')}}" class="btn btn-primary">Danh sách</a>
+                </div>
                     <div class="col-xs-12">
                         <div class="box">
-                                <form role="form" method="POST" action="{{Route('banner.edit',['id'=>$banner->id])}}" enctype="multipart/form-data">
+                                <form role="form" method="POST" action="{{route('adviser.add')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
 
                         <div class="form-group">
-                            <label for="exampleFormControlInput1">Tên tin tức</label>
-                            <select name="id_new" class="form-control">
-                                @foreach($new as $value)
-                                <option value="{{$value->id}}">{{$value->title}}</option>
-                                @endforeach
-                            </select>
+                            <label>Tên (*)</label>
+                            <input type="text" class="form-control" placeholder="Nhập tên cố vấn" name="name"
+                                   value="">
+                            <p style="color:red">{{ $errors->first('name') }}</p>
                         </div>
+
+                         <div class="form-group">
+                            <label>Chức vụ (*)</label>
+                            <input type="text" class="form-control" placeholder="Nhập chức vụ của người cố vấn" name="position"
+                                   value="">
+                            <p style="color:red">{{ $errors->first('position') }}</p>
+                        </div>
+
                         <div class="form-group">
-                            <label>Đăng bài</label>
-                            <input type="checkbox" name="status" value="1">
+                            <label>Thông tin (*)</label>
+                            <input type="text" class="form-control" placeholder="Nhập thông tin cửa người cố vấn" name="information"
+                                   value="">
+                            <p style="color:red">{{ $errors->first('information') }}</p>
                         </div>
+
                         <div class="form-group">
                             <label>Chọn ảnh</label>
                             <input type="file" id="image" name="image" onchange="showIMG()">
+                            <p style="color:red">{{ $errors->first('image') }}</p>
                         </div>
                         <div class="form-group">
                             <div id="viewImg">
@@ -48,7 +61,7 @@
                         </div>
                         
                         <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Sửa</button>
+                        <button type="submit" class="btn btn-primary">Thêm</button>
                     </div>
                 </form>
                         </div>
@@ -60,7 +73,7 @@
 </div>
 
 <script language="JavaScript">
-        CKEDITOR.replace('content', {
+        CKEDITOR.replace('contentt', {
                     filebrowserBrowseUrl: '{{asset("")}}ckfinder/ckfinder.html',
                     filebrowserImageBrowseUrl: '{{asset("")}}ckfinder/ckfinder.html?type=Images',
                     filebrowserFlashBrowseUrl: '{{asset("")}}ckfinder/ckfinder.html?type=Flash',
