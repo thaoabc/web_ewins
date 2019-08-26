@@ -79,7 +79,7 @@
                         
                             <div class="blog-content col-md-8">
                                 <a href="#" class="blog-headline">
-                                    <h5>Bài học kinh doanh sâu sắc rút ra từ cuốn sách được cả Bill Gates và Warren Buffett khen là 'tuyệt vời'</h5>
+                                    <h5>Bài học kinh doanh sâu sắc rút ra từ cuốn sách được cả Bill Gates và Warren Buffett khen là 'tuyệt vời nhất'</h5>
                                 </a>
                                 <div class="meta d-flex align-items-center">
                                     <a href="#">09/18/2019</a>
