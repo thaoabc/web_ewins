@@ -29,11 +29,31 @@
                     <div class="box-body">
 
                         <div class="form-group">
+                            <label>Tên (*)</label>
+                            <input type="text" class="form-control" placeholder="Nhập tên cố vấn" name="name"
+                                   value="">
+                            <p style="color:red">{{ $errors->first('name') }}</p>
+                        </div>
+
+                         <div class="form-group">
+                            <label>Chức vụ (*)</label>
+                            <input type="text" class="form-control" placeholder="Nhập chức vụ của người cố vấn" name="position"
+                                   value="">
+                            <p style="color:red">{{ $errors->first('position') }}</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Thông tin (*)</label>
+                            <input type="text" class="form-control" placeholder="Nhập thông tin cửa người cố vấn" name="information"
+                                   value="">
+                            <p style="color:red">{{ $errors->first('information') }}</p>
+                        </div>
+
+                        <div class="form-group">
                             <label>Chọn ảnh</label>
                             <input type="file" id="image" name="image" onchange="showIMG()">
                             <p style="color:red">{{ $errors->first('image') }}</p>
                         </div>
-                        <p style="color:red">{{ $errors->first('image') }}</p>
                         <div class="form-group">
                             <div id="viewImg">
 
@@ -61,8 +81,6 @@
                     filebrowserImageUploadUrl: '{{asset("")}}ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
                     filebrowserFlashUploadUrl: '{{asset("")}}ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
                 });
-
-
                 function showIMG() {
                     var fileInput = document.getElementById('image');
                     var filePath = fileInput.value; //lấy giá trị input theo id
