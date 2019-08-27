@@ -98,6 +98,30 @@
                     <li><a href="{{Route('support.add')}}"><i class="fa fa-circle-o"></i> Thêm tin hỗ trợ</a></li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>Thông tin công ty</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{Route('infor_company.list')}}"><i class="fa fa-circle-o"></i>Thông tin công ty</a></li>
+                    <li><a href="{{Route('infor_company.add')}}"><i class="fa fa-circle-o"></i> Thêm thông tin</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>E-learning</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{Route('e-learning.list')}}"><i class="fa fa-circle-o"></i>E-learning</a></li>
+                    <li><a href="{{Route('e-learning.add')}}"><i class="fa fa-circle-o"></i> Thêm thông tin e-learning</a></li>
+                </ul>
+            </li>
             <li class="active treeview">
                 <a href="#">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
