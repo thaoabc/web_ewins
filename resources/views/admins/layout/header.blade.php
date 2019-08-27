@@ -225,9 +225,12 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
 
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="admins/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                        <span class="hidden-xs">Alexander Pierce</span>
+                        <span class="hidden-xs">
+                            @if (Auth::check())
+                                {{ Auth::user()->name }}
+                            @endif</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
@@ -235,8 +238,11 @@
                             <img src="admins/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                             <p>
-                                Alexander Pierce - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                @if (Auth::check())
+                                    {{ Auth::user()->email }}
+                                @endif
+                                {{-- Alexander Pierce - Web Developer --}}
+                                <small>Member since {{ Auth::user()->created_at }}</small>
                             </p>
                         </li>
                         <!-- Menu Body -->
@@ -257,10 +263,10 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="admin/profile" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="admin/logout" class="btn btn-default btn-flat">Sign out</a>
                             </div>
                         </li>
                     </ul>

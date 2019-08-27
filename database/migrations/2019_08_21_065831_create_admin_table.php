@@ -26,10 +26,8 @@ class CreateAdminTable extends Migration
             $table->string('phone');
             $table->bigInteger('level')->unsigned();
             $table->tinyInteger('status')->default(1);
-            $table->foreign('level')
-                  ->references('id')
-                  ->on('role')
-                  ->onDelete('cascade');
+            $table->foreign('level')->references('id')->on('role')->onDelete('cascade');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

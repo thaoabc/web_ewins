@@ -51,8 +51,19 @@ Route::get('talentchitiet', function () {
 	return view('pages.talentchitiet');
 })->name('talentchitiet');
 
-Route::group(['prefix' => 'admin'], function() {
+
+Route::group(['prefix' => 'admin',], function() {
+			Route::get('login','LoginController@GetLogin')->middleware('CheckLogout');
+			Route::post('login','LoginController@PostLogin');
+	});
+
+Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
 	Route::get('/','HomeController@index');
+	Route::get('logout','LoginController@GetLogout');
+
+	Route::get('profile','LoginController@GetProfile');
+
+
 
 	Route::prefix('new')->group(function () {
 		Route::get('list','NewController@list')->name('new.list');
