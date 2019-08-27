@@ -68,6 +68,23 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::get('delete/{id}','NewController@delete')->name('new.delete');
 	});
 
+	Route::prefix('cate_new')->group(function () {
+		Route::get('list','CateNewController@list')->name('cate_new.list');
+		Route::post('add','CateNewController@store')->name('cate_new.add');
+		Route::post('edit','CateNewController@edit')->name('cate_new.edit');
+		Route::post('update','CateNewController@update')->name('cate_new.edit');
+		Route::get('delete/{id}','CateNewController@delete')->name('cate_new.delete');
+	});
+
+	Route::prefix('banner')->group(function () {
+		Route::get('list','BannerController@list')->name('banner.list');
+		Route::get('add','BannerController@add')->name('banner.add');
+		Route::post('add','BannerController@store')->name('banner.add');
+		Route::get('edit/{id}','BannerController@edit')->name('banner.edit');
+		Route::post('edit/{id}','BannerController@update')->name('banner.edit');
+		Route::get('delete/{id}','BannerController@delete')->name('banner.delete');
+	});
+
 	Route::prefix('contact')->group(function () {
 		Route::get('list','NewController@list_contact')->name('contact.list');
 	});
