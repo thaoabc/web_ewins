@@ -72,11 +72,11 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
 
 	Route::prefix('new')->group(function () {
 		Route::get('list','NewController@list')->name('new.list');
-		Route::get('add','NewController@add')->name('new.add');
-		Route::post('add','NewController@store')->name('new.add');
-		Route::get('edit/{id}','NewController@edit')->name('new.edit');
-		Route::post('edit/{id}','NewController@update')->name('new.edit');
-		Route::get('delete/{id}','NewController@delete')->name('new.delete');
+		Route::get('add','NewController@add_adviser')->name('new.add');
+		Route::post('add','NewController@insert_adviser')->name('new.add');
+		Route::get('edit/{id}','NewController@edit_adviser')->name('new.edit');
+		Route::post('edit/{id}','NewController@update_adviser')->name('new.edit');
+		Route::get('delete/{id}','NewController@delete_adviser')->name('new.delete');
 	});
 
 	Route::prefix('cate_new')->group(function () {
@@ -125,6 +125,24 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
 		Route::get('edit/{id}','SupportController@edit')->name('support.edit');
 		Route::post('edit/{id}','SupportController@update')->name('support.edit');
 		Route::get('delete/{id}','SupportController@delete')->name('support.delete');
+	});
+
+	Route::prefix('infor_company')->group(function () {
+		Route::get('list','InforCompanyController@list')->name('infor_company.list');
+		Route::get('add','InforCompanyController@add')->name('infor_company.add');
+		Route::post('add','InforCompanyController@store')->name('infor_company.add');
+		Route::get('edit/{id}','InforCompanyController@edit')->name('infor_company.edit');
+		Route::post('edit/{id}','InforCompanyController@update')->name('infor_company.edit');
+		Route::get('delete/{id}','InforCompanyController@delete')->name('infor_company.delete');
+	});
+
+	Route::prefix('e-learning')->group(function () {
+		Route::get('list','ELearningController@list')->name('e-learning.list');
+		Route::get('add','ELearningController@add')->name('e-learning.add');
+		Route::post('add','ELearningController@store')->name('e-learning.add');
+		Route::get('edit/{id}','ELearningController@edit')->name('e-learning.edit');
+		Route::post('edit/{id}','ELearningController@update')->name('e-learning.edit');
+		Route::get('delete/{id}','ELearningController@delete')->name('e-learning.delete');
 	});
 });
 

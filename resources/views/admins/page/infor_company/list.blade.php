@@ -1,6 +1,6 @@
 @extends('admins.layout.master-layout')
 @section('title')
-    Danh sách liên hệ
+    Danh sách thông tin công ty
 @endsection
 
 @section('content')
@@ -8,59 +8,46 @@
     <div class="container-fluid">
             <section class="content-header">
                 <h1>
-                    Danh sách liên hệ
+                    Danh sách thông tin công ty
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Danh sách tin tức</li>
+                    <li class="active">Danh sách thông tin công ty</li>
                 </ol>
             </section>
             <hr>
 
             <section class="content">
                 <div class="row">
+                <div class="box-header">
+                    <a href="{{route('infor_company.add')}}" class="btn btn-primary">Thêm thông tin công ty</a>
+                </div>
                     <div class="col-xs-12">
                         <div class="box">
                             <div class="box-body">
                                 <table id="example1" class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th class="col-md-2">Tên</th>
+                                        <th class="col-md-2">Tên công ty</th>
+                                        <th class="col-md-2">Mã số thuế</th>
+                                        <th class="col-md-2">Số điện thoại</th>
+                                        <th class="col-md-2">Địa chỉ</th>
                                         <th class="col-md-2">Email</th>
-                                        <th class="col-md-2">SĐT</th>
-                                        <th class="col-md-2">Tên CTY</th>
-                                        <th class="col-md-2">Địa chỉ CTY</th>
-                                        <th class="col-md-2">Nội dung</th>
-                                        <th class="col-md-2">Trạng thái</th>
                                         <th class="col-md-3">Hành động</th>
 
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($contact as $value)
+                                    @foreach($infor_company as $value)
                                         <tr class="odd gradeX" >
                                             <td >{{$value->name}}</td>
-                                            <td >{{$value->email}}</td>
+                                            <td >{{$value->masothue}}</td>
                                             <td >{{$value->phone}}</td>
-                                            <td >{{$value->name_city}}</td>
-                                            <td >{{$value->address_city}}</td>
-                                            <td >{{$value->content}}</td>
-                                            <td >
-                                            @if($value->status == 0)
-                                                Chưa xem
-                                            @elseif($value->status == 1)
-                                                Đã xem
-                                            @else
-                                                Đã phản hổi
-                                            @endif
-                                            </td>
+                                            <td >{{$value->address}}</td>
+                                            <td >{{$value->email}}</td>
                                             <td>
-                                                @if($value->status == 0)
-                                                <a href="{{Route('contact.edit',['id'=> $value->id,'status'=> 1]) }}" class="btn btn-primary">Duyệt</a>
-                                                @elseif($value->status == 1)
-                                                <a href="{{Route('contact.edit',['id'=> $value->id,'status'=> 2]) }}" class="btn btn-primary">Phản hồi</a>
-                                                @endif
-                                                <a href="{{Route('contact.delete',['id'=> $value->id]) }}" class="btn btn-danger" onclick="return confirmAction()">Xóa</a>
+                                                <a class="btn btn-default" href="{{Route('infor_company.edit',['id'=> $value->id]) }}" title="Edit"><i class="fas fa-pencil-ruler"></i> Sửa</a>
+                                                <a href="{{Route('infor_company.delete',['id'=> $value->id]) }}" class="btn btn-danger" onclick="return confirmAction()">Xóa</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -93,7 +80,7 @@
                     
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h2 class="modal-title">Thông tin người dùng tin tức</h2>
+                        <h2 class="modal-title">Thông tin người dùng thông tin công ty</h2>
                         {{-- <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button> --}}
                     </div>
                     
