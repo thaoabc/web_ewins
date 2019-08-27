@@ -18,10 +18,15 @@ Route::get('home', function () {
     return view('pages.home');
 })->name('home');
 
-
 Route::get('lienhe', function () {
     return view('pages.lienhe');
 })->name('lienhe');
+
+Route::post('lienhe','NewController@insert_contact')->name('contact.add');
+
+Route::get('admin/contact/delete/{id}','NewController@delete_contact')->name('contact.delete');
+
+Route::get('admin/contact/edit/{id}-{status}','NewController@edit_contact')->name('contact.edit');
 
 Route::get('tinTuc', function () {
 	return view('pages.tinTuc');
@@ -89,6 +94,37 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
 		Route::get('edit/{id}','BannerController@edit')->name('banner.edit');
 		Route::post('edit/{id}','BannerController@update')->name('banner.edit');
 		Route::get('delete/{id}','BannerController@delete')->name('banner.delete');
+	});
+
+	Route::prefix('contact')->group(function () {
+		Route::get('list','NewController@list_contact')->name('contact.list');
+	});
+
+	Route::prefix('adviser')->group(function () {
+		Route::get('list','NewController@list_adviser')->name('adviser.list');
+		Route::get('add','NewController@add_adviser')->name('adviser.add');
+		Route::post('add','NewController@insert_adviser')->name('adviser.add');
+		Route::get('edit/{id}','NewController@edit_adviser')->name('adviser.edit');
+		Route::post('edit/{id}','NewController@update_adviser')->name('adviser.edit');
+		Route::get('delete/{id}','NewController@delete_adviser')->name('adviser.delete');
+	});
+
+	Route::prefix('talent_wins')->group(function () {
+		Route::get('list','TalentWinsController@list')->name('talent_wins.list');
+		Route::get('add','TalentWinsController@add')->name('talent_wins.add');
+		Route::post('add','TalentWinsController@store')->name('talent_wins.add');
+		Route::get('edit/{id}','TalentWinsController@edit')->name('talent_wins.edit');
+		Route::post('edit/{id}','TalentWinsController@update')->name('talent_wins.edit');
+		Route::get('delete/{id}','TalentWinsController@delete')->name('talent_wins.delete');
+	});
+
+	Route::prefix('support')->group(function () {
+		Route::get('list','SupportController@list')->name('support.list');
+		Route::get('add','SupportController@add')->name('support.add');
+		Route::post('add','SupportController@store')->name('support.add');
+		Route::get('edit/{id}','SupportController@edit')->name('support.edit');
+		Route::post('edit/{id}','SupportController@update')->name('support.edit');
+		Route::get('delete/{id}','SupportController@delete')->name('support.delete');
 	});
 });
 

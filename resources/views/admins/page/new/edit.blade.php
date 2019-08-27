@@ -24,18 +24,6 @@
                                 <form role="form" method="POST" action="{{Route('new.edit',['id'=>$new->id])}}" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
-                        <div class="form-group">
-                            <label>Loại tin tức (*)</label>
-                            <select name="cate_new" class="form-control">
-                                
-                                @foreach ($cate_new as $cate_new)
-                                    <option value="{{$cate_new->id}}">{{$cate_new->name}}</option>
-                                @endforeach
-                                
-                                
-                            </select>
-                            <p style="color:red">{{ $errors->first('cate_new') }}</p>
-                        </div>
 
                         <div class="form-group">
                             <label>Title (*)</label>
@@ -51,10 +39,11 @@
                             <p style="color:red">{{ $errors->first('summary') }}</p>
                         </div>
 
-                         <div class="form-group">
-                            <label for="exampleInputEmail1">Nội dung (*)</label>
-                            <textarea name="content" rows="10" placeholder="Nhập nội dung"
-                                        class="form-control">{{ $new->content }}</textarea>
+                        <div class="form-group">
+                            <label>Nội dung (*)</label>
+                            <input type="text" class="form-control" placeholder="Nội dung" name="content"
+                                   value="{{ $new->content }}">
+                            <p style="color:red">{{ $errors->first('content') }}</p>
                         </div>
 
                         <div class="form-group">
@@ -62,7 +51,11 @@
                             <input type="checkbox" name="status" value="1">
                         </div>
 
-                       
+                        {{--  <div class="form-group">
+                            <label for="exampleInputEmail1">Nội dung (*)</label>
+                            <textarea name="content" rows="10" placeholder="Nhập nội dung"
+                                        class="form-control">{{ old('content') }}</textarea>
+                        </div>  --}}
                         <div class="form-group">
                             <label>Chọn ảnh</label>
                             <input type="file" id="image" name="image" onchange="showIMG()">
@@ -75,6 +68,7 @@
                         
                         <div class="box-footer">
                         <button type="submit" class="btn btn-primary">Sửa</button>
+                        <a href="{{Route('new.list')}}"><button type="submit" class="btn btn-default">Quay lại</button></a>
                     </div>
                 </form>
                         </div>
@@ -86,7 +80,7 @@
 </div>
 
 <script language="JavaScript">
-        CKEDITOR.replace('content', {
+        CKEDITOR.replace('contentt', {
                     filebrowserBrowseUrl: '{{asset("")}}ckfinder/ckfinder.html',
                     filebrowserImageBrowseUrl: '{{asset("")}}ckfinder/ckfinder.html?type=Images',
                     filebrowserFlashBrowseUrl: '{{asset("")}}ckfinder/ckfinder.html?type=Flash',

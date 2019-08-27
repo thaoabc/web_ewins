@@ -1,6 +1,6 @@
 @extends('admins.layout.master-layout')
 @section('title')
-    Danh sách tin tức
+    Danh sách tin talent wins
 @endsection
 
 @section('content')
@@ -8,11 +8,11 @@
     <div class="container-fluid">
             <section class="content-header">
                 <h1>
-                    Danh sách tin tức
+                    Danh sách tin talent wins
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Danh sách tin tức</li>
+                    <li class="active">Danh sách tin talent wins</li>
                 </ol>
             </section>
             <hr>
@@ -20,7 +20,7 @@
             <section class="content">
                 <div class="row">
                 <div class="box-header">
-                    <a href="{{route('new.add')}}" class="btn btn-primary">Thêm tin tức</a>
+                    <a href="{{route('talent_wins.add')}}" class="btn btn-primary">Thêm tin talent wins</a>
                 </div>
                     <div class="col-xs-12">
                         <div class="box">
@@ -31,25 +31,21 @@
                                         <th class="col-md-2">Tiêu đề</th>
                                         <th class="col-md-2">Tóm tắt</th>
                                         <th class="col-md-2">Nội dung</th>
-                                        <th class="col-md-2">Ảnh</th>
-                                        <th class="col-md-2">Người đăng</th>
                                         <th class="col-md-2">Trạng thái</th>
                                         <th class="col-md-3">Hành động</th>
 
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($new as $value)
+                                    @foreach($talent_wins as $value)
                                         <tr class="odd gradeX" >
                                             <td >{{$value->title}}</td>
                                             <td >{{$value->summary}}</td>
                                             <td >{{$value->content}}</td>
-                                            <td ><img width="100px" src="{{asset('assets/img_new/'.$value->image)}}"></td>
-                                            <td >{{$value->name}}</td>
                                             <td >{{$value->status}}</td>
                                             <td>
-                                                <a class="btn btn-default" href="{{Route('new.edit',['id'=> $value->id]) }}" title="Edit"><i class="fas fa-pencil-ruler"></i> Sửa</a>
-                                                <a href="{{Route('new.delete',['id'=> $value->id]) }}" class="btn btn-danger" onclick="return confirmAction()">Xóa</a>
+                                                <a class="btn btn-default" href="{{Route('talent_wins.edit',['id'=> $value->id]) }}" title="Edit"><i class="fas fa-pencil-ruler"></i> Sửa</a>
+                                                <a href="{{Route('talent_wins.delete',['id'=> $value->id]) }}" class="btn btn-danger" onclick="return confirmAction()">Xóa</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -82,7 +78,7 @@
                     
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h2 class="modal-title">Thông tin người dùng tin tức</h2>
+                        <h2 class="modal-title">Thông tin người dùng tin talent wins</h2>
                         {{-- <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button> --}}
                     </div>
                     

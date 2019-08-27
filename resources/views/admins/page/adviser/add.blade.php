@@ -1,6 +1,6 @@
 @extends('admins.layout.master-layout')
 @section('title')
-    Thêm tin tức
+    Thêm cố vấn
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Thêm tin tức</li>
+                    <li class="active">Thêm cố vấn</li>
                 </ol>
             </section>
             <hr>
@@ -20,43 +20,18 @@
             <section class="content">
                 <div class="row">
                 <div class="box-header">
-                    <a href="{{route('new.list')}}" class="btn btn-primary">Danh sách</a>
+                    <a href="{{route('adviser.list')}}" class="btn btn-primary">Danh sách</a>
                 </div>
                     <div class="col-xs-12">
                         <div class="box">
-                                <form role="form" method="POST" action="{{route('new.add')}}" enctype="multipart/form-data">
+                                <form role="form" method="POST" action="{{route('adviser.add')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
 
                         <div class="form-group">
-                            <label>Title (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập tiêu đề tin tức" name="title"
-                                   value="{{ old('title') }}">
-                            <p style="color:red">{{ $errors->first('title') }}</p>
-                        </div>
-
-                         <div class="form-group">
-                            <label>Tóm tắt (*)</label>
-                            <input type="text" class="form-control" placeholder="Tóm tắt" name="summary"
-                                   value="{{ old('summary') }}">
-                            <p style="color:red">{{ $errors->first('summary') }}</p>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Nội dung (*)</label>
-                            <input type="text" class="form-control" placeholder="Nội dung" name="content"
-                                   value="{{ old('content') }}">
-                            <p style="color:red">{{ $errors->first('content') }}</p>
-                        </div>
-
-                        {{--  <div class="form-group">
-                            <label for="exampleInputEmail1">Nội dung (*)</label>
-                            <textarea name="content" rows="10" placeholder="Nhập nội dung"
-                                        class="form-control">{{ old('content') }}</textarea>
-                        </div>  --}}
-                        <div class="form-group">
                             <label>Chọn ảnh</label>
                             <input type="file" id="image" name="image" onchange="showIMG()">
+                            <p style="color:red">{{ $errors->first('image') }}</p>
                         </div>
                         <p style="color:red">{{ $errors->first('image') }}</p>
                         <div class="form-group">

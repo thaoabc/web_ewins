@@ -39,18 +39,6 @@ class CreateNewTable extends Migration
                   ->on('cate_new');
             $table->timestamps();
         });
-
-        Schema::create('banner', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('image');
-            $table->tinyInteger('status')->default(0);
-            $table->bigInteger('id_new')->unsigned();
-            $table->foreign('id_new')
-                  ->references('id')
-                  ->on('new')
-                  ->onDelete('cascade');
-            $table->timestamps();
-        });
     }
 
     /**

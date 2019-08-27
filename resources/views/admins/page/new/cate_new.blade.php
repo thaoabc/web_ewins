@@ -70,7 +70,7 @@
                 <!-- /.col -->
                 <div class="col-md-9">  --}}
                     <div class="box box-primary">
-                        <div id="add" class="hide">
+                        <div id="add" class="show">
                         <h3 style="text-align: left; padding-left: 5px">Thêm thể loại</h3>
                         <form role="form" method="POST" action="{{route('cate_new.add')}}">
                             @csrf
@@ -92,7 +92,7 @@
                             </div>
                             <div id="edit" class="hide">
                         <h3 style="text-align: left; padding-left: 5px">Sửa thể loại</h3>
-                        <form role="form" method="POST" action="{{Route('cate_new.edit')}}"
+                        <form role="form" method="POST" action="#"
                               enctype="multipart/form-data">
                             @csrf
                             <div class="box-body">
@@ -104,14 +104,8 @@
                                            value="">
                                 </div>
 
-                                <div class="form-group">
-                                    <input id="cate_id" class="hide" name="cate_id"
-                                           value="">
-                                </div>
-
-
                                 <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary">Sửa</button>
+                                    <button type="submit" class="btn btn-primary">Thêm</button>
                                 </div>
 
                             </div>
@@ -146,7 +140,7 @@
                                                             <a class="btn btn-danger"
                                                                href="{{ url('admin/cate_new/delete/'.$value->id) }}"
                                                                onclick="return confirm('Hành động sẽ xóa tin tức này! bạn có muốn tiếp tục?')">Xóa</a>
-                                                            <a class="btn btn-default" onclick="edit({{$value->id}})"
+                                                            <a class="btn btn-default" id="show" onclick="edit({{$value->id}})"
                                                               ><i class="fas fa-pencil-ruler"></i>Sửa</a>
                                                             {{--  @if($value->active==1)
                                                                 <a class="btn btn-info"
@@ -194,28 +188,30 @@
         $("#btnadd").click(function(){
             $("#add").attr("class","show");
         });
-        $(".btn-default").click(function(){
+        $("#show").click(function(){
             $("#edit").attr("class","show");
-
         });
     });
 
-      function edit(id){
+    {{--  function edit(id){
         $.ajax({
             url:"edit",
             type:"post",
-            dataType: "text",
+            dataType: "json",
             data: {
                 _token : '{{ csrf_token() }}',
                 'id': id,
             },
             success: function(result){
+                $.each (result, function (key, cate_new){
+                    var name=  cate_new['name'];
+                    var id=  cate_new['id'];
+                });
 
-                $('#result').val(result);
-                $('#cate_id').val(id);
+                $('#result').val(name);
             }
         });
-    }  
+    }  --}}
     </script>
 
 @endsection

@@ -1,6 +1,6 @@
 @extends('admins.layout.master-layout')
 @section('title')
-    Danh sách tin tức
+    Danh sách cố vấn
 @endsection
 
 @section('content')
@@ -8,11 +8,11 @@
     <div class="container-fluid">
             <section class="content-header">
                 <h1>
-                    Danh sách tin tức
+                    Danh sách cố vấn
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Danh sách tin tức</li>
+                    <li class="active">Danh sách cố vấn</li>
                 </ol>
             </section>
             <hr>
@@ -20,7 +20,7 @@
             <section class="content">
                 <div class="row">
                 <div class="box-header">
-                    <a href="{{route('new.add')}}" class="btn btn-primary">Thêm tin tức</a>
+                    <a href="{{route('adviser.add')}}" class="btn btn-primary">Thêm cố vấn</a>
                 </div>
                     <div class="col-xs-12">
                         <div class="box">
@@ -28,28 +28,24 @@
                                 <table id="example1" class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th class="col-md-2">Tiêu đề</th>
-                                        <th class="col-md-2">Tóm tắt</th>
-                                        <th class="col-md-2">Nội dung</th>
+                                        <th class="col-md-2">Tên</th>
                                         <th class="col-md-2">Ảnh</th>
-                                        <th class="col-md-2">Người đăng</th>
-                                        <th class="col-md-2">Trạng thái</th>
+                                        <th class="col-md-2">Chức vụ</th>
+                                        <th class="col-md-2">Thông tin</th>
                                         <th class="col-md-3">Hành động</th>
 
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($new as $value)
+                                    @foreach($adviser as $value)
                                         <tr class="odd gradeX" >
-                                            <td >{{$value->title}}</td>
-                                            <td >{{$value->summary}}</td>
-                                            <td >{{$value->content}}</td>
-                                            <td ><img width="100px" src="{{asset('assets/img_new/'.$value->image)}}"></td>
                                             <td >{{$value->name}}</td>
-                                            <td >{{$value->status}}</td>
+                                            <td ><img src="{{asset('assets/img_adviser/'.$value->image)}}" alt=""></td>
+                                            <td >{{$value->position}}</td>
+                                            <td >{{$value->information}}</td>
                                             <td>
-                                                <a class="btn btn-default" href="{{Route('new.edit',['id'=> $value->id]) }}" title="Edit"><i class="fas fa-pencil-ruler"></i> Sửa</a>
-                                                <a href="{{Route('new.delete',['id'=> $value->id]) }}" class="btn btn-danger" onclick="return confirmAction()">Xóa</a>
+                                                <a class="btn btn-default" href="{{Route('adviser.edit',['id'=> $value->id]) }}" title="Edit"><i class="fas fa-pencil-ruler"></i> Sửa</a>
+                                                <a href="{{Route('adviser.delete',['id'=> $value->id]) }}" class="btn btn-danger" onclick="return confirmAction()">Xóa</a>
                                             </td>
                                         </tr>
                                     @endforeach
