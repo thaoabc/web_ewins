@@ -70,7 +70,7 @@
                 <!-- /.col -->
                 <div class="col-md-9">  --}}
                     <div class="box box-primary">
-                        <div id="add" class="show">
+                        <div id="add" class="hide">
                         <h3 style="text-align: left; padding-left: 5px">Thêm thể loại</h3>
                         <form role="form" method="POST" action="{{route('cate_new.add')}}">
                             @csrf
@@ -92,7 +92,7 @@
                             </div>
                             <div id="edit" class="hide">
                         <h3 style="text-align: left; padding-left: 5px">Sửa thể loại</h3>
-                        <form role="form" method="POST" action="#"
+                        <form role="form" method="POST" action="{{Route('cate_new.update')}}"
                               enctype="multipart/form-data">
                             @csrf
                             <div class="box-body">
@@ -102,10 +102,11 @@
                                     <label for="exampleInputEmail1">Tên thể loại(*)</label>
                                     <input id="result" type="text" class="form-control" placeholder="Thể loại tin tức" name="name"
                                            value="">
+                                    <input id="cate_id" class="hide" name="cate_id" value="">
                                 </div>
 
                                 <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary">Thêm</button>
+                                    <button type="submit" class="btn btn-primary">Sửa</button>
                                 </div>
 
                             </div>
@@ -118,7 +119,7 @@
                                 <div class="col-xs-12">
                                     <div class="box">
                                         <div class="box-header">
-                                            <a class="btn btn-primary" id="btnadd">Thêm Sản phẩm</a>
+                                            <a class="btn btn-primary" id="btnadd">Thêm loại tin</a>
                                         </div>
                                         <!-- /.box-header -->
                                         <div class="box-body">
@@ -193,25 +194,21 @@
         });
     });
 
-    {{--  function edit(id){
-        $.ajax({
+      function edit(id){
+          $.ajax({
             url:"edit",
             type:"post",
-            dataType: "json",
+            dataType: "text",
             data: {
                 _token : '{{ csrf_token() }}',
                 'id': id,
             },
             success: function(result){
-                $.each (result, function (key, cate_new){
-                    var name=  cate_new['name'];
-                    var id=  cate_new['id'];
-                });
-
-                $('#result').val(name);
+                $('#result').val(result);
+                $('#cate_id').val(id);  
             }
-        });
-    }  --}}
+        });  
+    }  
     </script>
 
 @endsection

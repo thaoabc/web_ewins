@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         DB::table('role')->insert(
+         DB::table('role')->insert([
          [
              'id'=> 1,
              'name' => 'Quản trị viên',
@@ -25,9 +25,9 @@ class DatabaseSeeder extends Seeder
              'name' => 'Người dùng',
          ],
 
-         );
+         ]);
 
-         DB::table('admin')->insert(
+         DB::table('admin')->insert([
              [
                  'id' => 1,
                  'name' =>'admin',
@@ -56,8 +56,8 @@ class DatabaseSeeder extends Seeder
                 'status' =>1,
             ],
     
-        );
-        DB::table('infor_company')->insert(
+         ]);
+        DB::table('infor_company')->insert([
             [
                 'id'=> 1,
                 'name' => 'Công ty Công nghệ và Dịch vụ Talent Wins',
@@ -67,6 +67,6 @@ class DatabaseSeeder extends Seeder
                 'email' => 'contact@talentwins.co',
             ]
     
-         );
+        ]);
     }
 }
