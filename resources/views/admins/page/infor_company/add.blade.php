@@ -1,6 +1,6 @@
 @extends('admins.layout.master-layout')
 @section('title')
-    Sửa cố vấn
+    Thêm thông tin công ty
 @endsection
 
 @section('content')
@@ -8,57 +8,63 @@
     <div class="container-fluid">
             <section class="content-header">
                 <h1>
-                    Sửa tin tức
+                    Thêm thông tin công ty
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Sửa cố vấn</li>
+                    <li class="active">Thêm thông tin công ty</li>
                 </ol>
             </section>
             <hr>
 
             <section class="content">
                 <div class="row">
+                <div class="box-header">
+                    <a href="{{route('infor_company.list')}}" class="btn btn-primary">Danh sách</a>
+                </div>
                     <div class="col-xs-12">
                         <div class="box">
-                                <form role="form" method="POST" action="{{Route('adviser.edit',['id'=>$adviser->id])}}" enctype="multipart/form-data">
+                                <form role="form" method="POST" action="{{route('infor_company.add')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
 
                         <div class="form-group">
-                            <label>Tên (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập tiêu đề cố vấn" name="name"
-                                   value="{{ $adviser->name }}">
+                            <label>Tên công ty (*)</label>
+                            <input type="text" class="form-control" placeholder="Nhập tên công ty" name="name"
+                                   value="{{ old('name') }}">
                             <p style="color:red">{{ $errors->first('name') }}</p>
                         </div>
 
                          <div class="form-group">
-                            <label>Chức vụ (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập chức vụ người cố vấn" name="position"
-                                   value="{{ $adviser->position }}">
-                            <p style="color:red">{{ $errors->first('position') }}</p>
+                            <label>Mã số thuế (*)</label>
+                            <input type="text" class="form-control" placeholder="Mã số thuế" name="masothue"
+                                   value="{{ old('masothue') }}">
+                            <p style="color:red">{{ $errors->first('masothue') }}</p>
                         </div>
 
                         <div class="form-group">
-                            <label>Thông tin (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập thông tin người cố vấn" name="information"
-                                   value="{{ $adviser->information }}">
-                            <p style="color:red">{{ $errors->first('information') }}</p>
+                            <label>Số điện thoại (*)</label>
+                            <input type="text" class="form-control" placeholder="Số điện thoại" name="phone"
+                                   value="{{ old('phone') }}">
+                            <p style="color:red">{{ $errors->first('phone') }}</p>
                         </div>
 
                         <div class="form-group">
-                            <label>Chọn ảnh</label>
-                            <input type="file" id="image" name="image" onchange="showIMG()">
-                            <p style="color:red">{{ $errors->first('image') }}</p>
+                            <label>Địa chỉ (*)</label>
+                            <input type="text" class="form-control" placeholder="Địa chỉ" name="address"
+                                   value="{{ old('address') }}">
+                            <p style="color:red">{{ $errors->first('address') }}</p>
                         </div>
-                        <div class="form-group">
-                            <div id="viewImg">
 
-                            </div>
+                        <div class="form-group">
+                            <label>Email (*)</label>
+                            <input type="email" class="form-control" placeholder="Email" name="email"
+                                   value="{{ old('email') }}">
+                            <p style="color:red">{{ $errors->first('email') }}</p>
                         </div>
                         
                         <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Sửa</button>
+                        <button type="submit" class="btn btn-primary">Thêm</button>
                     </div>
                 </form>
                         </div>
@@ -70,7 +76,7 @@
 </div>
 
 <script language="JavaScript">
-        CKEDITOR.replace('contentt', {
+        CKEDITOR.replace('content', {
                     filebrowserBrowseUrl: '{{asset("")}}ckfinder/ckfinder.html',
                     filebrowserImageBrowseUrl: '{{asset("")}}ckfinder/ckfinder.html?type=Images',
                     filebrowserFlashBrowseUrl: '{{asset("")}}ckfinder/ckfinder.html?type=Flash',
@@ -78,6 +84,8 @@
                     filebrowserImageUploadUrl: '{{asset("")}}ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
                     filebrowserFlashUploadUrl: '{{asset("")}}ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
                 });
+
+
                 function showIMG() {
                     var fileInput = document.getElementById('image');
                     var filePath = fileInput.value; //lấy giá trị input theo id

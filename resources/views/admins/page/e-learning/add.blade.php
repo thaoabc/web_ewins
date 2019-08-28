@@ -1,6 +1,6 @@
 @extends('admins.layout.master-layout')
 @section('title')
-    Sửa cố vấn
+    Thêm tin e-learning
 @endsection
 
 @section('content')
@@ -8,49 +8,44 @@
     <div class="container-fluid">
             <section class="content-header">
                 <h1>
-                    Sửa tin tức
+                    Thêm tin e-learning
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Sửa cố vấn</li>
+                    <li class="active">Thêm tin e-learning</li>
                 </ol>
             </section>
             <hr>
 
             <section class="content">
                 <div class="row">
+                <div class="box-header">
+                    <a href="{{route('e-learning.list')}}" class="btn btn-primary">Danh sách</a>
+                </div>
                     <div class="col-xs-12">
                         <div class="box">
-                                <form role="form" method="POST" action="{{Route('adviser.edit',['id'=>$adviser->id])}}" enctype="multipart/form-data">
+                                <form role="form" method="POST" action="{{route('e-learning.add')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
 
                         <div class="form-group">
-                            <label>Tên (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập tiêu đề cố vấn" name="name"
-                                   value="{{ $adviser->name }}">
-                            <p style="color:red">{{ $errors->first('name') }}</p>
-                        </div>
-
-                         <div class="form-group">
-                            <label>Chức vụ (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập chức vụ người cố vấn" name="position"
-                                   value="{{ $adviser->position }}">
-                            <p style="color:red">{{ $errors->first('position') }}</p>
+                            <label>Title (*)</label>
+                            <input type="text" class="form-control" placeholder="Nhập tiêu đề tin e-learning" name="title"
+                                   value="{{ old('title') }}">
+                            <p style="color:red">{{ $errors->first('title') }}</p>
                         </div>
 
                         <div class="form-group">
-                            <label>Thông tin (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập thông tin người cố vấn" name="information"
-                                   value="{{ $adviser->information }}">
-                            <p style="color:red">{{ $errors->first('information') }}</p>
+                            <label>Nội dung (*)</label>
+                            <input type="text" class="form-control" placeholder="Nội dung" name="content"
+                                   value="{{ old('content') }}">
+                            <p style="color:red">{{ $errors->first('content') }}</p>
                         </div>
-
                         <div class="form-group">
-                            <label>Chọn ảnh</label>
-                            <input type="file" id="image" name="image" onchange="showIMG()">
-                            <p style="color:red">{{ $errors->first('image') }}</p>
+                            <label>Chọn ảnh icon</label>
+                            <input type="file" id="image" name="icon" onchange="showIMG()">
                         </div>
+                        <p style="color:red">{{ $errors->first('icon') }}</p>
                         <div class="form-group">
                             <div id="viewImg">
 
@@ -58,7 +53,7 @@
                         </div>
                         
                         <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Sửa</button>
+                        <button type="submit" class="btn btn-primary">Thêm</button>
                     </div>
                 </form>
                         </div>
@@ -78,6 +73,8 @@
                     filebrowserImageUploadUrl: '{{asset("")}}ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
                     filebrowserFlashUploadUrl: '{{asset("")}}ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
                 });
+
+
                 function showIMG() {
                     var fileInput = document.getElementById('image');
                     var filePath = fileInput.value; //lấy giá trị input theo id
