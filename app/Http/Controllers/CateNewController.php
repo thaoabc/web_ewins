@@ -41,7 +41,7 @@ class CateNewController extends Controller
     }
 
     public function update(Request $request)
-    {
+    {   
         $this->validate($request,
         [
             'name' => 'required|min:3',
