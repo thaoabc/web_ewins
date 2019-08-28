@@ -126,12 +126,13 @@ E-learning là phương thức học tập thông qua một thiết bị có k�
               <div class="container">
                <div class="row" >
 
+                      @foreach($adviser as $value)
                       <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
                         <div class="person text-center">
-                          <img src="images/person_2.jpg" alt="Image" class="img-fluid rounded-circle w-50 mb-5" style="margin-left:80px">
-                          <h3>John Rooster</h3>
-                          <p class="position text-muted">Co-Founder, President</p>
-                          <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi at consequatur unde molestiae quidem provident voluptatum deleniti quo iste.</p>
+                          <img src="{{asset('assets/img_adviser/'.$value->image)}}" alt="Image" class="img-fluid rounded-circle w-50 mb-5" style="margin-left:80px">
+                          <h3>{{$value->name}}</h3>
+                          <p class="position text-muted">{{$value->position}}</p>
+                          <p class="mb-4">{{$value->information}}</p>
                           <ul class="ul-social-circle">
                             <li><a href="#"><span class="icon-facebook"></span></a></li>
                             <li><a href="#"><span class="icon-twitter"></span></a></li>
@@ -140,8 +141,9 @@ E-learning là phương thức học tập thông qua một thiết bị có k�
                           </ul>
                         </div>
                       </div>
+                      @endforeach
 
-                      <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
+                      <!-- <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
                         <div class="person text-center">
                           <img src="images/person_3.jpg" alt="Image" class="img-fluid rounded-circle w-50 mb-5" style="margin-left:80px">
                           <h3>Tom Sharp</h3>
@@ -169,7 +171,7 @@ E-learning là phương thức học tập thông qua một thiết bị có k�
                             <li><a href="#"><span class="icon-instagram"></span></a></li>
                           </ul>
                         </div>
-                      </div>
+                      </div> -->
 
                     </div>
               </div>

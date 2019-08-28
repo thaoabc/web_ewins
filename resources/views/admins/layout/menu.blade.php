@@ -61,6 +61,18 @@
                     <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>Dịch vụ</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{Route('cate_service.list')}}"><i class="fa fa-circle-o"></i>Danh sách loại dịch vụ</a></li>
+                    <li><a href="{{Route('service.list')}}"><i class="fa fa-circle-o"></i>Danh sách dịch vụ</a></li>
+                </ul>
+            </li>
             <li class="active treeview">
                 <a href="#">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>

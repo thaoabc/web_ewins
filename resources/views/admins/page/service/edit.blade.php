@@ -1,6 +1,6 @@
 @extends('admins.layout.master-layout')
 @section('title')
-    Thêm cố vấn
+    Sửa dịch vụ
 @endsection
 
 @section('content')
@@ -8,50 +8,55 @@
     <div class="container-fluid">
             <section class="content-header">
                 <h1>
-                    Thêm cố vấn
+                    Sửa tin tức
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Thêm cố vấn</li>
+                    <li class="active">Sửa dịch vụ</li>
                 </ol>
             </section>
             <hr>
 
             <section class="content">
                 <div class="row">
-                <div class="box-header">
-                    <a href="{{route('adviser.list')}}" class="btn btn-primary">Danh sách</a>
-                </div>
                     <div class="col-xs-12">
                         <div class="box">
-                                <form role="form" method="POST" action="{{route('adviser.add')}}" enctype="multipart/form-data">
+                                <form role="form" method="POST" action="{{Route('service.edit',['id'=>$service->id])}}" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
 
                         <div class="form-group">
-                            <label>Tên (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập tên cố vấn" name="name"
-                                   value="">
+                            <label>Tên dịch vụ(*)</label>
+                            <input type="text" class="form-control" placeholder="Nhập tên dịch vụ" name="name"
+                                   value="{{ $service->name }}">
                             <p style="color:red">{{ $errors->first('name') }}</p>
                         </div>
 
-                         <div class="form-group">
-                            <label>Chức vụ (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập chức vụ của người cố vấn" name="position"
-                                   value="">
-                            <p style="color:red">{{ $errors->first('position') }}</p>
+                        <div class="form-group">
+                            <label>Loại dịch vụ (*)</label>
+                            <select name="cate_id" class="form-control">
+                                @foreach($cate_service as $value)
+                                <option value="{{$value->id}}">{{$value->name}}</option>
+                                @endforeach
+                            </select>
+                            <p style="color:red">{{ $errors->first('cate_id') }}</p>
                         </div>
 
                         <div class="form-group">
-                            <label>Thông tin (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập thông tin cửa người cố vấn" name="information"
-                                   value="">
-                            <p style="color:red">{{ $errors->first('information') }}</p>
+                            <label>Nội dung (*)</label>
+                            <input type="text" class="form-control" placeholder="Nội dung" name="content"
+                                   value="{{$service->content}}">
+                            <p style="color:red">{{ $errors->first('content') }}</p>
                         </div>
 
                         <div class="form-group">
                             <label>Chọn ảnh</label>
                             <input type="file" id="image" name="image" onchange="showIMG()">
+                        </div>
+                        <div class="form-group" id="lastImg">
+                            <div>
+                                <img style="width:200px" src="{{asset('assets/img_service/'.$service->image)}}" alt="">
+                            </div>
                         </div>
                         <div class="form-group">
                             <div id="viewImg">
@@ -60,7 +65,7 @@
                         </div>
                         
                         <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Thêm</button>
+                        <button type="submit" class="btn btn-primary">Sửa</button>
                     </div>
                 </form>
                         </div>
@@ -101,6 +106,7 @@
                             reader.readAsDataURL(fileInput.files[0]);
                         }
                     }
+                    document.getElementById('lastImg').style.display = "none";
                 }
     
     </script>

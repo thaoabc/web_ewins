@@ -8,7 +8,7 @@
     <div class="container-fluid">
             <section class="content-header">
                 <h1>
-                    Sửa tin tức
+                    Sửa cố vấn
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -50,6 +50,11 @@
                             <label>Chọn ảnh</label>
                             <input type="file" id="image" name="image" onchange="showIMG()">
                             <p style="color:red">{{ $errors->first('image') }}</p>
+                        </div>
+                        <div class="form-group" id="lastImg">
+                            <div>
+                                <img style="width:200px" src="{{asset('assets/img_adviser/'.$adviser->image)}}" alt="">
+                            </div>
                         </div>
                         <div class="form-group">
                             <div id="viewImg">
@@ -99,6 +104,7 @@
                             reader.readAsDataURL(fileInput.files[0]);
                         }
                     }
+                    document.getElementById('lastImg').style.display = "none";
                 }
     
     </script>

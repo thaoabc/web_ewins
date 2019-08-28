@@ -1,6 +1,6 @@
 @extends('admins.layout.master-layout')
 @section('title')
-    Thêm cố vấn
+    Thêm dịch vụ
 @endsection
 
 @section('content')
@@ -8,11 +8,11 @@
     <div class="container-fluid">
             <section class="content-header">
                 <h1>
-                    Thêm cố vấn
+                    Thêm dịch vụ
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Thêm cố vấn</li>
+                    <li class="active">Thêm dịch vụ</li>
                 </ol>
             </section>
             <hr>
@@ -20,33 +20,36 @@
             <section class="content">
                 <div class="row">
                 <div class="box-header">
-                    <a href="{{route('adviser.list')}}" class="btn btn-primary">Danh sách</a>
+                    <a href="{{route('service.list')}}" class="btn btn-primary">Danh sách</a>
                 </div>
                     <div class="col-xs-12">
                         <div class="box">
-                                <form role="form" method="POST" action="{{route('adviser.add')}}" enctype="multipart/form-data">
+                                <form role="form" method="POST" action="{{route('service.add')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
 
                         <div class="form-group">
-                            <label>Tên (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập tên cố vấn" name="name"
+                            <label>Tên dịch vụ (*)</label>
+                            <input type="text" class="form-control" placeholder="Nhập tên dịch vụ" name="name"
                                    value="">
                             <p style="color:red">{{ $errors->first('name') }}</p>
                         </div>
 
                          <div class="form-group">
-                            <label>Chức vụ (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập chức vụ của người cố vấn" name="position"
-                                   value="">
-                            <p style="color:red">{{ $errors->first('position') }}</p>
+                            <label>Loại dịch vụ (*)</label>
+                            <select name="cate_id" class="form-control">
+                                @foreach($cate_service as $value)
+                                <option value="{{$value->id}}">{{$value->name}}</option>
+                                @endforeach
+                            </select>
+                            <p style="color:red">{{ $errors->first('cate_id') }}</p>
                         </div>
 
                         <div class="form-group">
-                            <label>Thông tin (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập thông tin cửa người cố vấn" name="information"
+                            <label>Nội dung (*)</label>
+                            <input type="text" class="form-control" placeholder="Nội dung" name="content"
                                    value="">
-                            <p style="color:red">{{ $errors->first('information') }}</p>
+                            <p style="color:red">{{ $errors->first('content') }}</p>
                         </div>
 
                         <div class="form-group">
