@@ -29,13 +29,10 @@ class LoginController extends Controller
     public function GetLogout()
     {
         Auth::logout();
-        return redirect('login');
+        return redirect('admin/login');
     }
 
-    public function GetProfile()
-    {
-        return view('pages.examples.profile');
-    }
+    
 
 
 }
