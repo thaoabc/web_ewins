@@ -58,28 +58,28 @@ class DatabaseSeeder extends Seeder
         //         'status' =>1,
         //     ],
     
-<<<<<<< HEAD
-        // );
-        // DB::table('infor_company')->insert(
-        //     [
-        //         'id'=> 1,
-        //         'name' => 'Công ty Công nghệ và Dịch vụ Talent Wins',
-        //         'masothue' => '0108134425',
-        //         'phone' => '0927151535',
-        //         'email' => 'contact@talentwins.co',
-        //     ]
-=======
-        );
-        DB::table('infor_company')->insert(
-            [
-                'id'=> 1,
-                'name' => 'Công ty Công nghệ và Dịch vụ Talent Wins',
-                'address' => 'Tòa CT2, khu đô thị Thái Hà Constrexim, 43 Phạm Văn Đồng, Hà Nội',
-                'masothue' => '0108134425',
-                'phone' => '0927151535',
-                'email' => 'contact@talentwins.co',
-            ]
->>>>>>> 7cc61b1ca51fce6fba5e530f5ac6ae58e297f7cb
+// <<<<<<< HEAD
+//         // );
+//         // DB::table('infor_company')->insert(
+//         //     [
+//         //         'id'=> 1,
+//         //         'name' => 'Công ty Công nghệ và Dịch vụ Talent Wins',
+//         //         'masothue' => '0108134425',
+//         //         'phone' => '0927151535',
+//         //         'email' => 'contact@talentwins.co',
+//         //     ]
+// =======
+//         );
+//         DB::table('infor_company')->insert(
+//             [
+//                 'id'=> 1,
+//                 'name' => 'Công ty Công nghệ và Dịch vụ Talent Wins',
+//                 'address' => 'Tòa CT2, khu đô thị Thái Hà Constrexim, 43 Phạm Văn Đồng, Hà Nội',
+//                 'masothue' => '0108134425',
+//                 'phone' => '0927151535',
+//                 'email' => 'contact@talentwins.co',
+//             ]
+// >>>>>>> 7cc61b1ca51fce6fba5e530f5ac6ae58e297f7cb
     
         // );
     }
