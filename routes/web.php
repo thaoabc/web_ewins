@@ -66,7 +66,11 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
 	Route::get('/','HomeController@index');
 	Route::get('logout','LoginController@GetLogout');
 
-	Route::get('profile','LoginController@GetProfile');
+
+	//------------------examples---------------------
+	Route::get('profile','ExamplesController@GetProfile');
+	Route::get('register','ExamplesController@GetRegister');
+	Route::post('register','ExamplesController@PostRegister');
 
 
 
