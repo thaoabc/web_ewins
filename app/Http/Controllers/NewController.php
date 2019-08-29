@@ -16,7 +16,7 @@ class NewController extends Controller
                         ->get();
         return view('admins.page.new.list',$array);
     }
-
+    
     public function add()
     {
         return view('admins.page.new.add');
