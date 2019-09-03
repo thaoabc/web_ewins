@@ -43,12 +43,34 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <i class="fas fa-user"></i>
                     <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Username" />
                 </div>
+                        @if (session('thongbao'))
+                            <script>
+                                alert('{{ session('thongbao') }}')
+                            </script>
+                        @endif
+
+
+                        @if ($errors->has('name'))
+                                <script>
+                                    alert('{{ $errors->first('name') }}')
+                                </script>
+                        @endif
+
+
+
+                        @if ($errors->has('password'))
+                                <script>
+                                    alert('{{ $errors->first('password') }}')
+                                </script>
+                         @endif
+               
             </div>
             <div class=" w3l-form-group">
                 <label>Password</label>
                 <div class="group">
                     <i class="fas fa-unlock"></i>
                     <input type="password" class="form-control" name="password" placeholder="Password"/>
+                    
                 </div>
             </div>
             <div class="forgot">

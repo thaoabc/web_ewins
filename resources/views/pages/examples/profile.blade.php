@@ -28,10 +28,23 @@
           <div class="box box-primary">
             <div class="box-body box-profile">
               <img class="profile-user-img img-responsive img-circle" src="../../public/images/user4-128x128.jpg" alt="User profile picture">
-
-              <h3 class="profile-username text-center">Nina Mcintire</h3>
-
-              <p class="text-muted text-center">Software Engineer</p>
+              
+              <h3 class="profile-username text-center">
+                                  @if (Auth::check())
+                                        {{ Auth::user()->name }}
+                                 @endif
+              </h3>
+             
+              <p class="text-muted text-center">
+                @foreach ($role as $row)
+                        @if (Auth::user()->level == $row->id)
+                        {{ $row->name }}
+                        @endif
+                @endforeach
+              
+            </p>
+       
+             
 
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">

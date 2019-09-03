@@ -71,6 +71,11 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
 	Route::get('profile','ExamplesController@GetProfile');
 	Route::get('register','ExamplesController@GetRegister');
 	Route::post('register','ExamplesController@PostRegister');
+	Route::get('list','ExamplesController@GetList');
+	Route::get('edit','ExamplesController@EditList');
+	Route::get('del/{id}','ExamplesController@DelUser');
+
+
 
 
 

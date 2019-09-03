@@ -25,7 +25,10 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name'=>'required|min:5',
-            'password'=>'required|min:5'
+            'email'=>'required|email',
+            'password'=>'required|min:5',
+            'password_confirmation'=>'required|confirmed',
+            'phone'=>'required|numeric',
         ];
     }
     public function messages()
@@ -33,8 +36,15 @@ class RegisterRequest extends FormRequest
         return [
             'name.required'=>'Bạn chưa nhập tài khoản !',
             'name.min'=>'Tài khoản không được nhỏ hơn 5 kí tự !',
+            'email.required'=>'Email không được để trống !',
+            'email.email'=>'Email không đúng định dạng !',
             'password.required'=>'Bạn chưa nhập mật khẩu !',
-            'password.min'=>'Mật khẩu không được nhỏ hơn 5 kí tự !'
+            'password.min'=>'Mật khẩu không được nhỏ hơn 5 kí tự !',
+            'reset.required'=>'Bạn chưa nhập lại mật khẩu !',
+            'password_confirmation'=>'Nhập lại mật khẩu !',
+            'phone.numeric'=>'Số điện thoại phải là kiểu số !',
+            'phone.required'=>'Điện thoại không được để trống !',
+        
         ];
     }
 }

@@ -296,9 +296,9 @@
             <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
 
             <li class="header">ACCOUNT</li>
-            <li><a href="admin/register"><i class="fa fa-circle-o text-red"></i> <span>Add Member</span></a></li>
-            {{--  <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>  --}}
+            <li><a href="admin/list"><i class="fa fa-circle-o text-red"></i> <span>List Member</span></a></li>
+             <li><a href="admin/register"><i class="fa fa-circle-o text-yellow"></i> <span>Add Member</span></a></li>
+            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Edit Member</span></a></li> 
         </ul>
     </section>
     <!-- /.sidebar -->
