@@ -14,12 +14,6 @@ class BannerController extends Controller
         return view('admins.page.banner.list',$array);
     }
 
-    public function add()
-    {
-        $array['new']=DB::table('new')->get();
-        return view('admins.page.banner.add',$array);
-    }
-
     public function store(Request $request)
     {
         $this->validate($request,
@@ -32,37 +26,35 @@ class BannerController extends Controller
         if ($request->hasFile('image')) {
             $file=$request->file('image');
             $name=$file->getClientOriginalName();
-
-            $file->move('assets/img_banner/',$name);
+            $str=str_random(5);
+            $name_file=$str."_".$name;
+            $file->move('assets/img_banner/',$name_file);
         }
         DB::table('banner')->insert([
-            'image' => $name,
+            'image' => $name_file,
             'status' => 0,
         ]);
 
         return redirect()->route('banner.list');
     }
 
-    public function edit($id)
+    public function update(Request $request)
     {
-        $array['banner']=DB::table('banner')->find($id);
-        return view('admins.page.banner.edit',$array);
-    }
-
-    public function update(Request $request,$id)
-    {
+        $id=$request->id;
         $img_old=DB::table('banner')->find($id)->image;
 
         if($request->hasFile('image')){
             $file=$request->file('image');
             $name=$file->getClientOriginalName();
+            $str=str_random(5);
+            $name_file=$str."_".$name;
             if(file_exists('assets/img_banner/'.$img_old)&&($img_old !='')){
                 unlink('assets/img_banner/'.$img_old);
             }
-            $file->move('assets/img_banner/',$name);
+            $file->move('assets/img_banner/',$name_file);
         }
         else{
-            $name=$img_old;
+            $name_file=$img_old;
         }
 
         if(empty($request->status)){
@@ -73,7 +65,7 @@ class BannerController extends Controller
         }
 
         DB::table('banner')->where('id',$id)->update([
-            'image' => $name,
+            'image' => $name_file,
             'status' => $status,
         ]);
 
