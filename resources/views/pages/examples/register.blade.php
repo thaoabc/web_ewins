@@ -41,37 +41,46 @@
       @csrf
       <div class="form-group has-feedback">
           <label>Name</label>
-        <input type="text" class="form-control" placeholder="Name">
+        <input type="text" class="form-control" name="name" placeholder="Name">
+        @if ($errors->has('name'))
+            <div class="alert alert-danger" role="alert">
+              <strong>{{ $errors->first('name') }}</strong>
+            </div>
+        @endif
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
           <label>Email</label>
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="text" class="form-control" name="email" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
 
       <div class="form-group has-feedback">
           <label>Password</label>
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" name="password" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
 
       <div class="form-group has-feedback">
           <label>Retype Password</label>
-          <input type="password" class="form-control" placeholder="Retype password">
+          <input type="password" class="form-control" name="password_confirmation" placeholder="Retype password">
           <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
         </div>
-
+        {{--  @if ($errors->password_confirmation)
+          <div class="alert alert-danger" role="alert">
+            <strong>{{ $errors->first('password_confirmation') }}</strong>
+          </div>
+        @endif  --}}
 
       <div class="form-group has-feedback">
           <label>Số điện thoại</label>
-          <input type="text" class="form-control" placeholder="Phone">
+          <input type="text" class="form-control" name="phone" placeholder="Phone">
           <span class="glyphicon glyphicon glyphicon-phone-alt form-control-feedback"></span>
         </div>
 
         <div class="form-group has-feedback">
             <label>Phân quyền</label>
-            <select name="state" class="form-control">
+            <select name="level" class="form-control">
                 <option value="1">Quản trị viên</option>
                 <option value="2">Cộng tác viên</option>
                 <option value="3">Người dùng</option>

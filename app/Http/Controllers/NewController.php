@@ -1,15 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
+use App\models\{news,cate_new};
 use DB;
 
 class NewController extends Controller
 {
     public function list()
     {
+      
         $array['new']=DB::table('new')
                         ->join('admin','admin.id','=','new.id_admin')
                         ->select('new.*','admin.name as name')
@@ -19,11 +19,14 @@ class NewController extends Controller
 
     public function add()
     {
-        return view('admins.page.new.add');
+        $data['catenew']=cate_new::all();
+        // dd($data);
+        return view('admins.page.new.add',$data);
     }
 
     public function store(Request $request)
     {
+        // dd($request->all());
         $this->validate($request,
             [
                 'title' => 'required|min:5',
@@ -48,14 +51,19 @@ class NewController extends Controller
 
             $file->move('assets/img_new/',$name);
         }
+      
         DB::table('new')->insert([
+         
             'title' => $request->title,
             'summary' => $request->summary,
             'content' => $request->content,
             'image' => $name,
             'slug' => str_slug($request->title),
-            'id_admin' => 1,
             'status' => 0,
+            'id_admin' => $request->namehdd ,
+            'cate_new'=>$request->name
+            
+            
         ]);
 
         return redirect()->route('new.list');

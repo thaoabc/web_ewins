@@ -71,16 +71,21 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
 	Route::get('profile','ExamplesController@GetProfile');
 	Route::get('register','ExamplesController@GetRegister');
 	Route::post('register','ExamplesController@PostRegister');
+	Route::get('list','ExamplesController@GetList');
+	Route::get('edit','ExamplesController@EditList');
+	Route::get('del/{id}','ExamplesController@DelUser');
+
+
 
 
 
 	Route::prefix('new')->group(function () {
 		Route::get('list','NewController@list')->name('new.list');
-		Route::get('add','NewController@add_adviser')->name('new.add');
-		Route::post('add','NewController@insert_adviser')->name('new.add');
-		Route::get('edit/{id}','NewController@edit_adviser')->name('new.edit');
-		Route::post('edit/{id}','NewController@update_adviser')->name('new.edit');
-		Route::get('delete/{id}','NewController@delete_adviser')->name('new.delete');
+		Route::get('add','NewController@add')->name('new.add');
+		Route::post('add','NewController@store')->name('new.add');
+		Route::get('edit/{id}','NewController@edit')->name('new.edit');
+		Route::post('edit/{id}','NewController@update')->name('new.edit');
+		Route::get('delete/{id}','NewController@delete')->name('new.delete');
 	});
 
 	Route::prefix('cate_new')->group(function () {
