@@ -17,7 +17,6 @@ class CreateELearningTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('icon');
-            $table->string('content');
             $table->integer('status')->default(0);
             $table->timestamps();
         });

@@ -43,7 +43,7 @@ Danh sách tin tức
                                     <tr class="odd gradeX">
                                         <td>{{$value->title}}</td>
                                         <td>{{$value->summary}}</td>
-                                        <td>{{$value->content}}</td>
+                                        <td><p style="height: 200px; overflow: auto">{{$value->content}}</p></td>
                                         <td><img width="100px" src="{{asset('assets/img_new/'.$value->image)}}"></td>
                                         <td>{{$value->name}}</td>
                                         

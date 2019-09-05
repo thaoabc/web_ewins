@@ -36,15 +36,32 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{Route('new.list')}}"><i class="fa fa-circle-o"></i>Danh sách tin tức</a></li>
-                    <li><a href="{{Route('cate_new.list')}}"><i class="fa fa-circle-o"></i> Thêm loại tin tức</a></li>
                     <li><a href="{{Route('new.add')}}"><i class="fa fa-circle-o"></i> Thêm tin tức</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="{{Route('banner.list')}}">
-                    <i class="fa fa-table"></i> <span>Banner</span>
-                    <span class="pull-right-container"></span>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>Loại tin tức</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
                 </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{Route('cate_new.list')}}"><i class="fa fa-circle-o"></i>Danh sách loại tin tức</a></li>
+                    <li><a href="{{Route('cate_new.add')}}"><i class="fa fa-circle-o"></i> Thêm loại tin tức</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>Banner</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{Route('banner.list')}}"><i class="fa fa-circle-o"></i>Danh sách banner</a></li>
+                    <li><a href="{{Route('banner.add')}}"><i class="fa fa-circle-o"></i> Thêm banner</a></li>
+                </ul>
             </li>
             <li class="treeview">
                 <a href="#">

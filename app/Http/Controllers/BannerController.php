@@ -14,7 +14,12 @@ class BannerController extends Controller
         return view('admins.page.banner.list',$array);
     }
 
-    public function store(Request $request)
+    public function add()
+    {
+        return view('admins.page.banner.add');
+    }
+
+    public function insert(Request $request)
     {
         $this->validate($request,
         [
