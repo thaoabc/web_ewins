@@ -146,7 +146,7 @@
                                                 <tbody>
                                                 @foreach($banner as $value)
                                                     <tr class="odd gradeX" align="center">
-                                                        <td><img width="100px" src="{{asset('assets/img_banner/'.$value->image)}}"></td>
+                                                        <td><img width="100px" src="images/{{ $value->image }}"></td>
                                                         <td>{{$value->status}}</td>
                                                         <td>
 

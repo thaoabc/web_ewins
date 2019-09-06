@@ -11,16 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-});
-Route::get('home', function () {
-    return view('pages.home');
-})->name('home');
 
-Route::get('lienhe', function () {
-    return view('pages.lienhe');
-})->name('lienhe');
+Route::get('home','frontend\HomeController@home')->name('home');
+
+Route::get('lienhe','frontend\ContactController@list')->name('lienhe');
 
 Route::post('lienhe','NewController@insert_contact')->name('contact.add');
 
