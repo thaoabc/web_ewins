@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use DB;
-
 class BannerController extends Controller
 {
     public function list()
@@ -14,7 +12,12 @@ class BannerController extends Controller
         return view('admins.page.banner.list',$array);
     }
 
-    public function store(Request $request)
+    public function add()
+    {
+        return view('admins.page.banner.add');
+    }
+
+    public function insert(Request $request)
     {
         $this->validate($request,
         [
@@ -28,7 +31,7 @@ class BannerController extends Controller
             $name=$file->getClientOriginalName();
             $str=str_random(5);
             $name_file=$str."_".$name;
-            $file->move('images/',$name_file);
+            $file->move('assets/img_banner/',$name_file);
         }
         DB::table('banner')->insert([
             'image' => $name_file,
