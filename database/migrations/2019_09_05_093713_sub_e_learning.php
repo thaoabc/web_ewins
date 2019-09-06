@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInforCityTable extends Migration
+class SubELearning extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateInforCityTable extends Migration
      */
     public function up()
     {
-        Schema::create('infor_company', function (Blueprint $table) {
+        Schema::create('sub_e_learning', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('cate_id')->unsigned();
             $table->string('name');
-            $table->string('masothue');
-            $table->string('phone');
-            $table->string('email');
+            $table->foreign('cate_id')
+            ->references('id')
+            ->on('e_learning')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateInforCityTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('infor_city');
+        Schema::dropIfExists('sub_e_learning');
     }
 }

@@ -15,7 +15,8 @@ class CreateSupportTable extends Migration
     {
         Schema::create('support', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('title');
+            $table->string('summary');
             $table->text('content');
             $table->string('slug');
             $table->tinyInteger('status')->default(1);

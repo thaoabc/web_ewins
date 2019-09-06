@@ -10,31 +10,46 @@ class BannerController extends Controller
 {
     public function list()
     {
-        $array['banner']=DB::table('banner')
-                        ->join('new','new.id','=','banner.id_new')
-                        ->select('banner.*','banner.id as id_banner','new.title')
-                        ->get();
+        $array['banner']=DB::table('banner')->get();
         return view('admins.page.banner.list',$array);
     }
 
     public function add()
     {
-        $array['new']=DB::table('new')->get();
-        return view('admins.page.banner.add',$array);
+        return view('admins.page.banner.add');
     }
 
-    public function store(Request $request)
+    public function insert(Request $request)
     {
+        $this->validate($request,
+        [
+            'image' => 'required',
+            'title' => 'required',
+            'link' => 'required',
+            'status' => 'required',
+            'content' => 'required',
+        ],
+        [
+            'image.required' => 'Ảnh là trường bắt buộc',
+            'title.required' => 'Tiêu đề là trường bắt buộc',
+            'link.required' => 'Link là trường bắt buộc',
+            'status.required' => 'Trạng thái là trường bắt buộc',
+            'content.required' => 'Nội dung là trường bắt buộc',
+
+        ]);
         if ($request->hasFile('image')) {
             $file=$request->file('image');
             $name=$file->getClientOriginalName();
-
-            $file->move('assets/img_banner/',$name);
+            $str=str_random(5);
+            $name_file=$str."_".$name;
+            $file->move('assets/img_banner/',$name_file);
         }
         DB::table('banner')->insert([
-            'image' => $name,
-            'id_new' => $request->id_new,
-            'status' => 0,
+            'image' => $name_file,
+            'title' => $request->title,
+            'link' => $request->link,
+            'status' => $request->status,
+            'content' => $request->content,
         ]);
 
         return redirect()->route('banner.list');
@@ -43,8 +58,7 @@ class BannerController extends Controller
     public function edit($id)
     {
         $array['banner']=DB::table('banner')->find($id);
-        $new['new']=DB::table('new')->get();
-        return view('admins.page.banner.edit',$array,$new);
+        return view('admins.page.banner.edit',$array);
     }
 
     public function update(Request $request,$id)
@@ -54,26 +68,24 @@ class BannerController extends Controller
         if($request->hasFile('image')){
             $file=$request->file('image');
             $name=$file->getClientOriginalName();
+            $str=str_random(5);
+            $name_file=$str."_".$name;
             if(file_exists('assets/img_banner/'.$img_old)&&($img_old !='')){
                 unlink('assets/img_banner/'.$img_old);
             }
-            $file->move('assets/img_banner/',$name);
+            $file->move('assets/img_banner/',$name_file);
         }
         else{
-            $name=$img_old;
+            $name_file=$img_old;
         }
 
-        if(empty($request->status)){
-            $status=0;
-        }
-        else{
-            $status=1;
-        }
 
         DB::table('banner')->where('id',$id)->update([
-            'image' => $name,
-            'id_new' => $request->id_new,
-            'status' => $status,
+            'image' => $name_file,
+            'title' => $request->title,
+            'link' => $request->link,
+            'status' => $request->status,
+            'content' => $request->content,
         ]);
 
         return redirect()->route('banner.list');

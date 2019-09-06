@@ -83,8 +83,6 @@
                     filebrowserImageUploadUrl: '{{asset("")}}ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
                     filebrowserFlashUploadUrl: '{{asset("")}}ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
                 });
-
-
                 function showIMG() {
                     var fileInput = document.getElementById('image');
                     var filePath = fileInput.value; //lấy giá trị input theo id

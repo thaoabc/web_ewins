@@ -68,6 +68,7 @@
                         
                         <div class="box-footer">
                         <button type="submit" class="btn btn-primary">Sửa</button>
+                        <a href="{{Route('new.list')}}"><button type="submit" class="btn btn-default">Quay lại</button></a>
                     </div>
                 </form>
                         </div>

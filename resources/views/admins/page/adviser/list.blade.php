@@ -40,7 +40,11 @@
                                     @foreach($adviser as $value)
                                         <tr class="odd gradeX" >
                                             <td >{{$value->name}}</td>
+<<<<<<< HEAD
                                             <td ><img style="width:100%" src="{{asset('assets/img_adviser/'.$value->image)}}" alt=""></td>
+=======
+                                            <td ><img width="100px" src="{{asset('assets/img_adviser/'.$value->image)}}" alt=""></td>
+>>>>>>> 2f30e7f673d7f24492f40e8b046ddadb84e1e4ec
                                             <td >{{$value->position}}</td>
                                             <td >{{$value->information}}</td>
                                             <td>

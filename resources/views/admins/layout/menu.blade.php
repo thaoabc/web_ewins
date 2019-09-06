@@ -7,8 +7,10 @@
                 <img src="{{ asset('') }}/admins/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
-                <a href="#"><i class="fa fa-circle text-success"></i> tien</a>
+                <p> @if (Auth::check())
+                        {{ Auth::user()->name }}
+                    @endif</p>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
         <!-- search form -->
@@ -34,7 +36,31 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{Route('new.list')}}"><i class="fa fa-circle-o"></i>Danh sách tin tức</a></li>
-                    <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+                    <li><a href="{{Route('new.add')}}"><i class="fa fa-circle-o"></i> Thêm tin tức</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>Loại tin tức</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{Route('cate_new.list')}}"><i class="fa fa-circle-o"></i>Danh sách loại tin tức</a></li>
+                    <li><a href="{{Route('cate_new.add')}}"><i class="fa fa-circle-o"></i> Thêm loại tin tức</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>Banner</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{Route('banner.list')}}"><i class="fa fa-circle-o"></i>Danh sách banner</a></li>
+                    <li><a href="{{Route('banner.add')}}"><i class="fa fa-circle-o"></i> Thêm banner</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -73,7 +99,55 @@
                     <li><a href="{{Route('service.list')}}"><i class="fa fa-circle-o"></i>Danh sách dịch vụ</a></li>
                 </ul>
             </li>
-            <li class="active treeview">
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>Hỗ trợ</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{Route('support.list')}}"><i class="fa fa-circle-o"></i>Danh sách tin hỗ trợ</a></li>
+                    <li><a href="{{Route('support.add')}}"><i class="fa fa-circle-o"></i> Thêm tin hỗ trợ</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>Thông tin công ty</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{Route('infor_company.list')}}"><i class="fa fa-circle-o"></i>Thông tin công ty</a></li>
+                    <li><a href="{{Route('infor_company.add')}}"><i class="fa fa-circle-o"></i> Thêm thông tin</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>E-learning</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{Route('e-learning.list')}}"><i class="fa fa-circle-o"></i>E-learning</a></li>
+                    <li><a href="{{Route('e-learning.add')}}"><i class="fa fa-circle-o"></i> Thêm thông tin e-learning</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>Sản phẩm</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{Route('product.list')}}"><i class="fa fa-circle-o"></i>Danh sách</a></li>
+                    <li><a href="{{Route(product.add')}}"><i class="fa fa-circle-o"></i>Thêm sản phẩm</a></li>
+                </ul>
+            </li>
+            {{-- <li class="active treeview">
                 <a href="#">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     <span class="pull-right-container">
@@ -242,7 +316,12 @@
             <li class="header">LABELS</li>
             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li> --}}
+
+            <li class="header">ACCOUNT</li>
+            <li><a href="admin/list"><i class="fa fa-circle-o text-red"></i> <span>List Member</span></a></li>
+             <li><a href="admin/register"><i class="fa fa-circle-o text-yellow"></i> <span>Add Member</span></a></li>
+            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Edit Member</span></a></li> 
         </ul>
     </section>
     <!-- /.sidebar -->
