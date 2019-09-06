@@ -44,7 +44,7 @@ Danh sách tin tức
                                         <td>{{$value->title}}</td>
                                         <td>{{$value->summary}}</td>
                                         <td>{{$value->content}}</td>
-                                        <td><img width="100px" src="{{asset('assets/img_new/'.$value->image)}}"></td>
+                                        <td><img width="100px" src="images/{{ $value->image }}"></td>
                                         <td>{{$value->name}}</td>
                                         
                                         <td>{{$value->status}}</td>

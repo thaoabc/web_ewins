@@ -28,7 +28,7 @@ class BannerController extends Controller
             $name=$file->getClientOriginalName();
             $str=str_random(5);
             $name_file=$str."_".$name;
-            $file->move('assets/img_banner/',$name_file);
+            $file->move('images/',$name_file);
         }
         DB::table('banner')->insert([
             'image' => $name_file,

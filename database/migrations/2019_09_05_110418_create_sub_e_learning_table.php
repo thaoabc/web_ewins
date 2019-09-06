@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateELearningTable extends Migration
+class CreateSubELearningTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateELearningTable extends Migration
      */
     public function up()
     {
-        Schema::create('e_learning', function (Blueprint $table) {
+        Schema::create('sub_e_learning', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('icon');
-            $table->integer('status')->default(0);
+            $table->bigInteger('cate_id')->unsigned();
+            $table->string('name');
+            $table->foreign('cate_id')->references('id')->on('e_learning')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateELearningTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('e_learning');
+        Schema::dropIfExists('sub_e_learning');
     }
 }
