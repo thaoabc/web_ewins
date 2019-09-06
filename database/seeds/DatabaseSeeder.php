@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+<<<<<<< HEAD
      
         $this->call(role::class);
         $this->call(admin::class);
@@ -32,5 +33,10 @@ class DatabaseSeeder extends Seeder
          $this->call(catenew::class);
          $this->call(newss::class);
         
+=======
+        $this->call(role::class);
+        $this->call(admin::class);
+         
+>>>>>>> 2f30e7f673d7f24492f40e8b046ddadb84e1e4ec
     }
 }

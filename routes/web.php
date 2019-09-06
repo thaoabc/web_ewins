@@ -92,9 +92,10 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
 
 	Route::prefix('banner')->group(function () {
 		Route::get('list','BannerController@list')->name('banner.list');
-		Route::post('add','BannerController@store')->name('banner.add');
-		Route::post('edit','BannerController@edit')->name('banner.edit');
-		Route::post('update','BannerController@update')->name('banner.update');
+		Route::get('add','BannerController@add')->name('banner.add');
+		Route::post('add','BannerController@insert')->name('banner.insert');
+		Route::get('edit/{id}','BannerController@edit')->name('banner.edit');
+		Route::post('update/{id}','BannerController@update')->name('banner.update');
 		Route::get('delete/{id}','BannerController@delete')->name('banner.delete');
 	});
 

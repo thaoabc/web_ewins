@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBannerTable extends Migration
+class SubELearning extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateBannerTable extends Migration
      */
     public function up()
     {
-        Schema::create('banner', function (Blueprint $table) {
+        Schema::create('sub_e_learning', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->text('content');
-            $table->string('link');
-            $table->string('image');
-            $table->tinyInteger('status')->default(0);
+            $table->bigInteger('cate_id')->unsigned();
+            $table->string('name');
+            $table->foreign('cate_id')
+            ->references('id')
+            ->on('e_learning')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateBannerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('banner');
+        Schema::dropIfExists('sub_e_learning');
     }
 }
