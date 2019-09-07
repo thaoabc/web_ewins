@@ -38,11 +38,10 @@
 
                     <div class="row mb-4">
                         <div class="col-md-6">
-                            <h1 style="color: #088A08 ">E-Learning Talent Wins</h1>
-                            <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
-                                assumenda ea quo cupiditate facere deleniti fuga officia.</p>
+                            <h1 style="color: #088A08 ">{{ $row->title }}</h1>
+                            <p class="mb-5">{{ $row->content }}</p>
                             <div>
-                                <a href="#" class="btn btn-primary mr-2 mb-2">Get Started</a>
+                                <a href="#" class="btn btn-primary mr-2 mb-2">{{ $row->link }}</a>
                             </div>
                         </div>
                     </div>
@@ -376,22 +375,32 @@
             </div>
         </div>
         <div class="row align-items-stretch">
+
+          @foreach ($elearning as $row)
             <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
                 <div class="unit-4 d-flex">
-                    <div class="unit-4-icon mr-4"><img src="http://trinam.com.vn/images/trinam/giaiphap/ic1.png" alt="">
+                    <div class="unit-4-icon mr-4"><img src="http://trinam.com.vn/images/trinam/giaiphap/{{ $row->icon }}" alt="">
                     </div>
                     <div>
-                        <h3>1. Xác định nhu cầu đào tạo</h3>
-                        <span><i class="fas fa-check" style="color:#61c357"></i> Khảo sát nhu cầu đào tạo</span>
-                        <br>
-                        <span><i class="fas fa-check" style="color:#61c357"></i> Thi, kiểm tra đánh giá xác định năng
-                            lực, sự thiếu hụt kiến thức kỹ năng</span>
+                        <h3>{{ $row->id }}. {{ $row->title }}</h3>
+
+                        @foreach ($subelearnings as $item)
+                            @if($row->id==$item->cate_id)
+                              <span><i class="fas fa-check" style="color:#61c357"></i> {{ $item->name }}</span>
+                              <br>
+                            @endif
+                        @endforeach
+                        
+                        {{-- <span><i class="fas fa-check" style="color:#61c357"></i> Thi, kiểm tra đánh giá xác định năng
+                            lực, sự thiếu hụt kiến thức kỹ năng</span> --}}
                     </div>
                 </div>
             </div>
+          @endforeach
+           
 
 
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
+            {{-- <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="unit-4 d-flex">
                     <div class="unit-4-icon mr-4"><img src="http://trinam.com.vn/images/trinam/giaiphap/ic2.png" alt="">
                     </div>
@@ -564,7 +573,8 @@
 
                     </div>
                 </div>
-            </div>
+            </div> --}}
+
         </div>
     </div>
 </section>
