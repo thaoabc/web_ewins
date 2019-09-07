@@ -68,10 +68,12 @@
                 </li>
                 <li><a href="{{ route('tinTuc') }}" class="nav-link" style="font-size: 18px">Tin tức  <i class="fa fa-angle-down" aria-hidden="true" style="font-size: 14px;padding-left:5px"></i></a>
                   <ul class="sub-menu">
-                    <li><a href="#home"style="font-size: 16px">Tin tức về nhân sự</a></li>
+                    @foreach($cate_new as $value)
+                    <li><a href="#home"style="font-size: 16px">{{$value->name}}</a></li>
+                    @endforeach
                    
-                    <li><a href="#menu1"style="font-size: 16px">Tin tức về đào tạo phát triển</a></li>
-                    <li><a href="#menu2"style="font-size: 16px">Tin tức quản trị doanh nghiệp</a></li>
+                    <!-- <li><a href="#menu1"style="font-size: 16px">Tin tức về đào tạo phát triển</a></li>
+                    <li><a href="#menu2"style="font-size: 16px">Tin tức quản trị doanh nghiệp</a></li> -->
                
                     
                   </ul>

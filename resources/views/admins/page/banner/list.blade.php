@@ -81,11 +81,37 @@ Danh sách banner
         <div class="modal-dialog">
             <div class="modal-content">
 
+<<<<<<< HEAD
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h2 class="modal-title">Thông tin người dùng banner</h2>
                     {{-- <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button> --}}
                 </div>
+=======
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($banner as $value)
+                                                    <tr class="odd gradeX" align="center">
+                                                        <td><img width="100px" src="images/{{ $value->image }}"></td>
+                                                        <td>{{$value->status}}</td>
+                                                        <td>
+
+                                                            <a class="btn btn-danger"
+                                                               href="{{ url('admin/banner/delete/'.$value->id) }}"
+                                                               onclick="return confirm('Hành động sẽ xóa banner này! bạn có muốn tiếp tục?')">Xóa</a>
+                                                            <a class="btn btn-default" id="show" onclick="edit({{$value->id}})"
+                                                              ><i class="fas fa-pencil-ruler"></i>Sửa</a>
+                                                            {{--  @if($value->active==1)
+                                                                <a class="btn btn-info"
+                                                                   href="{{ url('admin/service/setactive-cate/'.$value->id.'/0') }}"
+                                                                   onclick="return confirm('Hành động sẽ ẩn Sản Phẩm này! bạn có muốn tiếp tục?')">Ẩn</a>
+                                                            @else
+                                                                <a class="btn btn-warning"
+                                                                   href="{{ url('admin/service/setactive-cate/'.$value->id.'/1') }}"
+                                                                   onclick="return confirm('Hành động sẽ hiển thị Sản Phẩm mục này! bạn có muốn tiếp tục?')">Hiển
+                                                                    thị</a>
+>>>>>>> 39766b6d20eed8bc9a87a672f09c3c98dd73ed9e
 
                 <!-- Modal body -->
                 <div class="modal-body" id="cont">

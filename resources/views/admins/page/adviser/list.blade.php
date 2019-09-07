@@ -41,10 +41,14 @@
                                         <tr class="odd gradeX" >
                                             <td >{{$value->name}}</td>
 <<<<<<< HEAD
+<<<<<<< HEAD
                                             <td ><img style="width:100%" src="{{asset('assets/img_adviser/'.$value->image)}}" alt=""></td>
 =======
                                             <td ><img width="100px" src="{{asset('assets/img_adviser/'.$value->image)}}" alt=""></td>
 >>>>>>> 2f30e7f673d7f24492f40e8b046ddadb84e1e4ec
+=======
+                                            <td ><img width="100px" src="images/{{ $value->image }}" alt=""></td>
+>>>>>>> 39766b6d20eed8bc9a87a672f09c3c98dd73ed9e
                                             <td >{{$value->position}}</td>
                                             <td >{{$value->information}}</td>
                                             <td>

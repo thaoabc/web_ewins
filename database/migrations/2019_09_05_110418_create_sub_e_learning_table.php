@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class SubELearning extends Migration
+class CreateSubELearningTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,10 +17,7 @@ class SubELearning extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('cate_id')->unsigned();
             $table->string('name');
-            $table->foreign('cate_id')
-            ->references('id')
-            ->on('e_learning')
-            ->onDelete('cascade');
+            $table->foreign('cate_id')->references('id')->on('e_learning')->onDelete('cascade');
             $table->timestamps();
         });
     }

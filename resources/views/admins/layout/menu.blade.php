@@ -144,7 +144,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{Route('product.list')}}"><i class="fa fa-circle-o"></i>Danh sách</a></li>
-                    <li><a href="{{Route(product.add')}}"><i class="fa fa-circle-o"></i>Thêm sản phẩm</a></li>
+                    <li><a href="{{Route('product.add')}}"><i class="fa fa-circle-o"></i>Thêm sản phẩm</a></li>
                 </ul>
             </li>
             {{-- <li class="active treeview">
