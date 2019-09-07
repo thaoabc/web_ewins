@@ -22,9 +22,18 @@ class BannerController extends Controller
         $this->validate($request,
         [
             'image' => 'required',
+            'title' => 'required',
+            'link' => 'required',
+            'status' => 'required',
+            'content' => 'required',
         ],
         [
             'image.required' => 'Ảnh là trường bắt buộc',
+            'title.required' => 'Tiêu đề là trường bắt buộc',
+            'link.required' => 'Link là trường bắt buộc',
+            'status.required' => 'Trạng thái là trường bắt buộc',
+            'content.required' => 'Nội dung là trường bắt buộc',
+
         ]);
         if ($request->hasFile('image')) {
             $file=$request->file('image');
@@ -35,15 +44,23 @@ class BannerController extends Controller
         }
         DB::table('banner')->insert([
             'image' => $name_file,
-            'status' => 0,
+            'title' => $request->title,
+            'link' => $request->link,
+            'status' => $request->status,
+            'content' => $request->content,
         ]);
 
         return redirect()->route('banner.list');
     }
 
-    public function update(Request $request)
+    public function edit($id)
     {
-        $id=$request->id;
+        $array['banner']=DB::table('banner')->find($id);
+        return view('admins.page.banner.edit',$array);
+    }
+
+    public function update(Request $request,$id)
+    {
         $img_old=DB::table('banner')->find($id)->image;
 
         if($request->hasFile('image')){
@@ -60,16 +77,13 @@ class BannerController extends Controller
             $name_file=$img_old;
         }
 
-        if(empty($request->status)){
-            $status=0;
-        }
-        else{
-            $status=1;
-        }
 
         DB::table('banner')->where('id',$id)->update([
             'image' => $name_file,
-            'status' => $status,
+            'title' => $request->title,
+            'link' => $request->link,
+            'status' => $request->status,
+            'content' => $request->content,
         ]);
 
         return redirect()->route('banner.list');

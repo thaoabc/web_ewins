@@ -1,6 +1,6 @@
 @extends('admins.layout.master-layout')
 @section('title')
-    Sửa banner
+    Sửa dịch vụ
 @endsection
 
 @section('content')
@@ -8,11 +8,11 @@
     <div class="container-fluid">
             <section class="content-header">
                 <h1>
-                    Sửa banner
+                    Sửa tin tức
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Sửa banner</li>
+                    <li class="active">Sửa dịch vụ</li>
                 </ol>
             </section>
             <hr>
@@ -21,57 +21,41 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="box">
-                                <form role="form" method="POST" action="{{Route('banner.edit',['id'=>$banner->id])}}" enctype="multipart/form-data">
+                                <form role="form" method="POST" action="{{Route('service.edit',['id'=>$service->id])}}" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
 
                         <div class="form-group">
-                            <label>Tiêu đề (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập tiêu đề banner" name="title"
-                                   value="{{ $banner->title }}">
-                            <p style="color:red">{{ $errors->first('title') }}</p>
+                            <label>Tên dịch vụ(*)</label>
+                            <input type="text" class="form-control" placeholder="Nhập tên dịch vụ" name="name"
+                                   value="{{ $service->name }}">
+                            <p style="color:red">{{ $errors->first('name') }}</p>
                         </div>
 
-                         <div class="form-group">
+                        <div class="form-group">
+                            <label>Loại dịch vụ (*)</label>
+                            <select name="cate_id" class="form-control">
+                                @foreach($cate_service as $value)
+                                <option value="{{$value->id}}">{{$value->name}}</option>
+                                @endforeach
+                            </select>
+                            <p style="color:red">{{ $errors->first('cate_id') }}</p>
+                        </div>
+
+                        <div class="form-group">
                             <label>Nội dung (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập nội dung banner" name="content"
-                                   value="{{ $banner->content }}">
+                            <input type="text" class="form-control" placeholder="Nội dung" name="content"
+                                   value="{{$service->content}}">
                             <p style="color:red">{{ $errors->first('content') }}</p>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Link (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập liên kết của banner" name="link"
-                                   value="{{ $banner->link }}">
-                            <p style="color:red">{{ $errors->first('link') }}</p>
-                        </div>
-
-                        <?php if($banner->status ==1){
-                             $check1 = 'checked="select"';
-                            $check0 = '';
-                        }else{
-                            $check1 = '';
-                            $check0 = 'checked="select"';
-                        } ?>
-                        <div class="form-group">
-                            <label>Trạng thái (*)</label>
-                            <div class="radio">
-                                <label for=""><input {{$check1}} type="radio" name="status" value="1">Cho hiện</label>
-                            </div>
-                            <div class="radio">
-                                <label for=""><input {{$check0}} type="radio" name="status" value="0">Ẩn</label>
-                            </div>
-                            <p style="color:red">{{ $errors->first('status') }}</p>
                         </div>
 
                         <div class="form-group">
                             <label>Chọn ảnh</label>
                             <input type="file" id="image" name="image" onchange="showIMG()">
-                            <p style="color:red">{{ $errors->first('image') }}</p>
                         </div>
                         <div class="form-group" id="lastImg">
                             <div>
-                                <img style="width:200px" src="{{asset('assets/img_banner/'.$banner->image)}}" alt="">
+                                <img style="width:200px" src="{{asset('assets/img_service/'.$service->image)}}" alt="">
                             </div>
                         </div>
                         <div class="form-group">
@@ -101,6 +85,8 @@
                     filebrowserImageUploadUrl: '{{asset("")}}ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
                     filebrowserFlashUploadUrl: '{{asset("")}}ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
                 });
+
+
                 function showIMG() {
                     var fileInput = document.getElementById('image');
                     var filePath = fileInput.value; //lấy giá trị input theo id

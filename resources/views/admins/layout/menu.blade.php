@@ -89,14 +89,14 @@
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-table"></i> <span>Talent wins</span>
+                    <i class="fa fa-table"></i> <span>Dịch vụ</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{Route('talent_wins.list')}}"><i class="fa fa-circle-o"></i>Danh sách tin talent wins</a></li>
-                    <li><a href="{{Route('talent_wins.add')}}"><i class="fa fa-circle-o"></i> Thêm tin</a></li>
+                    <li><a href="{{Route('cate_service.list')}}"><i class="fa fa-circle-o"></i>Danh sách loại dịch vụ</a></li>
+                    <li><a href="{{Route('service.list')}}"><i class="fa fa-circle-o"></i>Danh sách dịch vụ</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -133,6 +133,18 @@
                 <ul class="treeview-menu">
                     <li><a href="{{Route('e-learning.list')}}"><i class="fa fa-circle-o"></i>E-learning</a></li>
                     <li><a href="{{Route('e-learning.add')}}"><i class="fa fa-circle-o"></i> Thêm thông tin e-learning</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>Sản phẩm</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{Route('product.list')}}"><i class="fa fa-circle-o"></i>Danh sách</a></li>
+                    <li><a href="{{Route('product.add')}}"><i class="fa fa-circle-o"></i>Thêm sản phẩm</a></li>
                 </ul>
             </li>
             {{-- <li class="active treeview">

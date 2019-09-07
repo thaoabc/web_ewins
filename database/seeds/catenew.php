@@ -13,10 +13,9 @@ class catenew extends Seeder
     {
         DB::table('cate_new')->delete();
         DB::table('cate_new')->insert([
-            ['id'=>1,'name'=>'Kinh Doanh'],
-            ['id'=>2,'name'=>'Giải Trí'],
-            ['id'=>3,'name'=>'Đời Sống'],
-            ['id'=>4,'name'=>'Pháp Luật'],
+            ['id'=>1,'name'=>'Nhân sự'],
+            ['id'=>2,'name'=>'Đào tạo phát triển'],
+            ['id'=>3,'name'=>'Doanh nghiệp'],
                    
         ]);
     }

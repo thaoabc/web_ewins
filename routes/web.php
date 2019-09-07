@@ -11,7 +11,14 @@
 |
 */
 
+<<<<<<< HEAD
+Route::get('/','HomeController@index')->name('home');
+
+Route::get('home','HomeController@index')->name('home');
+
+=======
 Route::get('/','frontend\HomeController@home')->name('home');
+>>>>>>> e2c59c25639da6625a1aeb9327ea98970082c067
 Route::get('home','frontend\HomeController@home')->name('home');
 
 Route::get('lienhe','frontend\ContactController@list')->name('lienhe');
@@ -22,6 +29,9 @@ Route::get('admin/contact/delete/{id}','NewController@delete_contact')->name('co
 
 Route::get('admin/contact/edit/{id}-{status}','NewController@edit_contact')->name('contact.edit');
 
+<<<<<<< HEAD
+Route::get('/tintuc','NewController@show')->name('tintuc');
+=======
 Route::get('tinTuc','frontend\Talenwins@news')->name('tinTuc');
 
 Route::get('traiNghiem','frontend\Talenwins@trainghiem')->name('traiNghiem');
@@ -38,6 +48,7 @@ Route::get('talentchitiet','frontend\Talenwins@talenchitiet')->name('talentchiti
 
 
 
+>>>>>>> e2c59c25639da6625a1aeb9327ea98970082c067
 
 
 
@@ -95,16 +106,37 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
 	});
 
 	Route::prefix('contact')->group(function () {
-		Route::get('list','NewController@list_contact')->name('contact.list');
+		Route::get('list','ContactController@list')->name('contact.list');
+		Route::get('delete/{id}','ContactController@delete')->name('contact.delete');
+		Route::get('see/{id}-{status}','ContactController@see')->name('contact.see');
+		Route::get('feedback/{id}-{status}','ContactController@feedback')->name('contact.feedback');
 	});
 
 	Route::prefix('adviser')->group(function () {
-		Route::get('list','NewController@list_adviser')->name('adviser.list');
-		Route::get('add','NewController@add_adviser')->name('adviser.add');
-		Route::post('add','NewController@insert_adviser')->name('adviser.add');
-		Route::get('edit/{id}','NewController@edit_adviser')->name('adviser.edit');
-		Route::post('edit/{id}','NewController@update_adviser')->name('adviser.edit');
-		Route::get('delete/{id}','NewController@delete_adviser')->name('adviser.delete');
+		Route::get('list','AdviserController@list')->name('adviser.list');
+		Route::get('add','AdviserController@add')->name('adviser.add');
+		Route::post('add','AdviserController@insert')->name('adviser.add');
+		Route::get('edit/{id}','AdviserController@edit')->name('adviser.edit');
+		Route::post('edit/{id}','AdviserController@update')->name('adviser.edit');
+		Route::get('delete/{id}','AdviserController@delete')->name('adviser.delete');
+	});
+
+	Route::prefix('service')->group(function () {
+		Route::get('list','ServiceController@list')->name('service.list');
+		Route::get('add','ServiceController@add')->name('service.add');
+		Route::post('add','ServiceController@insert')->name('service.add');
+		Route::get('edit/{id}','ServiceController@edit')->name('service.edit');
+		Route::post('edit/{id}','ServiceController@update')->name('service.edit');
+		Route::get('delete/{id}','ServiceController@delete')->name('service.delete');
+	});
+
+	Route::prefix('cate_service')->group(function () {
+		Route::get('list','Cate_serviceController@list')->name('cate_service.list');
+		Route::get('add','Cate_serviceController@add')->name('cate_service.add');
+		Route::post('add','Cate_serviceController@insert')->name('cate_service.add');
+		Route::get('edit/{id}','Cate_serviceController@edit')->name('cate_service.edit');
+		Route::post('edit/{id}','Cate_serviceController@update')->name('cate_service.edit');
+		Route::get('delete/{id}','Cate_serviceController@delete')->name('cate_service.delete');
 	});
 
 	Route::prefix('talent_wins')->group(function () {
@@ -141,6 +173,15 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
 		Route::get('edit/{id}','ELearningController@edit')->name('e-learning.edit');
 		Route::post('edit/{id}','ELearningController@update')->name('e-learning.edit');
 		Route::get('delete/{id}','ELearningController@delete')->name('e-learning.delete');
+	});
+
+	Route::prefix('product')->group(function () {
+		Route::get('list','ProductController@list')->name('product.list');
+		Route::get('add','ProductController@add')->name('product.add');
+		Route::post('add','ProductController@store')->name('product.add');
+		Route::get('edit/{id}','ProductController@edit')->name('product.edit');
+		Route::post('update/{id}','ProductController@update')->name('product.update');
+		Route::get('delete/{id}','ProductController@delete')->name('product.delete');
 	});
 });
 

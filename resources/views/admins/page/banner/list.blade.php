@@ -1,146 +1,93 @@
 @extends('admins.layout.master-layout')
 @section('title')
-    Banner
+Danh sách banner
 @endsection
+
 @section('content')
-    <div class="content-wrapper">
+<div class="content-wrapper">
+    <div class="container-fluid">
         <section class="content-header">
             <h1>
-                Banner
+                Danh sách banner
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Banner</li>
+                <li class="active">Danh sách banner</li>
             </ol>
         </section>
-        <br>
-        <div>
-            @if(count($errors) > 0)
-                <div class="alert alert-danger">
-                    @foreach($errors->all() as $err)
-                        {{$err}}<br>
-                    @endforeach
+        <hr>
 
-                </div>
-
-            @endif
-            @if(session('thongbao'))
-                <div class="alert alert-success">
-                    {{session('thongbao')}}
-                </div>
-            @endif
-        </div>
-        <!-- Main content -->
         <section class="content">
             <div class="row">
-                {{--  <div class="col-md-3">
-                    <div class="box box-solid">
-                        <div class="box-header with-border">  --}}
-                            {{-- Mục lục --}}
-                            {{--  <h3 class="box-title">Danh mục</h3>
+                <div class="box-header">
+                    <a href="{{route('banner.add')}}" class="btn btn-primary">Thêm banner</a>
+                </div>
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-body">
+                            <table id="example1" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="col-md-2">Ảnh</th>
+                                        <th class="col-md-2">Tiêu đề</th>
+                                        <th class="col-md-2">Nội dung</th>
+                                        <th class="col-md-2">Link</th>
+                                        <th class="col-md-2">Trạng thái</th>
+                                        <th class="col-md-3">Hành động</th>
 
-                            <div class="box-tools">
-                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                            class="fa fa-minus"></i>
-                                </button>
-                            </div>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($banner as $value)
+                                    <tr class="odd gradeX">
+                                        <td><img width="100px" src="{{asset('assets/img_banner/'.$value->image)}}"></td>
+                                        <td>{{$value->title}}</td>
+                                        <td><p style="height: 200px; overflow: auto">{{$value->content}}</p></td>
+                                        <td></td>
+                                        <td>{{$value->link}}</td>
+                                        
+                                        <td>{{$value->status}}</td>
+                                        <td>
+                                            <a class="btn btn-default" href="{{Route('banner.edit',['id'=> $value->id]) }}"
+                                                title="Edit"><i class="fas fa-pencil-ruler"></i> Sửa</a>
+                                            <a href="{{Route('banner.delete',['id'=> $value->id]) }}"
+                                                class="btn btn-danger" onclick="return confirmAction()">Xóa</a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+
+
+                            </table>
                         </div>
-
-                        <div class="box-body no-padding">
-                            <ul class="nav nav-pills nav-stacked">
-                                <li><a href="{{route('service.createCate')}}"><i class="fa fa-inbox"></i> Thêm thể loại
-                                        Banner
-                                        <span class="label label-primary pull-right">{{$cate_service_count}}</span></a></li>
-                                <li><a href="{{route('service.create')}}"><i class="fa fa-envelope-o"></i> Thêm dịch vụ
-                                        <span class="label label-primary pull-right">{{$service_count}}</span></a></li>
-                                </a>
-                                </li>
-                                <li><a href="{{route('service.index')}}"><i class="fa fa-file-text-o"></i> Danh
-                                        sách</a></li>
-
-                            </ul>
-                        </div>
-
-                        <!-- /.box-body -->
                     </div>
-                    <!-- /. box -->  --}}
-                    {{-- End mục luc --}}
+                </div>
+            </div>
+        </section>
+        
+    </div>
+</div>
 
-                {{--  </div>
-                <!-- /.col -->
-                <div class="col-md-9">  --}}
-                    <div class="box box-primary">
-                        <div id="add" class="hide">
-                        <h3 style="text-align: left; padding-left: 5px">Thêm banner</h3>
-                        <form role="form" method="POST" action="{{route('banner.add')}}" enctype="multipart/form-data">
-                            @csrf
-                            <div class="box-body">
+<script language="JavaScript">
+    function confirmAction() {
+        return confirm("Bạn có chắc chắn không ?")
+    }
 
- 
-                                <div class="form-group">
-                                    <label>Chọn ảnh</label>
-                                    <input type="file" id="image" name="image" onchange="showIMG()">
-                                </div>
-                                <div class="form-group">
-                                    <div id="viewImg">
+</script>
 
-                                    </div>
-                                </div>
+{{-- modal --}}
+<div class="container container-fluid">
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-                                <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary">Thêm</button>
-                                </div>
-
-                            </div>
-                            </form>
-                            </div>
-                            <div id="edit" class="hide">
-                        <h3 style="text-align: left; padding-left: 5px">Sửa banner</h3>
-                        <form role="form" method="POST" action="{{Route('banner.update')}}" enctype="multipart/form-data">
-                            @csrf
-                            <div class="box-body">
-
-
-                                <div class="form-group">
-                                    <label>Đăng bài</label>
-                                    <input type="checkbox" name="status" value="1">
-                                    <input id="id" class="hide" name="id" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label>Chọn ảnh</label>
-                                    <input type="file" id="image" name="image" onchange="showIMG()">
-                                </div>
-                                <div class="form-group">
-                                    <div id="viewImg">
-
-                                    </div>
-                                </div>
-
-                                <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary">Sửa</button>
-                                </div>
-
-                            </div>
-                            </div>
-                        </form>
-                        </div>
-                        {{-- Datatable cate --}}
-                        <section class="content" style="margin-bottom: 50px">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="box">
-                                        <div class="box-header">
-                                            <a class="btn btn-primary" id="btnadd">Thêm banner</a>
-                                        </div>
-                                        <!-- /.box-header -->
-                                        <div class="box-body">
-                                            <table id="example1" class="table table-bordered table-hover">
-                                                <thead>
-                                                <tr>
-                                                    <th>Ảnh banner</th>
-                                                    <th>Tình trạng</th>
-                                                    <th>Hành động</th>
-
+<<<<<<< HEAD
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h2 class="modal-title">Thông tin người dùng banner</h2>
+                    {{-- <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button> --}}
+                </div>
+=======
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -164,73 +111,22 @@
                                                                    href="{{ url('admin/service/setactive-cate/'.$value->id.'/1') }}"
                                                                    onclick="return confirm('Hành động sẽ hiển thị Sản Phẩm mục này! bạn có muốn tiếp tục?')">Hiển
                                                                     thị</a>
+>>>>>>> 39766b6d20eed8bc9a87a672f09c3c98dd73ed9e
 
-                                                            @endif  --}}
-                                                    </tr>
-                                                @endforeach
-                                                </tbody>
+                <!-- Modal body -->
+                <div class="modal-body" id="cont">
 
-
-                                            </table>
-                                        </div>
-                                        <!-- /.box-body -->
-                                    </div>
-                                    <!-- /.box -->
-                                    <!-- /.box -->
-                                </div>
-                                <!-- /.col -->
-                            </div>
-                            <!-- /.row -->
-                        </section>
-                        {{-- EndDatatable cate --}}
-
-                    </div>
-                    <!-- /. box -->
                 </div>
-                <!-- /.col -->
+
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
             </div>
-            <!-- /.row -->
-        </section>
-        <!-- /.content -->
-
-
+        </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-    $(document).ready(function(){
-        $("#btnadd").click(function(){
-            $("#add").attr("class","show");
-        });
-        $("#show").click(function(){
-            $("#edit").attr("class","show");
-        });
-    });
-    function showIMG() {
-                    var fileInput = document.getElementById('image');
-                    var filePath = fileInput.value; //lấy giá trị input theo id
-                    var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i; //các tập tin cho phép
-                    //Kiểm tra định dạng
-                    if (!allowedExtensions.exec(filePath)) {
-                        alert('Bạn chỉ có thể dùng ảnh dưới định dạng .jpeg/.jpg/.png/.gif extension.');
-                        fileInput.value = '';
-                        return false;
-                    } else {
-                        //Image preview
-                        if (fileInput.files && fileInput.files[0]) {
-                            var reader = new FileReader();
-                            reader.onload = function (e) {
-                                document.getElementById('viewImg').innerHTML = '<img style="width:100px; height: 100px;" src="' + e.target.result + '"/>';
-                            };
-                            reader.readAsDataURL(fileInput.files[0]);
-                        }
-                    }
-                }
 
-       function edit(id){
-                $('#id').val(id);
-            }
-      
-    </script>
-
-@endsection
-
+</div>
+@stop
