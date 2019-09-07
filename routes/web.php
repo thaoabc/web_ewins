@@ -22,27 +22,28 @@ Route::get('admin/contact/delete/{id}','NewController@delete_contact')->name('co
 
 Route::get('admin/contact/edit/{id}-{status}','NewController@edit_contact')->name('contact.edit');
 
-Route::get('tinTuc', function () {
-	return view('pages.tinTuc');
-})->name('tinTuc');
+Route::get('tinTuc','frontend\Talenwins@news')->name('tinTuc');
 
 Route::get('traiNghiem','frontend\Talenwins@trainghiem')->name('traiNghiem');
 
-Route::get('dichvu', function () {
-	return view('pages.dichvu');
-})->name('dichvu');
+Route::get('dichvu','frontend\Talenwins@service')->name('dichvu');
 
 Route::get('gioithieu','frontend\Talenwins@about')->name('gioithieu');
 
 
 Route::get('talentwins','frontend\Talenwins@talenwin')->name('talentwins');
 
-Route::get('tintucchitiet', function () {
-	return view('pages.tintucchitiet');
-})->name('tintucchitiet');
-Route::get('talentchitiet', function () {
-	return view('pages.talentchitiet');
-})->name('talentchitiet');
+Route::get('tintucchitiet','frontend\Talenwins@newchitiet')->name('tintucchitiet');
+Route::get('talentchitiet','frontend\Talenwins@talenchitiet')->name('talentchitiet');
+
+
+
+
+
+
+
+
+
 
 
 Route::group(['prefix' => 'admin',], function() {
