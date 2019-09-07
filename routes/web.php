@@ -25,9 +25,7 @@ Route::get('admin/contact/delete/{id}','NewController@delete_contact')->name('co
 
 Route::get('admin/contact/edit/{id}-{status}','NewController@edit_contact')->name('contact.edit');
 
-Route::get('tinTuc', function () {
-	return view('pages.tinTuc');
-})->name('tinTuc');
+Route::get('/tintuc','NewController@show')->name('tintuc');
 
 Route::get('traiNghiem', function () {
 	return view('pages.traiNghiem');

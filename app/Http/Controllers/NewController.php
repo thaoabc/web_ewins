@@ -135,4 +135,35 @@ class NewController extends Controller
         DB::table('new')->where('id',$id)->delete();
         return redirect()->route('new.list');
     }
+    
+    public function show()
+    {
+        $array['cate_new']=DB::table('cate_new')
+                        ->select('cate_new.*')
+                        ->get();
+        $array['adviser']=DB::table('adviser')
+                        ->select('adviser.*')
+                        ->skip(0)
+                        ->take(3)
+                        ->get();
+        $array['nhansu']=DB::table('new')
+                        ->join('cate_new','cate_new.id','=','new.cate_new')
+                        ->join('admin','admin.id','=','new.id_admin')
+                        ->select('new.*','cate_new.name as cat_name','admin.name as ad_name')
+                        ->where('cate_new.name','=',"Nhân sự")
+                        ->get();
+        $array['phattrien']=DB::table('new')
+                        ->join('cate_new','cate_new.id','=','new.cate_new')
+                        ->join('admin','admin.id','=','new.id_admin')
+                        ->select('new.*','cate_new.name as cat_name','admin.name as ad_name')
+                        ->where('cate_new.name','=',"Đào tạo phát triển")
+                        ->get();
+        $array['doanhnghiep']=DB::table('new')
+                        ->join('cate_new','cate_new.id','=','new.cate_new')
+                        ->join('admin','admin.id','=','new.id_admin')
+                        ->select('new.*','cate_new.name as cat_name','admin.name as ad_name')
+                        ->where('cate_new.name','=',"Doanh nghiệp")
+                        ->get();
+        return view('pages.tinTuc',$array);
+    }
 }

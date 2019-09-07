@@ -358,46 +358,18 @@
 
         <div class="container">
             <div class="row">
+            @foreach($new1 as $value)
                 <div class="col-md-4">
                     <div class="h-entry">
                         <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                        <h2 class="font-size-regular"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit.</a></h2>
-                        <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2019<span
+                        <h2 class="font-size-regular"><a href="#">{{$value->title}}</a></h2>
+                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span> {{$value->created_at}}<span
                                 class="mx-2">&bullet;</span> <a href="#">News</a></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores
-                            sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+                        <p>{{$value->content}}</p>
 
                     </div>
                 </div>
-
-
-                <div class="col-md-4">
-                    <div class="h-entry">
-                        <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                        <h2 class="font-size-regular"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit.</a></h2>
-                        <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2019<span
-                                class="mx-2">&bullet;</span> <a href="#">News</a></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores
-                            sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-
-                    </div>
-                </div>
-
-
-                <div class="col-md-4">
-                    <div class="h-entry">
-                        <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                        <h2 class="font-size-regular"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit.</a></h2>
-                        <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2019<span
-                                class="mx-2">&bullet;</span> <a href="#">News</a></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores
-                            sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-
-                    </div>
-                </div>
+              @endforeach
             </div>
 
 
@@ -406,46 +378,18 @@
 
         <div class="container">
             <div class="row">
+            @foreach($new2 as $value)
                 <div class="col-md-4">
                     <div class="h-entry">
                         <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                        <h2 class="font-size-regular"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit.</a></h2>
-                        <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2019<span
+                        <h2 class="font-size-regular"><a href="#">{{$value->title}}</a></h2>
+                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span> {{$value->created_at}}<span
                                 class="mx-2">&bullet;</span> <a href="#">News</a></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores
-                            sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+                        <p>{{$value->content}}</p>
 
                     </div>
                 </div>
-
-
-                <div class="col-md-4">
-                    <div class="h-entry">
-                        <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                        <h2 class="font-size-regular"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit.</a></h2>
-                        <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2019<span
-                                class="mx-2">&bullet;</span> <a href="#">News</a></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores
-                            sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-
-                    </div>
-                </div>
-
-
-                <div class="col-md-4">
-                    <div class="h-entry">
-                        <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                        <h2 class="font-size-regular"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit.</a></h2>
-                        <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2019<span
-                                class="mx-2">&bullet;</span> <a href="#">News</a></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores
-                            sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-
-                    </div>
-                </div>
+              @endforeach
             </div>
 
 
@@ -454,46 +398,18 @@
 
         <div class="container">
             <div class="row">
+            @foreach($new3 as $value)
                 <div class="col-md-4">
                     <div class="h-entry">
                         <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                        <h2 class="font-size-regular"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit.</a></h2>
-                        <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2019<span
+                        <h2 class="font-size-regular"><a href="#">{{$value->title}}</a></h2>
+                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span> {{$value->created_at}}<span
                                 class="mx-2">&bullet;</span> <a href="#">News</a></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores
-                            sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+                        <p>{{$value->content}}</p>
 
                     </div>
                 </div>
-
-
-                <div class="col-md-4">
-                    <div class="h-entry">
-                        <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                        <h2 class="font-size-regular"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit.</a></h2>
-                        <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2019<span
-                                class="mx-2">&bullet;</span> <a href="#">News</a></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores
-                            sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-
-                    </div>
-                </div>
-
-
-                <div class="col-md-4">
-                    <div class="h-entry">
-                        <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                        <h2 class="font-size-regular"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit.</a></h2>
-                        <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2019<span
-                                class="mx-2">&bullet;</span> <a href="#">News</a></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores
-                            sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-
-                    </div>
-                </div>
+              @endforeach
             </div>
 
 
@@ -501,46 +417,18 @@
 
         <div class="container">
             <div class="row">
+            @foreach($new1 as $value)
                 <div class="col-md-4">
                     <div class="h-entry">
                         <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                        <h2 class="font-size-regular"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit.</a></h2>
-                        <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2019<span
+                        <h2 class="font-size-regular"><a href="#">{{$value->title}}</a></h2>
+                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span> {{$value->created_at}}<span
                                 class="mx-2">&bullet;</span> <a href="#">News</a></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores
-                            sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+                        <p>{{$value->content}}</p>
 
                     </div>
                 </div>
-
-
-                <div class="col-md-4">
-                    <div class="h-entry">
-                        <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                        <h2 class="font-size-regular"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit.</a></h2>
-                        <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2019<span
-                                class="mx-2">&bullet;</span> <a href="#">News</a></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores
-                            sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-
-                    </div>
-                </div>
-
-
-                <div class="col-md-4">
-                    <div class="h-entry">
-                        <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                        <h2 class="font-size-regular"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit.</a></h2>
-                        <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2019<span
-                                class="mx-2">&bullet;</span> <a href="#">News</a></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores
-                            sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-
-                    </div>
-                </div>
+              @endforeach
             </div>
 
 
