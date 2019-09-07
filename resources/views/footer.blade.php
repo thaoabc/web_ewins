@@ -5,10 +5,13 @@
         <div class="row">
           <div class="col-md-4">
             <h2 class="footer-heading mb-4">Về Chúng Tôi</h2>
-            <p style="font-size: 14px"><i class="fas fa-user-alt"></i> Công ty Công nghệ và Dịch vụ Talent Wins</p>
-            <p style="font-size: 14px"><i class="far fa-address-book"></i> Mã số thuế: 0108134425</p>
-            <p style="font-size: 14px" ><i class="far fa-address-book"></i> 0927 15 15 35</p>
-            <p style="font-size: 14px" ><i class="fas fa-envelope fa-fw"></i> contact@talentwins.co</p>
+            @foreach ($infocompany as $row)
+              <p style="font-size: 14px"><i class="fas fa-user-alt"></i> {{ $row->name }}</p>
+              <p style="font-size: 14px"><i class="far fa-address-book"></i> Mã số thuế: {{ $row->masothue }}</p>
+              <p style="font-size: 14px" ><i class="far fa-address-book"></i> {{ $row->phone }}</p>
+              <p style="font-size: 14px" ><i class="fas fa-envelope fa-fw"></i> {{ $row->email }}</p>
+            @endforeach
+            
           </div>
           <div class="col-md-4 ml-auto" style="margin-left:0 !important">
             <h2 class="footer-heading mb-4">Dịch Vụ</h2>
@@ -35,11 +38,14 @@
       <div class="col-md-3">
         <h2 class="footer-heading mb-4">Sản Phẩm Dịch Vụ của Talent Wins</h2>
         <ul class="list-unstyled" style="font-size: 14px">
-          <li><a href="#"> >> Phần mềm ERP</a></li>
-          <li><a href="#"> >> Website Tuyển Dụng Việc Làm IT DevJob</a></li>
-          <li><a href="#"> >> Dịch vụ Thiết kế website Web88.vn</a></li>
-          <li><a href="#"> >> Website tuyển dung việc làm Topcarreer.co/TotalJobs.vn/Timviecngay.vn</a></li>
-          <li><a href="#"> >> Website việc làm và khởi nghiệp cho Sinh Viên Ytalent.vn</a></li>
+          @foreach ($product as $row)
+                <li><a href="{{ $row->link }}"> >> {{ $row->name }}</a></li>
+                {{-- <li><a href="#"> >> Website Tuyển Dụng Việc Làm IT DevJob</a></li>
+                <li><a href="#"> >> Dịch vụ Thiết kế website Web88.vn</a></li>
+                <li><a href="#"> >> Website tuyển dung việc làm Topcarreer.co/TotalJobs.vn/Timviecngay.vn</a></li>
+                <li><a href="#"> >> Website việc làm và khởi nghiệp cho Sinh Viên Ytalent.vn</a></li> --}}
+          @endforeach
+         
         </ul>
 
       </div>

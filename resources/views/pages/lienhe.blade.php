@@ -1,6 +1,4 @@
 @extends('master-layout')
-
-
 @section('content')
 <main>
 
@@ -14,7 +12,6 @@
                 </div>
     </div>
   </div>
-
   <!-- bann do -->
   <div class="content-main mt-5">
     <div class="container">
