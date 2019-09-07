@@ -11,10 +11,14 @@
 |
 */
 
+<<<<<<< HEAD
 Route::get('/','HomeController@index')->name('home');
 
 Route::get('home','HomeController@index')->name('home');
 
+=======
+Route::get('/','frontend\HomeController@home')->name('home');
+>>>>>>> e2c59c25639da6625a1aeb9327ea98970082c067
 Route::get('home','frontend\HomeController@home')->name('home');
 
 Route::get('lienhe','frontend\ContactController@list')->name('lienhe');
@@ -25,31 +29,32 @@ Route::get('admin/contact/delete/{id}','NewController@delete_contact')->name('co
 
 Route::get('admin/contact/edit/{id}-{status}','NewController@edit_contact')->name('contact.edit');
 
+<<<<<<< HEAD
 Route::get('/tintuc','NewController@show')->name('tintuc');
+=======
+Route::get('tinTuc','frontend\Talenwins@news')->name('tinTuc');
 
-Route::get('traiNghiem', function () {
-	return view('pages.traiNghiem');
-})->name('traiNghiem');
+Route::get('traiNghiem','frontend\Talenwins@trainghiem')->name('traiNghiem');
 
-Route::get('dichvu', function () {
-	return view('pages.dichvu');
-})->name('dichvu');
+Route::get('dichvu','frontend\Talenwins@service')->name('dichvu');
 
-Route::get('gioithieu', function () {
-	return view('pages.gioithieu');
-})->name('gioithieu');
+Route::get('gioithieu','frontend\Talenwins@about')->name('gioithieu');
 
 
-Route::get('talentwins', function () {
-    return view('pages.talentwins');
-})->name('talentwins');
+Route::get('talentwins','frontend\Talenwins@talenwin')->name('talentwins');
 
-Route::get('tintucchitiet', function () {
-	return view('pages.tintucchitiet');
-})->name('tintucchitiet');
-Route::get('talentchitiet', function () {
-	return view('pages.talentchitiet');
-})->name('talentchitiet');
+Route::get('tintucchitiet','frontend\Talenwins@newchitiet')->name('tintucchitiet');
+Route::get('talentchitiet','frontend\Talenwins@talenchitiet')->name('talentchitiet');
+
+
+
+>>>>>>> e2c59c25639da6625a1aeb9327ea98970082c067
+
+
+
+
+
+
 
 
 Route::group(['prefix' => 'admin',], function() {
