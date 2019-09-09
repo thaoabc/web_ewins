@@ -25,9 +25,9 @@
 
 <div class="slide-one-item home-slider owl-carousel" data-aos="fade-up" data-aos-delay="200">
 
-  @foreach ($banner as $row)
-      
-  
+    @foreach ($banner as $row)
+
+
     <div class="site-blocks-cover overlay" style="background-image: url(images/{{ $row->image }})" data-aos="fade">
         <div class="container">
             <div class="row align-items-center justify-content-center">
@@ -50,7 +50,7 @@
     </div>
 
     @endforeach
-    
+
 
 
 </div>
@@ -86,83 +86,86 @@
 <!-- ban cố vấn -->
 <section class="site-section border-bottom" id="team-section">
     <div class="container">
-      <div class="row mb-5">
-        <div class="col-12 text-center" data-aos="fade-up" data-aos-delay="100">
-          <!-- <h3 class="section-sub-title">Team</h3> -->
-          <h3 class="section-title mb-3" style="font-size: 30px">BAN CỐ VẤN</h3>
-        </div>
-
-      <div class="slide-one-item home-slider owl-carousel" data-aos="fade-up" data-aos-delay="200">
-            <div class="container">
-             <div class="row" >
-                    @foreach($adviser as $value)
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="300">
-                      <div class="person text-center">
-                        <img src="{{asset('assets/img_adviser/'.$value->image)}}" alt="Image" class="img-fluid rounded-circle w-50 mb-5" style="margin-left:80px">
-                        <h3>{{$value->name}}</h3>
-                        <p class="position text-muted">{{$value->position}}</p>
-                        <p class="mb-4">{{$value->information}}</p>
-                        <ul class="ul-social-circle">
-                          <li><a href="#"><span class="icon-facebook"></span></a></li>
-                          <li><a href="#"><span class="icon-twitter"></span></a></li>
-                          <li><a href="#"><span class="icon-linkedin"></span></a></li>
-                          <li><a href="#"><span class="icon-instagram"></span></a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    @endforeach
-
-                  </div>
+        <div class="row mb-5">
+            <div class="col-12 text-center" data-aos="fade-up" data-aos-delay="100">
+                <!-- <h3 class="section-sub-title">Team</h3> -->
+                <h3 class="section-title mb-3" style="font-size: 30px">BAN CỐ VẤN</h3>
             </div>
 
-            <div class="container">
-             <div class="row">
-                    @foreach($adviser as $value)
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-                      <div class="person text-center">
-                        <img src="{{asset('assets/img_adviser/'.$value->image)}}" alt="Image" class="img-fluid rounded-circle w-50 mb-5" style="margin-left:80px">
-                        <h3>{{$value->name}}</h3>
-                        <p class="position text-muted">{{$value->position}}</p>
-                        <p class="mb-4">{{$value->information}}</p>
-                        <ul class="ul-social-circle">
-                          <li><a href="#"><span class="icon-facebook"></span></a></li>
-                          <li><a href="#"><span class="icon-twitter"></span></a></li>
-                          <li><a href="#"><span class="icon-linkedin"></span></a></li>
-                          <li><a href="#"><span class="icon-instagram"></span></a></li>
-                        </ul>
-                      </div>
+            <div class="slide-one-item home-slider owl-carousel" data-aos="fade-up" data-aos-delay="200">
+                <div class="container">
+                    <div class="row">
+                        @foreach($adviser as $value)
+                        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="300">
+                            <div class="person text-center">
+                                <img src="{{asset('assets/img_adviser/'.$value->image)}}" alt="Image"
+                                    class="img-fluid rounded-circle w-50 mb-5" style="margin-left:80px">
+                                <h3>{{$value->name}}</h3>
+                                <p class="position text-muted">{{$value->position}}</p>
+                                <p class="mb-4">{{$value->information}}</p>
+                                <ul class="ul-social-circle">
+                                    <li><a href="#"><span class="icon-facebook"></span></a></li>
+                                    <li><a href="#"><span class="icon-twitter"></span></a></li>
+                                    <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                                    <li><a href="#"><span class="icon-instagram"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        @endforeach
+
                     </div>
-                    @endforeach
+                </div>
 
-                    
+                <div class="container">
+                    <div class="row">
+                        @foreach($adviser as $value)
+                        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+                            <div class="person text-center">
+                                <img src="{{asset('assets/img_adviser/'.$value->image)}}" alt="Image"
+                                    class="img-fluid rounded-circle w-50 mb-5" style="margin-left:80px">
+                                <h3>{{$value->name}}</h3>
+                                <p class="position text-muted">{{$value->position}}</p>
+                                <p class="mb-4">{{$value->information}}</p>
+                                <ul class="ul-social-circle">
+                                    <li><a href="#"><span class="icon-facebook"></span></a></li>
+                                    <li><a href="#"><span class="icon-twitter"></span></a></li>
+                                    <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                                    <li><a href="#"><span class="icon-instagram"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        @endforeach
 
-                  </div>
-            </div>
 
-            <div class="container">
-             <div class="row">
-                    @foreach($adviser as $value)
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-                      <div class="person text-center">
-                        <img src="{{asset('assets/img_adviser/'.$value->image)}}" alt="Image" class="img-fluid rounded-circle w-50 mb-5" style="margin-left:80px">
-                        <h3>{{$value->name}}</h3>
-                        <p class="position text-muted">{{$value->position}}</p>
-                        <p class="mb-4">{{$value->information}}</p>
-                        <ul class="ul-social-circle">
-                          <li><a href="#"><span class="icon-facebook"></span></a></li>
-                          <li><a href="#"><span class="icon-twitter"></span></a></li>
-                          <li><a href="#"><span class="icon-linkedin"></span></a></li>
-                          <li><a href="#"><span class="icon-instagram"></span></a></li>
-                        </ul>
-                      </div>
+
                     </div>
-                    @endforeach
-                    
+                </div>
 
-                  </div>
-            </div>
+                <div class="container">
+                    <div class="row">
+                        @foreach($adviser as $value)
+                        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+                            <div class="person text-center">
+                                <img src="{{asset('assets/img_adviser/'.$value->image)}}" alt="Image"
+                                    class="img-fluid rounded-circle w-50 mb-5" style="margin-left:80px">
+                                <h3>{{$value->name}}</h3>
+                                <p class="position text-muted">{{$value->position}}</p>
+                                <p class="mb-4">{{$value->information}}</p>
+                                <ul class="ul-social-circle">
+                                    <li><a href="#"><span class="icon-facebook"></span></a></li>
+                                    <li><a href="#"><span class="icon-twitter"></span></a></li>
+                                    <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                                    <li><a href="#"><span class="icon-instagram"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        @endforeach
 
-            {{-- <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="300">
+
+                    </div>
+                </div>
+
+                {{-- <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="300">
                       <div class="person text-center">
                         <img src="images/person_4.jpg" alt="Image" class="img-fluid rounded-circle w-50 mb-5" style="margin-left:80px">
                         <h3>Winston Hodson</h3>
@@ -176,14 +179,14 @@
                         </ul>
                       </div>
             </div> --}}
-            
-      </div>
 
-     
+            </div>
 
-     
-    </div>
-  </section>
+
+
+
+        </div>
+</section>
 
 <!-- <section class="site-section">
       <div class="container">
@@ -247,33 +250,214 @@
         </div>
         <div class="row align-items-stretch">
 
+<<<<<<< HEAD
           @foreach ($elearnings as $row)
+=======
+
+
+            @foreach ($elearning as $row)
+>>>>>>> fae063fca3c7277fd754f4848658bdfd85f14ee2
             <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
                 <div class="unit-4 d-flex">
-                    <div class="unit-4-icon mr-4"><img src="http://trinam.com.vn/images/trinam/giaiphap/{{ $row->icon }}" alt="">
+                    <div class="unit-4-icon mr-4"><img
+                            src="http://trinam.com.vn/images/trinam/giaiphap/{{ $row->icon }}" alt="">
                     </div>
                     <div>
                         <h3>{{ $row->id }}. {{ $row->title }}</h3>
 
                         @foreach ($subelearnings as $item)
-                            @if($row->id==$item->cate_id)
-                              <span><i class="fas fa-check" style="color:#61c357"></i> {{ $item->name }}</span>
-                              <br>
-                            @endif
+                          @if($row->id==$item->cate_id)
+                          <span><i class="fas fa-check" style="color:#61c357"></i> {{ $item->name }}</span>
+                          <br>
+                          @endif
                         @endforeach
+<<<<<<< HEAD
                         
                         <!-- {{-- <span><i class="fas fa-check" style="color:#61c357"></i> Thi, kiểm tra đánh giá xác định năng
                             lực, sự thiếu hụt kiến thức kỹ năng</span> --}} -->
+=======
+
+                        {{-- <span><i class="fas fa-check" style="color:#61c357"></i> Thi, kiểm tra đánh giá xác định năng
+                            lực, sự thiếu hụt kiến thức kỹ năng</span> --}}
+>>>>>>> fae063fca3c7277fd754f4848658bdfd85f14ee2
                     </div>
                 </div>
             </div>
-          @endforeach
-           
+            @endforeach
 
 
+
+<<<<<<< HEAD
             
+=======
+            {{-- <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="unit-4 d-flex">
+                    <div class="unit-4-icon mr-4"><img src="http://trinam.com.vn/images/trinam/giaiphap/ic2.png" alt="">
+                    </div>
+                    <div>
+                        <h3>2. Lập và quản lý kế hoạch đào tạo</h3>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Lập kế hoạch đào tạo</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Quản lý kế hoạch đào tạo</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Quản lý các chương trình đào tạo</span>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="unit-4 d-flex">
+                    <div class="unit-4-icon mr-4"><img src="http://trinam.com.vn/images/trinam/giaiphap/ic3.png" alt="">
+                    </div>
+                    <div>
+                        <h3>3. Học tập</h3>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Đào tạo theo chức danh, kế hoạch, mục
+                            tiêu cá nhân</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Đánh giá trong đào tạo: đánh giá học
+                            viên; đánh giá giảng viên; đánh giá tổ chức khóa học...</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Quản lý chi phí đào tạo</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Quản lý khóa học</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="unit-4 d-flex">
+                    <div class="unit-4-icon mr-4">
+                        <img src="http://trinam.com.vn/images/trinam/giaiphap/ic4.png" alt="">
+                    </div>
+                    <div>
+                        <h3>4. Thi - Kiểm tra</h3>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Tổ chức thi: Thi chính thức; thi thử;
+                            thi ôn luyện</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Thi và giám sát thi</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Chấm thi và lên điểm</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Khiếu nại và giải quyết khiếu
+                            nại</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Quản lý chi phí thi</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Quản lý ngân hàng câu hỏi</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Quản lý ngân hàng đề thi</span>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="unit-4 d-flex">
+                    <div class="unit-4-icon mr-4"><img src="http://trinam.com.vn/images/trinam/giaiphap/ic9.png"
+                            alt="">></div>
+                    <div>
+                        <h3>5. Học, thi trên Mobile</h3>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Học theo chức danh, kế hoạch, mục tiêu
+                            cá nhân</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Thi chính thức; thi thử; thi ôn
+                            luyện</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Xem và tham khỏa thư viện</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Học khóa học realtime</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="500">
+                <div class="unit-4 d-flex">
+                    <div class="unit-4-icon mr-4"><img src="http://trinam.com.vn/images/trinam/giaiphap/ic5.png" alt="">
+                    </div>
+                    <div>
+                        <h3>6. Thư viện</h3>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Thư viện bài giảng</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Thư viện tài liệu</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Thư viện chương trình đào tạo</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Quản lý chức danh</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Quản lý khung kiến thức</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Quản lý khung năng lực</span>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="600">
+                <div class="unit-4 d-flex">
+                    <div class="unit-4-icon mr-4"><img src="http://trinam.com.vn/images/trinam/giaiphap/ic7.png" alt="">
+                    </div>
+                    <div>
+                        <h3>7. Giảng dạy trực tuyến Realtime</h3>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Quản lý lịch dạy trực tuyến</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Thiết lập các đối tượng tham dự; thông
+                            báo tới các đối tượng quá SMS, Email...</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Chuẩn bị tài nguyên cho buổi dạy trực
+                            tuyến</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Dạy học trực tuyến bằng webcam, micro,
+                            bảng trắng, chia sẻ màn hình...</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Ghi và xem lại lịch dạy trực
+                            tuyến</span>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="700">
+                <div class="unit-4 d-flex">
+                    <div class="unit-4-icon mr-4"><img src="http://trinam.com.vn/images/trinam/giaiphap/ic8.png" alt="">
+                    </div>
+                    <div>
+                        <h3>8. Quản trị, báo cáo</h3>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Quản lý người dùng</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Quản lý cơ cấu, tổ chức, nhóm người
+                            dùng</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Phân quyền hệ thống</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Giám sát hệ thống</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Báo cáo thống kê</span>
+                        <br>
+                        <span><i class="fas fa-check" style="color:#61c357"></i> Theo dõi đánh giá M & E và phân tích dự
+                            báo ra quyết định</span>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="800">
+                <div class="unit-4 d-flex">
+                    <div class="unit-4-icon mr-4"><img src="http://trinam.com.vn/images/trinam/giaiphap/ic6.png" alt="">
+                    </div>
+                    <div>
+                        <h3>{{$i}}. {{$e_learning->title}}</h3>
+            <span><i class="fas fa-check" style="color:#61c357"></i> {{$e_learning->name}}</span>
+            <br>
+>>>>>>> fae063fca3c7277fd754f4848658bdfd85f14ee2
 
         </div>
+    </div>
+    </div>
+
+    @endforeach
+    </div>
     </div>
 </section>
 
@@ -366,18 +550,18 @@
 
         <div class="container">
             <div class="row">
-            @foreach($new1 as $value)
+                @foreach($new1 as $value)
                 <div class="col-md-4">
                     <div class="h-entry">
                         <img src="images/img_1.jpg" alt="Image" class="img-fluid">
                         <h2 class="font-size-regular"><a href="#">{{$value->title}}</a></h2>
-                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span> {{$value->created_at}}<span
-                                class="mx-2">&bullet;</span> <a href="#">News</a></div>
+                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span>
+                            {{$value->created_at}}<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
                         <p>{{$value->content}}</p>
 
                     </div>
                 </div>
-              @endforeach
+                @endforeach
             </div>
 
 
@@ -386,18 +570,18 @@
 
         <div class="container">
             <div class="row">
-            @foreach($new2 as $value)
+                @foreach($new2 as $value)
                 <div class="col-md-4">
                     <div class="h-entry">
                         <img src="images/img_1.jpg" alt="Image" class="img-fluid">
                         <h2 class="font-size-regular"><a href="#">{{$value->title}}</a></h2>
-                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span> {{$value->created_at}}<span
-                                class="mx-2">&bullet;</span> <a href="#">News</a></div>
+                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span>
+                            {{$value->created_at}}<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
                         <p>{{$value->content}}</p>
 
                     </div>
                 </div>
-              @endforeach
+                @endforeach
             </div>
 
 
@@ -406,18 +590,18 @@
 
         <div class="container">
             <div class="row">
-            @foreach($new3 as $value)
+                @foreach($new3 as $value)
                 <div class="col-md-4">
                     <div class="h-entry">
                         <img src="images/img_1.jpg" alt="Image" class="img-fluid">
                         <h2 class="font-size-regular"><a href="#">{{$value->title}}</a></h2>
-                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span> {{$value->created_at}}<span
-                                class="mx-2">&bullet;</span> <a href="#">News</a></div>
+                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span>
+                            {{$value->created_at}}<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
                         <p>{{$value->content}}</p>
 
                     </div>
                 </div>
-              @endforeach
+                @endforeach
             </div>
 
 
@@ -425,18 +609,18 @@
 
         <div class="container">
             <div class="row">
-            @foreach($new1 as $value)
+                @foreach($new1 as $value)
                 <div class="col-md-4">
                     <div class="h-entry">
                         <img src="images/img_1.jpg" alt="Image" class="img-fluid">
                         <h2 class="font-size-regular"><a href="#">{{$value->title}}</a></h2>
-                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span> {{$value->created_at}}<span
-                                class="mx-2">&bullet;</span> <a href="#">News</a></div>
+                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span>
+                            {{$value->created_at}}<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
                         <p>{{$value->content}}</p>
 
                     </div>
                 </div>
-              @endforeach
+                @endforeach
             </div>
 
 

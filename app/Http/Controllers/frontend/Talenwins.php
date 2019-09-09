@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\frontend;
-use App\models\{inforcompany,product};
+use App\models\{inforcompany,product,cate_new};
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -9,6 +9,7 @@ class Talenwins extends Controller
 {
     public function talenwin()
     {
+        $data['cate_new']=cate_new::all();
         $data['infocompany']=inforcompany::all();
         $data['product']=product::all();
         return view('pages.talentwins',$data);
@@ -18,6 +19,7 @@ class Talenwins extends Controller
 
     public function trainghiem()
     {
+        $data['cate_new']=cate_new::all();
         $data['infocompany']=inforcompany::all();
         $data['product']=product::all();
         return view('pages.traiNghiem',$data);
@@ -25,6 +27,7 @@ class Talenwins extends Controller
 
     public function about()
     {
+        $data['cate_new']=cate_new::all();
         $data['infocompany']=inforcompany::all();
         $data['product']=product::all();
         return view('pages.gioithieu',$data);
@@ -32,6 +35,7 @@ class Talenwins extends Controller
 
     public function news()
     {
+        $data['cate_new']=cate_new::all();
         $data['infocompany']=inforcompany::all();
         $data['product']=product::all();
         return view('pages.tinTuc',$data);
@@ -40,6 +44,7 @@ class Talenwins extends Controller
 
     public function service()
     {
+        $data['cate_new']=cate_new::all();
         $data['infocompany']=inforcompany::all();
         $data['product']=product::all();
         return view('pages.dichvu',$data);
@@ -48,6 +53,7 @@ class Talenwins extends Controller
 
     public function newchitiet()
     {
+        $data['cate_new']=cate_new::all();
         $data['infocompany']=inforcompany::all();
         $data['product']=product::all();
         return view('pages.tintucchitiet',$data);
@@ -55,6 +61,7 @@ class Talenwins extends Controller
 
     public function talenchitiet()
     {
+        $data['cate_new']=cate_new::all();
         $data['infocompany']=inforcompany::all();
         $data['product']=product::all();
         return view('pages.talentchitiet',$data);

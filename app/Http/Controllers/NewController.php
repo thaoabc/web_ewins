@@ -9,7 +9,7 @@ class NewController extends Controller
 {
     public function list()
     {
-      
+        
         $array['new']=DB::table('new')
                         ->join('admin','admin.id','=','new.id_admin')
                         ->select('new.*','admin.name as name')

@@ -9,7 +9,7 @@ use DB;
 class CateNewController extends Controller
 {
     public function list()
-    {
+    { 
         $array['cate_new']=DB::table('cate_new')->get();
         return view('admins.page.new.cate_new',$array);
     }
