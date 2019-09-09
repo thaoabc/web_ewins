@@ -27,9 +27,9 @@
 
 <div class="slide-one-item home-slider owl-carousel" data-aos="fade-up" data-aos-delay="200">
 
-  @foreach ($banner as $row)
-      
-  
+    @foreach ($banner as $row)
+
+
     <div class="site-blocks-cover overlay" style="background-image: url(images/{{ $row->image }})" data-aos="fade">
         <div class="container">
             <div class="row align-items-center justify-content-center">
@@ -52,7 +52,7 @@
     </div>
 
     @endforeach
-    
+
 
 
 </div>
@@ -88,83 +88,86 @@
 <!-- ban cố vấn -->
 <section class="site-section border-bottom" id="team-section">
     <div class="container">
-      <div class="row mb-5">
-        <div class="col-12 text-center" data-aos="fade-up" data-aos-delay="100">
-          <!-- <h3 class="section-sub-title">Team</h3> -->
-          <h3 class="section-title mb-3" style="font-size: 30px">BAN CỐ VẤN</h3>
-        </div>
-
-      <div class="slide-one-item home-slider owl-carousel" data-aos="fade-up" data-aos-delay="200">
-            <div class="container">
-             <div class="row" >
-                    @foreach($adviser as $value)
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="300">
-                      <div class="person text-center">
-                        <img src="{{asset('assets/img_adviser/'.$value->image)}}" alt="Image" class="img-fluid rounded-circle w-50 mb-5" style="margin-left:80px">
-                        <h3>{{$value->name}}</h3>
-                        <p class="position text-muted">{{$value->position}}</p>
-                        <p class="mb-4">{{$value->information}}</p>
-                        <ul class="ul-social-circle">
-                          <li><a href="#"><span class="icon-facebook"></span></a></li>
-                          <li><a href="#"><span class="icon-twitter"></span></a></li>
-                          <li><a href="#"><span class="icon-linkedin"></span></a></li>
-                          <li><a href="#"><span class="icon-instagram"></span></a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    @endforeach
-
-                  </div>
+        <div class="row mb-5">
+            <div class="col-12 text-center" data-aos="fade-up" data-aos-delay="100">
+                <!-- <h3 class="section-sub-title">Team</h3> -->
+                <h3 class="section-title mb-3" style="font-size: 30px">BAN CỐ VẤN</h3>
             </div>
 
-            <div class="container">
-             <div class="row">
-                    @foreach($adviser as $value)
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-                      <div class="person text-center">
-                        <img src="{{asset('assets/img_adviser/'.$value->image)}}" alt="Image" class="img-fluid rounded-circle w-50 mb-5" style="margin-left:80px">
-                        <h3>{{$value->name}}</h3>
-                        <p class="position text-muted">{{$value->position}}</p>
-                        <p class="mb-4">{{$value->information}}</p>
-                        <ul class="ul-social-circle">
-                          <li><a href="#"><span class="icon-facebook"></span></a></li>
-                          <li><a href="#"><span class="icon-twitter"></span></a></li>
-                          <li><a href="#"><span class="icon-linkedin"></span></a></li>
-                          <li><a href="#"><span class="icon-instagram"></span></a></li>
-                        </ul>
-                      </div>
+            <div class="slide-one-item home-slider owl-carousel" data-aos="fade-up" data-aos-delay="200">
+                <div class="container">
+                    <div class="row">
+                        @foreach($adviser as $value)
+                        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="300">
+                            <div class="person text-center">
+                                <img src="{{asset('assets/img_adviser/'.$value->image)}}" alt="Image"
+                                    class="img-fluid rounded-circle w-50 mb-5" style="margin-left:80px">
+                                <h3>{{$value->name}}</h3>
+                                <p class="position text-muted">{{$value->position}}</p>
+                                <p class="mb-4">{{$value->information}}</p>
+                                <ul class="ul-social-circle">
+                                    <li><a href="#"><span class="icon-facebook"></span></a></li>
+                                    <li><a href="#"><span class="icon-twitter"></span></a></li>
+                                    <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                                    <li><a href="#"><span class="icon-instagram"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        @endforeach
+
                     </div>
-                    @endforeach
+                </div>
 
-                    
+                <div class="container">
+                    <div class="row">
+                        @foreach($adviser as $value)
+                        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+                            <div class="person text-center">
+                                <img src="{{asset('assets/img_adviser/'.$value->image)}}" alt="Image"
+                                    class="img-fluid rounded-circle w-50 mb-5" style="margin-left:80px">
+                                <h3>{{$value->name}}</h3>
+                                <p class="position text-muted">{{$value->position}}</p>
+                                <p class="mb-4">{{$value->information}}</p>
+                                <ul class="ul-social-circle">
+                                    <li><a href="#"><span class="icon-facebook"></span></a></li>
+                                    <li><a href="#"><span class="icon-twitter"></span></a></li>
+                                    <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                                    <li><a href="#"><span class="icon-instagram"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        @endforeach
 
-                  </div>
-            </div>
 
-            <div class="container">
-             <div class="row">
-                    @foreach($adviser as $value)
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-                      <div class="person text-center">
-                        <img src="{{asset('assets/img_adviser/'.$value->image)}}" alt="Image" class="img-fluid rounded-circle w-50 mb-5" style="margin-left:80px">
-                        <h3>{{$value->name}}</h3>
-                        <p class="position text-muted">{{$value->position}}</p>
-                        <p class="mb-4">{{$value->information}}</p>
-                        <ul class="ul-social-circle">
-                          <li><a href="#"><span class="icon-facebook"></span></a></li>
-                          <li><a href="#"><span class="icon-twitter"></span></a></li>
-                          <li><a href="#"><span class="icon-linkedin"></span></a></li>
-                          <li><a href="#"><span class="icon-instagram"></span></a></li>
-                        </ul>
-                      </div>
+
                     </div>
-                    @endforeach
-                    
+                </div>
 
-                  </div>
-            </div>
+                <div class="container">
+                    <div class="row">
+                        @foreach($adviser as $value)
+                        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+                            <div class="person text-center">
+                                <img src="{{asset('assets/img_adviser/'.$value->image)}}" alt="Image"
+                                    class="img-fluid rounded-circle w-50 mb-5" style="margin-left:80px">
+                                <h3>{{$value->name}}</h3>
+                                <p class="position text-muted">{{$value->position}}</p>
+                                <p class="mb-4">{{$value->information}}</p>
+                                <ul class="ul-social-circle">
+                                    <li><a href="#"><span class="icon-facebook"></span></a></li>
+                                    <li><a href="#"><span class="icon-twitter"></span></a></li>
+                                    <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                                    <li><a href="#"><span class="icon-instagram"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        @endforeach
 
-            {{-- <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="300">
+
+                    </div>
+                </div>
+
+                {{-- <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="300">
                       <div class="person text-center">
                         <img src="images/person_4.jpg" alt="Image" class="img-fluid rounded-circle w-50 mb-5" style="margin-left:80px">
                         <h3>Winston Hodson</h3>
@@ -178,14 +181,14 @@
                         </ul>
                       </div>
             </div> --}}
-            
-      </div>
 
-     
+            </div>
 
-     
-    </div>
-  </section>
+
+
+
+        </div>
+</section>
 
 <!-- <section class="site-section">
       <div class="container">
@@ -248,33 +251,32 @@
             </div>
         </div>
         <div class="row align-items-stretch">
-<<<<<<< HEAD
-        <?php $i =1; ?>
-              @foreach($sub_e_learning as $e_learning)
-=======
 
-          @foreach ($elearning as $row)
+
+
+            @foreach ($elearning as $row)
             <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
                 <div class="unit-4 d-flex">
-                    <div class="unit-4-icon mr-4"><img src="http://trinam.com.vn/images/trinam/giaiphap/{{ $row->icon }}" alt="">
+                    <div class="unit-4-icon mr-4"><img
+                            src="http://trinam.com.vn/images/trinam/giaiphap/{{ $row->icon }}" alt="">
                     </div>
                     <div>
                         <h3>{{ $row->id }}. {{ $row->title }}</h3>
 
                         @foreach ($subelearnings as $item)
-                            @if($row->id==$item->cate_id)
-                              <span><i class="fas fa-check" style="color:#61c357"></i> {{ $item->name }}</span>
-                              <br>
-                            @endif
+                          @if($row->id==$item->cate_id)
+                          <span><i class="fas fa-check" style="color:#61c357"></i> {{ $item->name }}</span>
+                          <br>
+                          @endif
                         @endforeach
-                        
+
                         {{-- <span><i class="fas fa-check" style="color:#61c357"></i> Thi, kiểm tra đánh giá xác định năng
                             lực, sự thiếu hụt kiến thức kỹ năng</span> --}}
                     </div>
                 </div>
             </div>
-          @endforeach
-           
+            @endforeach
+
 
 
             {{-- <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
@@ -429,27 +431,21 @@
                 </div>
             </div>
 
->>>>>>> e2c59c25639da6625a1aeb9327ea98970082c067
             <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="800">
                 <div class="unit-4 d-flex">
                     <div class="unit-4-icon mr-4"><img src="http://trinam.com.vn/images/trinam/giaiphap/ic6.png" alt="">
                     </div>
                     <div>
                         <h3>{{$i}}. {{$e_learning->title}}</h3>
-                        <span><i class="fas fa-check" style="color:#61c357"></i> {{$e_learning->name}}</span>
-                        <br>
+            <span><i class="fas fa-check" style="color:#61c357"></i> {{$e_learning->name}}</span>
+            <br>
 
-                    </div>
-                </div>
-<<<<<<< HEAD
-            </div>
-            <?php $i++ ?>
-            @endforeach
-=======
-            </div> --}}
-
->>>>>>> e2c59c25639da6625a1aeb9327ea98970082c067
         </div>
+    </div>
+    </div>
+
+    @endforeach
+    </div>
     </div>
 </section>
 
@@ -542,18 +538,18 @@
 
         <div class="container">
             <div class="row">
-            @foreach($new1 as $value)
+                @foreach($new1 as $value)
                 <div class="col-md-4">
                     <div class="h-entry">
                         <img src="images/img_1.jpg" alt="Image" class="img-fluid">
                         <h2 class="font-size-regular"><a href="#">{{$value->title}}</a></h2>
-                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span> {{$value->created_at}}<span
-                                class="mx-2">&bullet;</span> <a href="#">News</a></div>
+                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span>
+                            {{$value->created_at}}<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
                         <p>{{$value->content}}</p>
 
                     </div>
                 </div>
-              @endforeach
+                @endforeach
             </div>
 
 
@@ -562,18 +558,18 @@
 
         <div class="container">
             <div class="row">
-            @foreach($new2 as $value)
+                @foreach($new2 as $value)
                 <div class="col-md-4">
                     <div class="h-entry">
                         <img src="images/img_1.jpg" alt="Image" class="img-fluid">
                         <h2 class="font-size-regular"><a href="#">{{$value->title}}</a></h2>
-                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span> {{$value->created_at}}<span
-                                class="mx-2">&bullet;</span> <a href="#">News</a></div>
+                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span>
+                            {{$value->created_at}}<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
                         <p>{{$value->content}}</p>
 
                     </div>
                 </div>
-              @endforeach
+                @endforeach
             </div>
 
 
@@ -582,18 +578,18 @@
 
         <div class="container">
             <div class="row">
-            @foreach($new3 as $value)
+                @foreach($new3 as $value)
                 <div class="col-md-4">
                     <div class="h-entry">
                         <img src="images/img_1.jpg" alt="Image" class="img-fluid">
                         <h2 class="font-size-regular"><a href="#">{{$value->title}}</a></h2>
-                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span> {{$value->created_at}}<span
-                                class="mx-2">&bullet;</span> <a href="#">News</a></div>
+                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span>
+                            {{$value->created_at}}<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
                         <p>{{$value->content}}</p>
 
                     </div>
                 </div>
-              @endforeach
+                @endforeach
             </div>
 
 
@@ -601,18 +597,18 @@
 
         <div class="container">
             <div class="row">
-            @foreach($new1 as $value)
+                @foreach($new1 as $value)
                 <div class="col-md-4">
                     <div class="h-entry">
                         <img src="images/img_1.jpg" alt="Image" class="img-fluid">
                         <h2 class="font-size-regular"><a href="#">{{$value->title}}</a></h2>
-                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span> {{$value->created_at}}<span
-                                class="mx-2">&bullet;</span> <a href="#">News</a></div>
+                        <div class="meta mb-4">{{$value->name}} <span class="mx-2">&bullet;</span>
+                            {{$value->created_at}}<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
                         <p>{{$value->content}}</p>
 
                     </div>
                 </div>
-              @endforeach
+                @endforeach
             </div>
 
 
