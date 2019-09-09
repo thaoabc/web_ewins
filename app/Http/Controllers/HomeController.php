@@ -21,9 +21,17 @@ class HomeController extends Controller
         $array['banner']=DB::table('banner')
                         ->select('banner.*')
                         ->get();
-        $array['sub_e_learning']=DB::table('sub_e_learning')
-                        ->join('e_learning','e_learning.id','=','sub_e_learning.cate_id')
-                        ->select('sub_e_learning.*','e_learning.title as title','sub_e_learning.name as name')
+        $array['subelearnings']=DB::table('sub_e_learning')
+                        ->select('sub_e_learning.*')
+                        ->get();
+        $array['elearnings']=DB::table('e_learning')
+                        ->select('e_learning.*')
+                        ->get();
+        $array['infocompany']=DB::table('infor_company')
+                        ->select('infor_company.*')
+                        ->get();
+        $array['product']=DB::table('product')
+                        ->select('product.*')
                         ->get();
         $array['new1']=DB::table('new')
                         ->join('admin','admin.id','=','new.id_admin')
