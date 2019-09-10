@@ -40,7 +40,7 @@
                             <div class="col-md-4 p-3"><img style="height: 237px;" src="{{ asset('assets/img_new/'.$value->image) }}" alt=""></div>
                         
                             <div class="blog-content col-md-8">
-                                <a href="{{ route('tintucchitiet') }}" class="blog-headline">
+                                <a href="{{ Route('tinTuc',['slug'=>$value->slug]) }}" class="blog-headline">
                                     <h5>{{$value->title}}</h5>
                                 </a>
                                 <div class="meta d-flex align-items-center">
@@ -64,7 +64,7 @@
                             <div class="col-md-4 p-3"><img style="height: 237px;" src="{{ asset('assets/img_new/'.$value->image) }}" alt=""></div>
                         
                             <div class="blog-content col-md-8">
-                                <a href="{{ route('tintucchitiet') }}" class="blog-headline">
+                                <a href="{{ Route('tinTuc',['slug'=>$value->slug]) }}" class="blog-headline">
                                     <h5>{{$value->title}}</h5>
                                 </a>
                                 <div class="meta d-flex align-items-center">
@@ -88,7 +88,7 @@
                             <div class="col-md-4 p-3"><img style="height: 237px;" src="{{ asset('assets/img_new/'.$value->image) }}" alt=""></div>
                         
                             <div class="blog-content col-md-8">
-                                <a href="{{ route('tintucchitiet') }}" class="blog-headline">
+                                <a href="{{ Route('tinTuc',['slug'=>$value->slug]) }}" class="blog-headline">
                                     <h5>{{$value->title}}</h5>
                                 </a>
                                 <div class="meta d-flex align-items-center">

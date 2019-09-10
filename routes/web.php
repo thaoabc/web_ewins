@@ -15,13 +15,9 @@ Route::get('/','HomeController@index')->name('home');
 
 Route::get('home','HomeController@index')->name('home');
 
-<<<<<<< HEAD
 // Route::get('home','frontend\HomeController@home')->name('home');
 
 Route::get('lienhe','frontend\ContactController@list')->name('lienhe');
-=======
-Route::get('lienhe','HomeController@list')->name('lienhe');
->>>>>>> fae063fca3c7277fd754f4848658bdfd85f14ee2
 
 Route::post('lienhe','NewController@insert_contact')->name('contact.add');
 
@@ -29,14 +25,10 @@ Route::get('admin/contact/delete/{id}','NewController@delete_contact')->name('co
 
 Route::get('admin/contact/edit/{id}-{status}','NewController@edit_contact')->name('contact.edit');
 
-<<<<<<< HEAD
 Route::get('tintuc','NewController@show')->name('tintuc');
 // Route::get('tinTuc','frontend\Talenwins@news')->name('tinTuc');
-=======
-Route::get('tinTuc','HomeController@index')->name('tinTuc');
->>>>>>> fae063fca3c7277fd754f4848658bdfd85f14ee2
 
-Route::get('traiNghiem','HomeController@trainghiem')->name('traiNghiem');
+Route::get('traiNghiem','HomeController@product')->name('traiNghiem');
 
 Route::get('dichvu','HomeController@service')->name('dichvu');
 
@@ -45,7 +37,7 @@ Route::get('gioithieu','HomeController@about')->name('gioithieu');
 
 Route::get('talentwins','HomeController@talenwin')->name('talentwins');
 
-Route::get('tintucchitiet','HomeController@newchitiet')->name('tintucchitiet');
+Route::get('tinTuc/{slug}','NewController@detail')->name('tinTuc');
 Route::get('talentchitiet','HomeController@talenchitiet')->name('talentchitiet');
 
 
