@@ -32,6 +32,8 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
 
+
+
                 <div class="col-md-12" data-aos="fade-up" data-aos-delay="400">
 
                     <div class="row mb-4">
@@ -250,7 +252,7 @@
         </div>
         <div class="row align-items-stretch">
 
-          @foreach ($elearnings as $row)
+            @foreach ($elearnings as $row)
             <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
                 <div class="unit-4 d-flex">
                     <div class="unit-4-icon mr-4"><img
@@ -260,18 +262,18 @@
                         <h3>{{ $row->id }}. {{ $row->title }}</h3>
 
                         @foreach ($subelearnings as $item)
-                          @if($row->id==$item->cate_id)
-                          <span><i class="fas fa-check" style="color:#61c357"></i> {{ $item->name }}</span>
-                          <br>
-                          @endif
+                        @if($row->id==$item->cate_id)
+                        <span><i class="fas fa-check" style="color:#61c357"></i> {{ $item->name }}</span>
+                        <br>
+                        @endif
                         @endforeach
-                        
-        </div>
-    </div>
-    </div>
 
-    @endforeach
-    </div>
+                    </div>
+                </div>
+            </div>
+
+            @endforeach
+        </div>
     </div>
 </section>
 
@@ -539,23 +541,26 @@
                 </form>
             </div>
             <div class="col-md-5" style="">
+                @foreach ($infocompany as $item)
+
 
                 <div class="p-4 mb-3 " style="padding:30px">
-                    <p class="mb-4 font-weight-bold mt-4">Công ty Công nghệ và Dịch vụ Talent Wins</p>
+                    <p class="mb-4 font-weight-bold mt-4">{{ $item->name }}</p>
                     <p class="mb-0 font-weight-bold"> <i class="fas fa-map-marker-alt fa-fw"></i> Địa chỉ</p>
-                    <p class="mb-4" style="color:#04B404">Tòa CT2, khu đô thị Thái Hà Constrexim, 43 Phạm Văn Đồng, Hà
-                        Nội</p>
+                    <p class="mb-4" style="color:#04B404">{{ $item->address }}</p>
 
                     <p class="mb-0 font-weight-bold"><i class="fa fa-phone"></i> Số Điện Thoại</p>
-                    <p class="mb-0"><a href="#" style="color:#04B404"> 0927 15 15 35 (Mr. Hải)</a></p>
-                    <p class="mb-0"><a href="#" style="color:#04B404">0919 75 6006 (Ms An)</a></p>
-                    <p class="mb-4"><a href="#" style="color:#04B404">0927 15 15 35 (Mr. Hải)</a></p>
+                    <p class="mb-0"><a href="#" style="color:#04B404"> {{ $item->phone }}</a></p>
+
+
+
+
 
                     <p class="mb-0 font-weight-bold icon-envelope"> Email</p>
-                    <p class="mb-0"><a href="#" style="color:#04B404">contact@talentwins.co</a></p>
+                    <p class="mb-0"><a href="#" style="color:#04B404">{{ $item->email }}</a></p>
 
                 </div>
-
+                @endforeach
             </div>
         </div>
     </div>

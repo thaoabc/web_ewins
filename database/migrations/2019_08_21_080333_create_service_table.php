@@ -25,6 +25,7 @@ class CreateServiceTable extends Migration
             $table->string('name');
             $table->text('content');
             $table->string('slug');
+            $table->string('link');
             $table->tinyInteger('status')->default(0);
             $table->bigInteger('cate_id')->unsigned();
             $table->foreign('cate_id')

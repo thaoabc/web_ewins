@@ -16,21 +16,21 @@
           <div class="col-md-4 ml-auto" style="margin-left:0 !important">
             <h2 class="footer-heading mb-4">Dịch Vụ</h2>
             <ul class="list-unstyled" style="font-size: 14px">
-              <li><a href="#"> >> Dịch vụ quản trị website</a></li>
-              <li><a href="#"> >> Dịch vụ SEO từ khóa website giá rẻ</a></li>
-              <li><a href="#"> >> Quảng cáo Google Adwords</a></li>
-              <li><a href="#"> >> Thiết kế web du lịch chuyên nghiệp</a></li>
-              <li><a href="#"> >> Thiết kế web tin tức, báo chí online</a></li>
+              @foreach ($service as $item)
+                <li><a href="{{ $item->link }}"> >> {{ $item->name }}</a></li>
+              @endforeach
+             
+              
             </ul>
           </div>
           <div class="col-md-4">
             <h2 class="footer-heading mb-4">Hỗ Trợ</h2>
             <ul class="list-unstyled" style="font-size: 14px">
-              <li><a href="#"> >> Dịch vụ quản trị website</a></li>
-              <li><a href="#"> >> Dịch vụ SEO từ khóa website giá rẻ</a></li>
-              <li><a href="#"> >> Quảng cáo Google Adwords</a></li>
-              <li><a href="#"> >> Thiết kế web du lịch chuyên nghiệp</a></li>
-              <li><a href="#"> >> Thiết kế web tin tức, báo chí online</a></li>
+                @foreach ($support as $item)
+                      <li><a href="{{ $item->link }}"> >> {{ $item->title }}</a></li>
+                @endforeach
+              
+              
             </ul>
           </div>
         </div>
