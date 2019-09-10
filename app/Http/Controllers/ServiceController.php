@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\models\{inforcompany,product,elearning,subelearning,cate_new,talentwins,service,support,cate_service};
+
 use DB;
 
 class ServiceController extends Controller
@@ -126,12 +128,19 @@ class ServiceController extends Controller
         DB::table('service')->where('id',$id)->delete();
         return redirect()->route('service.list');
     }
-    public function show()
+    public function show($slug)
     {
-        $array['service']=DB::table('service')
-                        ->join('cate_service','cate_service.id','=','service.cate_id')
-                        ->select('service.*','cate_service.name as cate_name')
-                        ->get();
-        return view('admins.page.service.list',$array);
+        $array['service_detail']=DB::table('service')
+                        ->select('service.*')
+                        ->where('service.slug',$slug)
+                        ->first();
+        $array['service']=service::all();
+        $array['talentwins']=talentwins::all();
+        $array['cate_new']=cate_new::all();
+        $array['infocompany']=inforcompany::all();
+        $array['product']=product::all();
+        $array['cate_service']=cate_service::all();
+        $array['support']=support::all();
+        return view('pages.dichvuchitiet',$array);
     }
 }

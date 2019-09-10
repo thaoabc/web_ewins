@@ -16,8 +16,8 @@
           <div class="col-md-4 ml-auto" style="margin-left:0 !important">
             <h2 class="footer-heading mb-4">Dịch Vụ</h2>
             <ul class="list-unstyled" style="font-size: 14px">
-              @foreach ($service as $item)
-                <li><a href="{{ $item->link }}"> >> {{ $item->name }}</a></li>
+              @foreach ($cate_service as $item)
+                <li><a href=""> >> {{ $item->name }}</a></li>
               @endforeach
              
               

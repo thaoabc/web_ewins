@@ -30,7 +30,7 @@ Route::get('tintuc','NewController@show')->name('tintuc');
 
 Route::get('traiNghiem','HomeController@product')->name('traiNghiem');
 
-Route::get('dichvu','HomeController@service')->name('dichvu');
+// Route::get('dichvu','HomeController@service')->name('dichvu');
 
 Route::get('gioithieu','HomeController@about')->name('gioithieu');
 
@@ -38,6 +38,8 @@ Route::get('gioithieu','HomeController@about')->name('gioithieu');
 Route::get('talentwins','HomeController@talenwin')->name('talentwins');
 
 Route::get('tintucchitiet/{slug}','NewController@detail')->name('tintucchitiet');
+Route::get('dichvu/{slug}','Cate_serviceController@show')->name('dichvu');
+Route::get('chitietdichvu/{slug}','ServiceController@show')->name('chitietdichvu');
 Route::get('talentchitiet','HomeController@talenchitiet')->name('talentchitiet');
 
 
