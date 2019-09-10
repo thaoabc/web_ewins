@@ -25,8 +25,11 @@
           </div>
           <div class="col-6 tel-dt  d-none d-xl-block">
             <p class="mb-0 float-right">
-              <span class="mr-3 "><a href="tel://#" class="p-2"> <span class="icon-phone mr-2"></span><span class="d-none d-lg-inline-block">0927 15 15 35</span></a></span>
-              <span class=""><a href="#" class="p-2"><span class="icon-envelope mr-2"></span><span class="d-none d-lg-inline-block">contact@talentwins.co</span></a></span>
+              @foreach ($infocompany as $item)
+                  <span class="mr-3 "><a href="tel://#" class="p-2"> <span class="icon-phone mr-2"></span><span class="d-none d-lg-inline-block">{{ $item->phone }}</span></a></span>
+                  <span class=""><a href="#" class="p-2"><span class="icon-envelope mr-2"></span><span class="d-none d-lg-inline-block">{{ $item->email }}</span></a></span>
+              @endforeach
+             
             </p>
             
           </div>
@@ -80,20 +83,25 @@
                </li>
                 <li><a href="{{ route('dichvu') }}" class="nav-link" style="font-size: 18px">Dịch vụ  <i class="fa fa-angle-down" aria-hidden="true" style="font-size: 14px;padding-left:5px"></i></a>
                 <ul class="sub-menu">
-                    <li><a href="" style="font-size: 16px">Đào tạo trực tuyến</a></li>
+
+                  @foreach ($service as $row)
+                    <li><a href="{{ $row->link }}" style="font-size: 16px">{{ $row->name }}</a></li>
+                  @endforeach
                    
-                    <li><a href="#"style="font-size: 16px">Kiểm tra trực tuyến</a></li>
+                   
+                    {{-- <li><a href="#"style="font-size: 16px">Kiểm tra trực tuyến</a></li> --}}
                     
                   </ul>
               </li>
                 <li><a href="{{ route('traiNghiem') }}" class="nav-link" style="font-size: 18px">Demo sản phẩm</a></li>
                 <li><a href="{{ route('talentwins') }}" class="nav-link" style="font-size: 18px">Talent Wins <i class="fa fa-angle-down" aria-hidden="true" style="font-size: 14px;padding-left:5px"></i></a>
                   <ul class="sub-menu">
-                      <li><a href="" style="font-size: 16px">Talent Wins Technology</a></li>
+                    @foreach ($talentwins as $item)
+                       <li><a href="" style="font-size: 16px">{{ $item->title }}</a></li>
+                    @endforeach
+                     
                     
-                      <li><a href="#"style="font-size: 16px">Talent Wins Solution</a></li>
-
-                      <li><a href="#"style="font-size: 16px">Talent Wins Academy</a></li>
+                      
                       
                       
                     </ul>

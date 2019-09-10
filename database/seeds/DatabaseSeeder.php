@@ -32,6 +32,8 @@ class DatabaseSeeder extends Seeder
 
          $this->call(cateservice::class);
          $this->call(services::class); 
+
+         $this->call(support::class); 
         
       
          
