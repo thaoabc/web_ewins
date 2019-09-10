@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
          $this->call(newss::class);
 
          $this->call(cateservice::class);
-         $this->call(service::class); 
+         $this->call(services::class); 
         
       
          
