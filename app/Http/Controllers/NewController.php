@@ -75,6 +75,30 @@ class NewController extends Controller
         return view('admins.page.new.edit',$array);
     }
 
+    public function detail($slug)
+    {
+        $array['new_detail']=DB::table('new')->where('slug',$slug);
+        $array['new']=DB::table('new')
+                        ->select('new.*')
+                        ->take(5)
+                        ->get();
+        $array['cate_new']=DB::table('cate_new')
+                        ->select('cate_new.*')
+                        ->get();
+        $array['adviser']=DB::table('adviser')
+                        ->select('adviser.*')
+                        ->skip(0)
+                        ->take(3)
+                        ->get();
+        $array['infocompany']=DB::table('infor_company')
+                        ->select('infor_company.*')
+                        ->get();
+        $array['product']=DB::table('product')
+                        ->select('product.*')
+                        ->get();
+        return view('pages.tintucchitiet',$array);
+    }
+
     public function update(Request $request,$id)
     {
         $this->validate($request,
@@ -163,6 +187,12 @@ class NewController extends Controller
                         ->join('admin','admin.id','=','new.id_admin')
                         ->select('new.*','cate_new.name as cat_name','admin.name as ad_name')
                         ->where('cate_new.name','=',"Doanh nghiệp")
+                        ->get();
+        $array['infocompany']=DB::table('infor_company')
+                        ->select('infor_company.*')
+                        ->get();
+        $array['product']=DB::table('product')
+                        ->select('product.*')
                         ->get();
         return view('pages.tinTuc',$array);
     }

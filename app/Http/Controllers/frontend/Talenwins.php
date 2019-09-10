@@ -59,6 +59,14 @@ class Talenwins extends Controller
         return view('pages.tintucchitiet',$data);
     }
 
+    public function new()
+    {
+        $data['cate_new']=cate_new::all();
+        $data['infocompany']=inforcompany::all();
+        $data['product']=product::all();
+        return view('pages.tinTuc',$data);
+    }
+
     public function talenchitiet()
     {
         $data['cate_new']=cate_new::all();

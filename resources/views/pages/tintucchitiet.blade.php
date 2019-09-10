@@ -16,7 +16,7 @@
 
         <div class="row mt-5">
             <div class="col-md-9 mb-3">
-                <h3 class="text-center mb-3">Đừng Dùng LMS Trước Khi Biết Những Điều Này</h3>
+                <h3 class="text-center mb-3"></h3>
                 <img src="https://pro-seeds.com.vn/wp-content/uploads/2018/10/ims.png" alt="" width="100%">
                 <div class="pt-3">
                 <span >Elearning trong thị trường Việt Nam hiện nay vẫn chưa thật sự phát triển mạnh và cũng như có được sự quan tâm đúng mức. Không vì thế mà chúng ta phớt lờ đi những lợi ích không ngờ của Elearning ứng dụng vào các hoạt động đào tạo cho doanh nghiệp, và để nâng cao độ hiệu quả của chương trình đào tạo Hệ thống quản lý học tập (LMS) là một công cụ đang để các doanh nghiệp lưu tâm. Ở bài viết này, hãy cùng tìm hiểu về những điều mà doanh nghiệp sẽ cần biết khi muốn ứng dụng hệ thống LMS vào các hoạt động đào tạo của mình.</span>
@@ -38,74 +38,17 @@
             <div class="col-md-3">
                 <ul class="list-group ">
                     <li class="list-group-item tintuc-1 font-weight-bold text-center"> TIN TỨC MỚI NHẤT</li>
+                    @foreach($new as $value)
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-md-4 " style="padding:0"><img src="https://pro-seeds.com.vn/wp-content/uploads/2019/05/Opensource-768x768.jpg" style="width: 100%">
                             </div>
                             <div class="col-md-8" style="padding: 0 10px; font-size: 14px">
-                                <a href="" style="color:black"><span>Phần mềm LMS sử dụng mã nguồn mở </span></a>
+                                <a href="{{ Route('tinTuc',['slug'=>$value->slug]) }}" style="color:black"><span>{{$value->title}}</span></a>
                             </div>
                         </div>
                     </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-4 " style="padding:0"><img src="https://pro-seeds.com.vn/wp-content/uploads/2019/05/Opensource-768x768.jpg" style="width: 100%">
-                            </div>
-                            <div class="col-md-8" style="padding: 0 10px; font-size: 14px">
-                                <a href="" style="color:black"><span>Phần mềm LMS sử dụng mã nguồn mở </span></a>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-4 " style="padding:0"><img src="https://pro-seeds.com.vn/wp-content/uploads/2019/05/Opensource-768x768.jpg" style="width: 100%">
-                            </div>
-                            <div class="col-md-8" style="padding: 0 10px; font-size: 14px">
-                                <a href="" style="color:black"><span>Phần mềm LMS sử dụng mã nguồn mở </span></a>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-4 " style="padding:0"><img src="https://pro-seeds.com.vn/wp-content/uploads/2019/05/Opensource-768x768.jpg" style="width: 100%">
-                            </div>
-                            <div class="col-md-8" style="padding: 0 10px; font-size: 14px">
-                                <a href="" style="color:black"><span>Phần mềm LMS sử dụng mã nguồn mở </span></a>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-4 " style="padding:0"><img src="https://pro-seeds.com.vn/wp-content/uploads/2019/05/Opensource-768x768.jpg" style="width: 100%">
-                            </div>
-                            <div class="col-md-8" style="padding: 0 10px; font-size: 14px">
-                                <a href="" style="color:black"><span>Phần mềm LMS sử dụng mã nguồn mở </span></a>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-4 " style="padding:0"><img src="https://pro-seeds.com.vn/wp-content/uploads/2019/05/Opensource-768x768.jpg" style="width: 100%">
-                            </div>
-                            <div class="col-md-8" style="padding: 0 10px; font-size: 14px">
-                                <a href="" style="color:black"><span>Phần mềm LMS sử dụng mã nguồn mở </span></a>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-4 " style="padding:0"><img src="https://pro-seeds.com.vn/wp-content/uploads/2019/05/Opensource-768x768.jpg" style="width: 100%">
-                            </div>
-                            <div class="col-md-8" style="padding: 0 10px; font-size: 14px">
-                                <a href="" style="color:black"><span>Phần mềm LMS sử dụng mã nguồn mở </span></a>
-                            </div>
-                        </div>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

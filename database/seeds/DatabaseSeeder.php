@@ -21,8 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(banner::class);
        
         $this->call(talentwins::class);
-        // $this->call(cateservice::class);
-        // $this->call(service::class);
         $this->call(introduce::class);
         $this->call(adviser::class);
        
@@ -31,7 +29,9 @@ class DatabaseSeeder extends Seeder
 
          $this->call(catenew::class);
          $this->call(newss::class);
-        
+
+         $this->call(cateservice::class);
+         $this->call(service::class); 
         
       
          

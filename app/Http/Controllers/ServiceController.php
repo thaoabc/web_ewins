@@ -126,4 +126,12 @@ class ServiceController extends Controller
         DB::table('service')->where('id',$id)->delete();
         return redirect()->route('service.list');
     }
+    public function show()
+    {
+        $array['service']=DB::table('service')
+                        ->join('cate_service','cate_service.id','=','service.cate_id')
+                        ->select('service.*','cate_service.name as cate_name')
+                        ->get();
+        return view('admins.page.service.list',$array);
+    }
 }
