@@ -10,6 +10,9 @@ class ContactController extends Controller
 {
     // danh sách liên hệ
     public function list(){
+
+
+        
         $array['contact']=DB::table('contact')
                         ->select('contact.*')
                         ->get();
