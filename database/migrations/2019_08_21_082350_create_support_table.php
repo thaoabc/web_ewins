@@ -19,6 +19,7 @@ class CreateSupportTable extends Migration
             $table->string('summary');
             $table->text('content');
             $table->string('slug');
+            $table->string('link');
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\models\{inforcompany,product,elearning,subelearning,cate_new,talentwins,service};
+use App\models\{inforcompany,product,elearning,subelearning,cate_new,talentwins,service,support};
 use DB;
 
 class HomeController extends Controller
@@ -59,7 +59,9 @@ class HomeController extends Controller
                         $array['product']=product::all();
                         $array['elearning']=elearning::all();
                         $array['subelearnings']=subelearning::all();
-                        $data['talentwins']=talentwins::all();
+                        $array['talentwins']=talentwins::all();
+                        $array['service']=service::all();
+                        $array['support']=support::all();
         return view('pages.home',$array);
     }
     public function menu()
@@ -74,6 +76,8 @@ class HomeController extends Controller
 
     public function list()
     {
+        $data['support']=support::all();
+        $data['service']=service::all();
         $data['talentwins']=talentwins::all();
         $data['cate_new']=cate_new::all();
         $data['infocompany']=inforcompany::all();
@@ -84,6 +88,8 @@ class HomeController extends Controller
 
     public function talenwin()
     {
+        $data['support']=support::all();
+        $data['service']=service::all();
         $data['talentwins']=talentwins::all();
         $data['cate_new']=cate_new::all();
         $data['infocompany']=inforcompany::all();
@@ -95,6 +101,8 @@ class HomeController extends Controller
 
     public function trainghiem()
     {
+        $data['support']=support::all();
+        $data['service']=service::all();
         $data['talentwins']=talentwins::all();
         $data['cate_new']=cate_new::all();
         $data['infocompany']=inforcompany::all();
@@ -104,6 +112,8 @@ class HomeController extends Controller
 
     public function about()
     {
+        $data['support']=support::all();
+        $data['service']=service::all();
         $data['talentwins']=talentwins::all();
         $data['cate_new']=cate_new::all();
         $data['infocompany']=inforcompany::all();
@@ -113,6 +123,8 @@ class HomeController extends Controller
 
     public function news()
     {
+        $data['support']=support::all();
+        $data['service']=service::all();
         $data['talentwins']=talentwins::all();
         $data['cate_new']=cate_new::all();
         $data['infocompany']=inforcompany::all();
@@ -123,6 +135,8 @@ class HomeController extends Controller
 
     public function service()
     {
+        $data['support']=support::all();
+        $data['service']=service::all();
         $data['talentwins']=talentwins::all();
         $data['cate_new']=cate_new::all();
         $data['infocompany']=inforcompany::all();
@@ -134,6 +148,8 @@ class HomeController extends Controller
 
     public function newchitiet()
     {
+        $data['support']=support::all();
+        $data['service']=service::all();
         $data['talentwins']=talentwins::all();
         $data['cate_new']=cate_new::all();
         $data['infocompany']=inforcompany::all();
@@ -143,6 +159,8 @@ class HomeController extends Controller
 
     public function talenchitiet()
     {
+        $data['support']=support::all();
+        $data['service']=service::all();
         $data['talentwins']=talentwins::all();
         $data['cate_new']=cate_new::all();
         $data['infocompany']=inforcompany::all();
@@ -152,11 +170,13 @@ class HomeController extends Controller
 
     public function product()
     {
+        $support=support::all();
+        $service=service::all();
         $talentwins=talentwins::all();
         $cate_new=cate_new::all();
         $infocompany=inforcompany::all();
         $product=DB::table('product')->paginate(9);
-        return view('pages.traiNghiem',compact('talentwins','cate_new','infocompany','product'));
+        return view('pages.traiNghiem',compact('talentwins','cate_new','infocompany','product','service','support'));
     }
 
 
