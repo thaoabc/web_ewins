@@ -105,4 +105,9 @@ class ProductController extends Controller
         DB::table('product')->where('id',$id)->delete();
         return redirect()->route('product.list');
     }
+    public function show()
+    {
+        $product=DB::table('product')->paginate(9);
+        return view('admins.page.product.list',compact('product'));
+    }
 }

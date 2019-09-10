@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\models\{inforcompany,product,elearning,subelearning,cate_new,talentwins};
+use App\models\{inforcompany,product,elearning,subelearning,cate_new,talentwins,service};
 use DB;
 
 class HomeController extends Controller
@@ -21,10 +21,16 @@ class HomeController extends Controller
         $array['banner']=DB::table('banner')
                         ->select('banner.*')
                         ->get();
-        $array['sub_e_learning']=DB::table('sub_e_learning')
-                        ->join('e_learning','e_learning.id','=','sub_e_learning.cate_id')
-                        ->select('sub_e_learning.*','e_learning.title as title','sub_e_learning.name as name')
+        $array['subelearnings']=DB::table('sub_e_learning')
+                        ->select('sub_e_learning.*')
                         ->get();
+        $array['elearnings']=DB::table('e_learning')
+                        ->select('e_learning.*')
+                        ->get();
+        $array['infocompany']=DB::table('infor_company')
+                        ->select('infor_company.*')
+                        ->get();
+        $array['product']=DB::table('product')->paginate(9);
         $array['new1']=DB::table('new')
                         ->join('admin','admin.id','=','new.id_admin')
                         ->select('new.*','admin.name as name')
@@ -121,6 +127,7 @@ class HomeController extends Controller
         $data['cate_new']=cate_new::all();
         $data['infocompany']=inforcompany::all();
         $data['product']=product::all();
+        $data['service']=service::all();
         return view('pages.dichvu',$data);
     }
 
@@ -142,6 +149,16 @@ class HomeController extends Controller
         $data['product']=product::all();
         return view('pages.talentchitiet',$data);
     }
+
+    public function product()
+    {
+        $talentwins=talentwins::all();
+        $cate_new=cate_new::all();
+        $infocompany=inforcompany::all();
+        $product=DB::table('product')->paginate(9);
+        return view('pages.traiNghiem',compact('talentwins','cate_new','infocompany','product'));
+    }
+
 
 
 }
