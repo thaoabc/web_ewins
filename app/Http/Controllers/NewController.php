@@ -77,7 +77,7 @@ class NewController extends Controller
 
     public function detail($slug)
     {
-        $array['new_detail']=DB::table('new')->where('slug',$slug);
+        $array['new_detail']=DB::table('new')->where('slug',$slug)->first();
         $array['new']=DB::table('new')
                         ->select('new.*')
                         ->take(5)
