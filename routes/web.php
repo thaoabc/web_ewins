@@ -37,7 +37,7 @@ Route::get('gioithieu','HomeController@about')->name('gioithieu');
 
 Route::get('talentwins','HomeController@talenwin')->name('talentwins');
 
-Route::get('tinTuc/{slug}','NewController@detail')->name('tinTuc');
+Route::get('tintucchitiet/{slug}','NewController@detail')->name('tintucchitiet');
 Route::get('talentchitiet','HomeController@talenchitiet')->name('talentchitiet');
 
 
