@@ -84,7 +84,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{Route('adviser.list')}}"><i class="fa fa-circle-o"></i>Danh sách cố vấn</a></li>
-                    <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+                    {{-- <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li> --}}
                 </ul>
             </li>
             <li class="treeview">
@@ -120,7 +120,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{Route('infor_company.list')}}"><i class="fa fa-circle-o"></i>Thông tin công ty</a></li>
-                    <li><a href="{{Route('infor_company.add')}}"><i class="fa fa-circle-o"></i> Thêm thông tin</a></li>
+                  
                 </ul>
             </li>
             <li class="treeview">

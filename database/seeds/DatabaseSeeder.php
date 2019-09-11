@@ -35,7 +35,10 @@ class DatabaseSeeder extends Seeder
 
          $this->call(support::class); 
         
-      
+         $this->call(prize::class); 
+         $this->call(cateprize::class); 
+
+         $this->call(cateprizenew::class);
          
     }
 }

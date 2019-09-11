@@ -59,7 +59,10 @@
                 <li><a href="" class="nav-link" style="font-size: 18px">  Trang chủ </a> 
                 
                 </li>
-                <li><a href="{{ route('gioithieu') }}" class="nav-link"style="font-size: 18px"> Giới thiệu <i class="fa fa-angle-down" aria-hidden="true" style="font-size: 14px;padding-left:5px"></i></a>
+                <li><a href="{{ route('gioithieu') }}" class="nav-link" style="font-size: 18px">  Giới thiệu </a> 
+                
+                </li>
+                {{-- <li><a href="{{ route('gioithieu') }}" class="nav-link"style="font-size: 18px"> Giới thiệu <i class="fa fa-angle-down" aria-hidden="true" style="font-size: 14px;padding-left:5px"></i></a>
                 <ul class="sub-menu ">
                     <li><a href=""style="font-size: 16px">Công ty Talent Wins</a></li>
                   
@@ -68,7 +71,7 @@
                     <li><a href="#"style="font-size: 16px">Ban cố vấn</a></li>
                     
                   </ul>
-                </li>
+                </li> --}}
                 <li><a href="{{ route('tintuc') }}" class="nav-link" style="font-size: 18px">Tin tức  <i class="fa fa-angle-down" aria-hidden="true" style="font-size: 14px;padding-left:5px"></i></a>
                   <ul class="sub-menu">
                         @foreach($cate_new as $value)

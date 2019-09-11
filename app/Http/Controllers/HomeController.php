@@ -3,11 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\models\{inforcompany,product,elearning,subelearning,cate_new,talentwins,service,support};
+use App\models\{inforcompany,product,elearning,cateprizenew,subelearning,cate_new,talentwins,service,support,introduce,prize,cateprize};
 use DB;
 
 class HomeController extends Controller
+
 {
+    public function home()
+    {
+        
+        return view('admins.dashboard');
+    }
+
+
+
     public function index()
     {
         $array['cate_new']=DB::table('cate_new')
@@ -62,6 +71,9 @@ class HomeController extends Controller
                         $array['talentwins']=talentwins::all();
                         $array['service']=service::all();
                         $array['support']=support::all();
+                        $array['introduce']=introduce::all();
+                        $array['cate_new']=cate_new::all();
+                        
         return view('pages.home',$array);
     }
     public function menu()
@@ -112,6 +124,10 @@ class HomeController extends Controller
 
     public function about()
     {
+        $data['cateprizenew']=cateprizenew::all();
+        $data['prize']=prize::all();
+        $data['cateprize']=cateprize::all();
+        $data['introduce']=introduce::all();
         $data['support']=support::all();
         $data['service']=service::all();
         $data['talentwins']=talentwins::all();

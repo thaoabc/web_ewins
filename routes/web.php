@@ -56,7 +56,7 @@ Route::group(['prefix' => 'admin',], function() {
 	});
 
 Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
-	Route::get('/','HomeController@index');
+	Route::get('/','HomeController@home');
 	Route::get('logout','LoginController@GetLogout');
 
 

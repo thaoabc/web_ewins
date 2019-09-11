@@ -15,12 +15,28 @@ class CreateIntroduceTable extends Migration
     {
         Schema::create('introduce', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('title');
             $table->text('content');
+            $table->text('sammary');
             $table->string('slug');
-            $table->tinyInteger('status')->default(1);
+            $table->string('image');
+            $table->string('video');
+            $table->string('nams');
+            $table->string('thanhlap');
+            $table->string('phantram');
+            $table->string('noidungphantram');
+            $table->string('doitac');
+            $table->string('noidungdoitac');
+            $table->string('nhanvien');
+            $table->string('noidungnhanvien');
             $table->timestamps();
         });
+
+       
+
+
+
+
     }
 
     /**
