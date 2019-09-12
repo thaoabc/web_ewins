@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use DB;
 
+use App\models\{inforcompany,product,elearning,subelearning,cate_new,talentwins,service,support,cate_service,sub_talentwins};
+
 class TalentWinsController extends Controller
 {
     public function list()
@@ -93,5 +95,67 @@ class TalentWinsController extends Controller
     {
         DB::table('talent_wins')->where('id',$id)->delete();
         return redirect()->route('talent_wins.list');
+    }
+
+    public function show($slug)
+    {
+        $array['support']=support::all();
+        $array['service']=service::all();
+        $array['cate_new']=cate_new::all();
+        $array['infocompany']=inforcompany::all();
+        $array['product']=product::all();
+        $array['cate_service']=cate_service::all();
+        $array['talentwins']=talentwins::all();
+        $array['technology']=DB::table('sub_talentwins')
+        ->join('talent_wins','talent_wins.id','=','sub_talentwins.cate_id')
+        ->join('admin','admin.id','=','sub_talentwins.id_admin')
+        ->select('sub_talentwins.*','admin.name as name')
+        ->where('talent_wins.slug',$slug)
+        ->get();
+        $array['solution']=DB::table('sub_talentwins')
+        ->join('talent_wins','talent_wins.id','=','sub_talentwins.cate_id')
+        ->join('admin','admin.id','=','sub_talentwins.id_admin')
+        ->select('sub_talentwins.*','admin.name as name')
+        ->where('talent_wins.slug',$slug)
+        ->get();
+        $array['academy']=DB::table('sub_talentwins')
+        ->join('talent_wins','talent_wins.id','=','sub_talentwins.cate_id')
+        ->join('admin','admin.id','=','sub_talentwins.id_admin')
+        ->select('sub_talentwins.*','admin.name as name')
+        ->where('talent_wins.slug',$slug)
+        ->get();
+        return view('pages.talentwins',$array);
+    }
+
+    public function detail($slug)
+    {
+        $array['support']=support::all();
+        $array['service']=service::all();
+        $array['cate_new']=cate_new::all();
+        $array['infocompany']=inforcompany::all();
+        $array['product']=product::all();
+        $array['cate_service']=cate_service::all();
+        $array['talentwins']=talentwins::all();
+        $array['sub_talentwins']=sub_talentwins::all();
+        $array['talentwins_detail']=DB::table('sub_talentwins')->where('slug',$slug)->first();
+        $array['technology']=DB::table('sub_talentwins')
+        ->join('talent_wins','talent_wins.id','=','sub_talentwins.cate_id')
+        ->join('admin','admin.id','=','sub_talentwins.id_admin')
+        ->select('sub_talentwins.*','admin.name as name')
+        ->where('talent_wins.slug',$slug)
+        ->get();
+        $array['solution']=DB::table('sub_talentwins')
+        ->join('talent_wins','talent_wins.id','=','sub_talentwins.cate_id')
+        ->join('admin','admin.id','=','sub_talentwins.id_admin')
+        ->select('sub_talentwins.*','admin.name as name')
+        ->where('talent_wins.slug',$slug)
+        ->get();
+        $array['academy']=DB::table('sub_talentwins')
+        ->join('talent_wins','talent_wins.id','=','sub_talentwins.cate_id')
+        ->join('admin','admin.id','=','sub_talentwins.id_admin')
+        ->select('sub_talentwins.*','admin.name as name')
+        ->where('talent_wins.slug',$slug)
+        ->get();
+        return view('pages.talentchitiet',$array);
     }
 }

@@ -88,6 +88,18 @@
                 </ul>
             </li>
             <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-table"></i> <span>Loại dịch vụ</span>
+                        <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{Route('cate_service.list')}}"><i class="fa fa-circle-o"></i>Danh sách loại dịch vụ</a></li>
+                        <li><a href="{{Route('cate_service.add')}}"><i class="fa fa-circle-o"></i>Thêm loại dịch vụ</a></li>
+                    </ul>
+                </li>
+            <li class="treeview">
                 <a href="#">
                     <i class="fa fa-table"></i> <span>Dịch vụ</span>
                     <span class="pull-right-container">
@@ -95,8 +107,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{Route('cate_service.list')}}"><i class="fa fa-circle-o"></i>Danh sách loại dịch vụ</a></li>
                     <li><a href="{{Route('service.list')}}"><i class="fa fa-circle-o"></i>Danh sách dịch vụ</a></li>
+                    <li><a href="{{Route('service.add')}}"><i class="fa fa-circle-o"></i>Thêm dịch vụ</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -131,8 +143,20 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{Route('e-learning.list')}}"><i class="fa fa-circle-o"></i>E-learning</a></li>
-                    <li><a href="{{Route('e-learning.add')}}"><i class="fa fa-circle-o"></i> Thêm thông tin e-learning</a></li>
+                    <li><a href="{{Route('e_learning.list')}}"><i class="fa fa-circle-o"></i>E-learning</a></li>
+                    <li><a href="{{Route('e_learning.add')}}"><i class="fa fa-circle-o"></i> Thêm thông tin e-learning</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>Sub_e_learning</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{Route('sub_e_learning.list')}}"><i class="fa fa-circle-o"></i>Sub-e-learning</a></li>
+                    <li><a href="{{Route('sub_e_learning.add')}}"><i class="fa fa-circle-o"></i> Thêm thông tin Sub-e-learning</a></li>
                 </ul>
             </li>
             <li class="treeview">
