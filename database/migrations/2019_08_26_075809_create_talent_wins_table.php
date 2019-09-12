@@ -16,9 +16,6 @@ class CreateTalentWinsTable extends Migration
         Schema::create('talent_wins', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('summary');
-            $table->string('content');
-            $table->integer('status')->default(0);
             $table->string('slug');
             $table->timestamps();
         });

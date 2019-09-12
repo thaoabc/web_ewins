@@ -1,6 +1,6 @@
 @extends('admins.layout.master-layout')
 @section('title')
-Thêm dịch vụ
+Sửa hạng mục e-learning
 @endsection
 
 @section('content')
@@ -8,74 +8,49 @@ Thêm dịch vụ
     <div class="container-fluid">
         <section class="content-header">
             <h1>
-                Thêm dịch vụ
+                Sửa hạng mục e-learning
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Thêm dịch vụ</li>
+                <li class="active">Sửa hạng mục e-learning</li>
             </ol>
         </section>
         <hr>
 
         <section class="content">
             <div class="row">
-                <div class="box-header">
-                    <a href="{{route('service.list')}}" class="btn btn-primary">Danh sách</a>
-                </div>
                 <div class="col-xs-12">
                     <div class="box">
-                        <form role="form" method="POST" action="{{route('service.add')}}" enctype="multipart/form-data">
+                        <form role="form" method="POST"
+                            action="{{Route('sub_e_learning.update',['id'=>$sub_e_learning->id])}}"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="box-body">
 
                                 <div class="form-group">
-                                    <label>Tên dịch vụ (*)</label>
-                                    <input type="text" class="form-control" placeholder="Nhập tên dịch vụ" name="name"
-                                        value="">
+                                    <label>Tên hạng mục (*)</label>
+                                    <input type="text" class="form-control" placeholder="Nhập tên hạng mục e-learning"
+                                        name="name" value="{{ $sub_e_learning->name }}">
                                     <p style="color:red">{{ $errors->first('name') }}</p>
                                 </div>
 
+
                                 <div class="form-group">
-                                    <label>Loại dịch vụ (*)</label>
-                                    <select name="cate_id" class="form-control">
-                                        @foreach($cate_service as $value)
-                                        <option value="{{$value->id}}">{{$value->name}}</option>
+                                    <label for="">Loại tin e-learning (*)</label>
+                                    <select class="form-control" name="cate_id" id="">
+                                        @foreach($e_learning as $value)
+                                        @php
+                                        $cate = $value->id == $sub_e_learning->cate_id ? "selected" : '';
+                                        @endphp
+                                        <option {{ $cate }} value="{{ $value->id }}">{{ $value->title }}</option>
                                         @endforeach
                                     </select>
-                                    <p style="color:red">{{ $errors->first('cate_id') }}</p>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Nội dung (*)</label>
-                                    <input type="text" class="form-control" placeholder="Nội dung" name="content"
-                                        value="">
-                                    <p style="color:red">{{ $errors->first('content') }}</p>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Trạng thái (*)</label>
-                                    <div class="radio">
-                                        <label for=""><input type="radio" name="status" value="1">Cho hiện</label>
-                                    </div>
-                                    <div class="radio">
-                                        <label for=""><input type="radio" name="status" value="0">Ẩn</label>
-                                    </div>
-                                    <p style="color:red">{{ $errors->first('status') }}</p>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Chọn ảnh</label>
-                                    <input type="file" id="image" name="image" onchange="showIMG()">
-                                </div>
-                                <p style="color:red">{{ $errors->first('image') }}</p>
-                                <div class="form-group">
-                                    <div id="viewImg">
-
-                                    </div>
                                 </div>
 
                                 <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary">Thêm</button>
+                                    <button type="submit" class="btn btn-primary">Sửa</button>
+                                    <a href="{{Route('e_learning.list')}}"><button type="submit"
+                                            class="btn btn-default">Quay lại</button></a>
                                 </div>
                         </form>
                     </div>
@@ -95,7 +70,6 @@ Thêm dịch vụ
         filebrowserImageUploadUrl: '{{asset("")}}ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
         filebrowserFlashUploadUrl: '{{asset("")}}ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
     });
-
 
     function showIMG() {
         var fileInput = document.getElementById('image');
@@ -117,6 +91,7 @@ Thêm dịch vụ
                 reader.readAsDataURL(fileInput.files[0]);
             }
         }
+        document.getElementById('lastImg').style.display = "none";
     }
 
 </script>

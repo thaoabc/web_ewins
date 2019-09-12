@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use DB;
+
 class BannerController extends Controller
 {
     public function list()
     {
-        $array['banner']=DB::table('banner')->get();
+        $array['banner']=DB::table('banner')
+                        ->select('banner.*')
+                        ->get();
         return view('admins.page.banner.list',$array);
     }
 

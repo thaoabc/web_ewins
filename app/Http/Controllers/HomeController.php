@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\models\{inforcompany,product,elearning,subelearning,cate_new,talentwins,service,support,cate_service};
+
 use DB;
 
 class HomeController extends Controller
@@ -20,6 +22,9 @@ class HomeController extends Controller
                         ->get();
         $array['banner']=DB::table('banner')
                         ->select('banner.*')
+                        ->get();
+        $array['talentwins']=DB::table('talent_wins')
+                        ->select('talent_wins.*')
                         ->get();
         $array['cate_service']=DB::table('cate_service')
                         ->select('cate_service.*')

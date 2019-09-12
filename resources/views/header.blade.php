@@ -87,9 +87,8 @@
 
                             </ul>
                         </li>
-                        <li><a href="" class="nav-link" style="font-size: 18px">Dịch vụ <i
-                                    class="fa fa-angle-down" aria-hidden="true"
-                                    style="font-size: 14px;padding-left:5px"></i></a>
+                        <li><a href="" class="nav-link" style="font-size: 18px">Dịch vụ <i class="fa fa-angle-down"
+                                    aria-hidden="true" style="font-size: 14px;padding-left:5px"></i></a>
                             <ul class="sub-menu">
                                 @foreach ($cate_service as $row)
                                 <li><a href="{{ route('dichvu',['slug'=>$row->slug]) }}"
@@ -103,18 +102,13 @@
                         </li>
                         <li><a href="{{ route('traiNghiem') }}" class="nav-link" style="font-size: 18px">Demo sản
                                 phẩm</a></li>
-                        <li><a href="{{ route('talentwins') }}" class="nav-link" style="font-size: 18px">Talent Wins <i
+                        <li><a href="" class="nav-link" style="font-size: 18px">Talent Wins <i
                                     class="fa fa-angle-down" aria-hidden="true"
                                     style="font-size: 14px;padding-left:5px"></i></a>
                             <ul class="sub-menu">
-                                @foreach ($talentwins as $item)
-                                <li><a href="" style="font-size: 16px">{{ $item->title }}</a></li>
+                                @foreach ($talentwins as $value)
+                                <li><a href="{{ route('talentwins',['slug'=>$value->slug]) }}" style="font-size: 16px">{{ $value->title }}</a></li>
                                 @endforeach
-
-
-
-
-
                             </ul>
                         </li>
 
@@ -179,17 +173,17 @@
 
                             {{-- <li class="nav-item active dropdown">
                                 <a href="{{ route('dichvu') }}" class="nav-link" style="font-size: 16px"
-                                    data-toggle="dropdown">Dịch vụ <i class="fa fa-angle-down float-right"
-                                        aria-hidden="true" style="font-size: 18px;padding-right:10px"></i></a>
-                                <ul class=" dropdown-menu showlist">
-                                    <li><a href="{{ route('dichvu') }}" style="font-size: 16px;color:black">Đào tạo trực
-                                            tuyến</a></li>
-                                    <br>
-                                    <li><a href="{{ route('dichvu') }}" style="font-size: 16px;color:black">Kiểm tra
-                                            trực tuyến</a></li>
+                            data-toggle="dropdown">Dịch vụ <i class="fa fa-angle-down float-right" aria-hidden="true"
+                                style="font-size: 18px;padding-right:10px"></i></a>
+                            <ul class=" dropdown-menu showlist">
+                                <li><a href="{{ route('dichvu') }}" style="font-size: 16px;color:black">Đào tạo trực
+                                        tuyến</a></li>
+                                <br>
+                                <li><a href="{{ route('dichvu') }}" style="font-size: 16px;color:black">Kiểm tra
+                                        trực tuyến</a></li>
 
 
-                                </ul>
+                            </ul>
                             </li> --}}
 
                             <li class="nav-item active dropdown">
@@ -198,15 +192,13 @@
                             </li>
 
                             <li class="nav-item active dropdown">
-                                <a href="{{ route('talentwins') }}" class="nav-link" style="font-size: 16px"
+                                <a href="" class="nav-link" style="font-size: 16px"
                                     data-toggle="dropdown">Dịch vụ <i class="fa fa-angle-down float-right"
                                         aria-hidden="true" style="font-size: 18px;padding-right:10px"></i></a>
                                 <ul class=" dropdown-menu showlist">
-                                    <li><a href="" style="font-size: 16px;color:black">Talent Wins Technology</a></li>
-                                    <br>
-                                    <li><a href="" style="font-size: 16px;color:black">Talent Wins Solution</a></li>
-                                    <br>
-                                    <li><a href="" style="font-size: 16px;color:black">Talent Wins Academy</a></li>
+                                        @foreach ($talentwins as $value)
+                                        <li><a href="{{ route('talentwins',['slug'=>$value->slug]) }}" style="font-size: 16px">{{ $item->title }}</a></li>
+                                        @endforeach
 
                                 </ul>
                             </li>

@@ -23,10 +23,10 @@ class CreateServiceTable extends Migration
         Schema::create('service', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('image');
             $table->text('content');
             $table->string('slug');
-            $table->string('link');
-            $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('status');
             $table->bigInteger('cate_id')->unsigned();
             $table->foreign('cate_id')
                   ->references('id')

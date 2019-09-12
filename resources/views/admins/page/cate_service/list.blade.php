@@ -29,6 +29,7 @@
                                     <thead>
                                     <tr>
                                         <th class="col-md-2">Tên loại dịch vụ</th>
+                                        <th class="col-md-2">Slug</th>
                                         <th class="col-md-3">Hành động</th>
 
                                     </tr>
@@ -37,6 +38,7 @@
                                     @foreach($cate_service as $value)
                                         <tr class="odd gradeX" >
                                             <td >{{$value->name}}</td>
+                                            <td >{{$value->slug}}</td>
                                             <td>
                                                 <a href="{{Route('cate_service.edit',['id'=> $value->id]) }}" class="btn btn-primary">Sửa</a>
                                                 <a href="{{Route('cate_service.delete',['id'=> $value->id]) }}" class="btn btn-danger" onclick="return confirmAction()">Xóa</a>

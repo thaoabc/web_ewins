@@ -1,6 +1,6 @@
 @extends('admins.layout.master-layout')
 @section('title')
-    Danh sách tin e-learning
+    Danh sách hạng mục tin e-learning
 @endsection
 
 @section('content')
@@ -8,11 +8,11 @@
     <div class="container-fluid">
             <section class="content-header">
                 <h1>
-                    Danh sách tin e-learning
+                    Danh sách hạng mục tin e-learning
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Danh sách tin e-learning</li>
+                    <li class="active">Danh sách hạng mục tin e-learning</li>
                 </ol>
             </section>
             <hr>
@@ -20,7 +20,7 @@
             <section class="content">
                 <div class="row">
                 <div class="box-header">
-                    <a href="{{route('e-learning.add')}}" class="btn btn-primary">Thêm tin e-learning</a>
+                    <a href="{{route('sub_e_learning.add')}}" class="btn btn-primary">Thêm hạng mục tin e-learning</a>
                 </div>
                     <div class="col-xs-12">
                         <div class="box">
@@ -28,24 +28,20 @@
                                 <table id="example1" class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th class="col-md-2">Tiêu đề</th>
-                                        <th class="col-md-2">Nội dung</th>
-                                        <th class="col-md-2">Icon</th>
-                                        <th class="col-md-2">Trạng thái</th>
+                                        <th class="col-md-2">Tên hạng mục</th>
+                                        <th class="col-md-2">Loại tin e-learning</th>
                                         <th class="col-md-3">Hành động</th>
 
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($e_learning as $value)
+                                    @foreach($sub_e_learning as $value)
                                         <tr class="odd gradeX" >
-                                            <td >{{$value->title}}</td>
-                                            <td >{{$value->content}}</td>
-                                            <td ><img style="border-radius:50%;-moz-border-radius:50%;-webkit-border-radius:50%;" src="{{asset('assets/img_icon/'.$value->icon)}}"></td>
-                                            <td >{{$value->status}}</td>
+                                            <td >{{$value->name}}</td>
+                                            <td>{{ $value->cate_name }}</td>
                                             <td>
-                                                <a class="btn btn-default" href="{{Route('e-learning.edit',['id'=> $value->id]) }}" title="Edit"><i class="fas fa-pencil-ruler"></i> Sửa</a>
-                                                <a href="{{Route('e-learning.delete',['id'=> $value->id]) }}" class="btn btn-danger" onclick="return confirmAction()">Xóa</a>
+                                                <a class="btn btn-default" href="{{Route('sub_e_learning.edit',['id'=> $value->id]) }}" title="Edit"><i class="fas fa-pencil-ruler"></i> Sửa</a>
+                                                <a href="{{Route('sub_e_learning.delete',['id'=> $value->id]) }}" class="btn btn-danger" onclick="return confirmAction()">Xóa</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -78,7 +74,7 @@
                     
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h2 class="modal-title">Thông tin người dùng tin e_learning</h2>
+                        <h2 class="modal-title">Thông tin người dùng tin sub_e_learning</h2>
                         {{-- <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button> --}}
                     </div>
                     
