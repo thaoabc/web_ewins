@@ -77,13 +77,22 @@ class NewController extends Controller
 
     public function detail($slug)
     {
-        $array['new_detail']=DB::table('new')->where('slug',$slug);
+        $array['new_detail']=DB::table('new')->where('slug',$slug)->first();
         $array['new']=DB::table('new')
                         ->select('new.*')
                         ->take(5)
                         ->get();
         $array['cate_new']=DB::table('cate_new')
                         ->select('cate_new.*')
+                        ->get();
+        $array['cate_service']=DB::table('cate_service')
+                        ->select('cate_service.*')
+                        ->get();
+        $array['talentwins']=DB::table('talent_wins')
+                        ->select('talent_wins.*')
+                        ->get();
+        $array['support']=DB::table('support')
+                        ->select('support.*')
                         ->get();
         $array['adviser']=DB::table('adviser')
                         ->select('adviser.*')
@@ -165,34 +174,38 @@ class NewController extends Controller
         $array['cate_new']=DB::table('cate_new')
                         ->select('cate_new.*')
                         ->get();
-        $array['adviser']=DB::table('adviser')
-                        ->select('adviser.*')
-                        ->skip(0)
-                        ->take(3)
-                        ->get();
         $array['nhansu']=DB::table('new')
                         ->join('cate_new','cate_new.id','=','new.cate_new')
                         ->join('admin','admin.id','=','new.id_admin')
-                        ->select('new.*','cate_new.name as cat_name','admin.name as ad_name')
-                        ->where('cate_new.name','=',"Nhân sự")
+                        ->select('new.*','cate_new.*','admin.name as ad_name')
+                        ->where('cate_new.name','=','Nhân sự')
                         ->get();
         $array['phattrien']=DB::table('new')
                         ->join('cate_new','cate_new.id','=','new.cate_new')
                         ->join('admin','admin.id','=','new.id_admin')
-                        ->select('new.*','cate_new.name as cat_name','admin.name as ad_name')
-                        ->where('cate_new.name','=',"Đào tạo phát triển")
+                        ->select('new.*','cate_new.*','admin.name as ad_name')
+                        ->where('cate_new.name','=','Đào tạo phát triển')
                         ->get();
         $array['doanhnghiep']=DB::table('new')
                         ->join('cate_new','cate_new.id','=','new.cate_new')
                         ->join('admin','admin.id','=','new.id_admin')
-                        ->select('new.*','cate_new.name as cat_name','admin.name as ad_name')
-                        ->where('cate_new.name','=',"Doanh nghiệp")
+                        ->select('new.*','cate_new.*','admin.name as ad_name')
+                        ->where('cate_new.name','=','Doanh nghiệp')
+                        ->get();
+        $array['cate_service']=DB::table('cate_service')
+                        ->select('cate_service.*')
                         ->get();
         $array['infocompany']=DB::table('infor_company')
                         ->select('infor_company.*')
                         ->get();
         $array['product']=DB::table('product')
                         ->select('product.*')
+                        ->get();
+        $array['talentwins']=DB::table('talent_wins')
+                        ->select('talent_wins.*')
+                        ->get();
+        $array['support']=DB::table('support')
+                        ->select('support.*')
                         ->get();
         return view('pages.tinTuc',$array);
     }

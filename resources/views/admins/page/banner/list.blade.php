@@ -33,19 +33,59 @@
         <!-- Main content -->
         <section class="content">
             <div class="row">
+                {{--  <div class="col-md-3">
+                    <div class="box box-solid">
+                        <div class="box-header with-border">  --}}
+                            {{-- Mục lục --}}
+                            {{--  <h3 class="box-title">Danh mục</h3>
+
+                            <div class="box-tools">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                            class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="box-body no-padding">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="{{route('service.createCate')}}"><i class="fa fa-inbox"></i> Thêm thể loại
+                                        Banner
+                                        <span class="label label-primary pull-right">{{$cate_service_count}}</span></a></li>
+                                <li><a href="{{route('service.create')}}"><i class="fa fa-envelope-o"></i> Thêm dịch vụ
+                                        <span class="label label-primary pull-right">{{$service_count}}</span></a></li>
+                                </a>
+                                </li>
+                                <li><a href="{{route('service.index')}}"><i class="fa fa-file-text-o"></i> Danh
+                                        sách</a></li>
+
+                            </ul>
+                        </div>
+
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /. box -->  --}}
+                    {{-- End mục luc --}}
+
+                {{--  </div>
+                <!-- /.col -->
+                <div class="col-md-9">  --}}
+                   
                         {{-- Datatable cate --}}
                         <section class="content" style="margin-bottom: 50px">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="box">
                                         <div class="box-header">
-                                           
+                                            <a href="admin/banner/add" class="btn btn-primary" id="btnadd">Thêm banner</a>
                                         </div>
                                         <!-- /.box-header -->
                                         <div class="box-body">
                                             <table id="example1" class="table table-bordered table-hover">
                                                 <thead>
                                                 <tr>
+                                                    <th>Tiêu Đề</th>
+                                                    <th>Nội Dung</th>
+                                                    <th>Link</th>
                                                     <th>Ảnh banner</th>
                                                     <th>Tình trạng</th>
                                                     <th>Hành động</th>
@@ -55,6 +95,9 @@
                                                 <tbody>
                                                 @foreach($banner as $value)
                                                     <tr class="odd gradeX" align="center">
+                                                            <td>{{$value->title}}</td>
+                                                            <td>{{$value->content}}</td>
+                                                            <td>{{$value->link}}</td>
                                                         <td><img width="100px" src="{{asset('assets/img_banner/'.$value->image)}}"></td>
                                                         <td>{{$value->status}}</td>
                                                         <td>
@@ -62,7 +105,8 @@
                                                             <a class="btn btn-danger"
                                                                href="{{ url('admin/banner/delete/'.$value->id) }}"
                                                                onclick="return confirm('Hành động sẽ xóa banner này! bạn có muốn tiếp tục?')">Xóa</a>
-                                                            
+                                                            <a class="btn btn-default" id="show" href="admin/banner/edit/{{ $value->id }}" onclick="edit({{ $value->id }})"
+                                                              ><i class="fas fa-pencil-ruler"></i>Sửa</a>
                                                             {{--  @if($value->active==1)
                                                                 <a class="btn btn-info"
                                                                    href="{{ url('admin/service/setactive-cate/'.$value->id.'/0') }}"

@@ -35,18 +35,22 @@ Thêm banner
                                     <p style="color:red">{{ $errors->first('title') }}</p>
                                 </div>
 
+                                
+                                <div class="form-group">
+                                        <label>Nội dung (*)</label>
+                                        <input type="text" class="form-control" placeholder="Nội dung" name="content"
+                                            value="{{ old('content') }}">
+                                        <p style="color:red">{{ $errors->first('content') }}</p>
+                                    </div>
+
+
                                 <div class="form-group">
                                     <label>Link (*)</label>
                                     <input type="text" class="form-control" placeholder="Liên kết" name="link"
                                         value="{{ old('link') }}">
                                     <p style="color:red">{{ $errors->first('link') }}</p>
                                 </div>
-                                <div class="form-group">
-                                    <label>Nội dung (*)</label>
-                                    <input type="text" class="form-control" placeholder="Nội dung" name="content"
-                                        value="{{ old('content') }}">
-                                    <p style="color:red">{{ $errors->first('content') }}</p>
-                                </div>
+                              
 
                                 <div class="form-group">
                                     <label>Trạng thái (*)</label>

@@ -1,26 +1,7 @@
 @extends('master-layout')
 @section('content')
 
-<!--  <div class="site-blocks-cover overlay" style="background-image: url(images/panner-1.png); " data-aos="fade">
-      <div class="container">
-        <div class="row align-items-center justify-content-center">
 
-          <div class="col-md-12" data-aos="fade-up" data-aos-delay="400">
-                        
-            <div class="row mb-4">
-              <div class="col-md-6">
-                <h1 style="color: #088A08 ">E-Learning Talent Wins</h1>
-                <p class="mb-5" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam assumenda ea quo cupiditate facere deleniti fuga officia.</p>
-                <div>
-                  <a href="#" class="btn btn-primary mr-2 mb-2">Get Started</a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>   -->
 
 
 <div class="slide-one-item home-slider owl-carousel" data-aos="fade-up" data-aos-delay="200">
@@ -165,20 +146,6 @@
                     </div>
                 </div>
 
-                {{-- <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="300">
-                      <div class="person text-center">
-                        <img src="images/person_4.jpg" alt="Image" class="img-fluid rounded-circle w-50 mb-5" style="margin-left:80px">
-                        <h3>Winston Hodson</h3>
-                        <p class="position text-muted">Marketing</p>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi at consequatur unde molestiae quidem provident voluptatum deleniti quo iste.</p>
-                        <ul class="ul-social-circle">
-                          <li><a href="#"><span class="icon-facebook"></span></a></li>
-                          <li><a href="#"><span class="icon-twitter"></span></a></li>
-                          <li><a href="#"><span class="icon-linkedin"></span></a></li>
-                          <li><a href="#"><span class="icon-instagram"></span></a></li>
-                        </ul>
-                      </div>
-            </div> --}}
 
             </div>
 
@@ -188,53 +155,7 @@
         </div>
 </section>
 
-<!-- <section class="site-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-12">
-            <h3 class="section-sub-title">How it works</h3>
-            <h2 class="section-title mb-3">How It Works</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 col-lg-4">
-            <div class=" box-with-humber">
-              <h2 class="text-black">Innovate</h2>
-              <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et praesentium eos nulla qui commodi consectetur beatae fugiat. Veniam iste rerum perferendis.</p>
-              <ul class="list-unstyled ul-check primary">
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem ipsum dolor sit amet.</li>
-              </ul>
-            </div>
-          </div>
 
-          <div class="col-md-6 col-lg-4">
-            <div class=" box-with-humber">
-              <h2 class="text-black">Create</h2>
-              <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et praesentium eos nulla qui commodi consectetur beatae fugiat. Veniam iste rerum perferendis.</p>
-              <ul class="list-unstyled ul-check primary">
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem ipsum dolor sit amet.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-            <div class=" box-with-humber">
-              <h2 class="text-black">Scale</h2>
-              <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et praesentium eos nulla qui commodi consectetur beatae fugiat. Veniam iste rerum perferendis.</p>
-              <ul class="list-unstyled ul-check primary">
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem ipsum dolor sit amet.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
 
 
 
@@ -276,75 +197,7 @@
 </section>
 
 
-<!-- comment -->
-{{-- <section class="site-section testimonial-wrap" id="testimonials-section">
-      <div class="container">
-        <div class="row mb-5" data-aos="fade-up" data-aos-delay="300">
-          <div class="col-12 text-center">
-            <h3 class="section-sub-title"></h3>
-            <h2 class="section-title mb-3" style="font-size: 30px">PHẢN HỒI KHÁCH HÀNG</h2>
-          </div>
-        </div>
-      </div>
-      <div class="slide-one-item home-slider owl-carousel">
-          <div>
-            <div class="testimonial">
-              
-              <blockquote class="mb-5">
-                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-              </blockquote>
 
-              <figure class="mb-4 d-flex align-items-center justify-content-center">
-                <div><img src="images/person_3.jpg" alt="Image" class="w-50 img-fluid mb-3"></div>
-                <p>John Smith</p>
-              </figure>
-            </div>
-          </div>
-          <div>
-            <div class="testimonial">
-
-              <blockquote class="mb-5">
-                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-              </blockquote>
-              <figure class="mb-4 d-flex align-items-center justify-content-center">
-                <div><img src="images/person_2.jpg" alt="Image" class="w-50 img-fluid mb-3"></div>
-                <p>Christine Aguilar</p>
-              </figure>
-              
-            </div>
-          </div>
-
-          <div>
-            <div class="testimonial">
-
-              <blockquote class="mb-5">
-                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-              </blockquote>
-              <figure class="mb-4 d-flex align-items-center justify-content-center">
-                <div><img src="images/person_4.jpg" alt="Image" class="w-50 img-fluid mb-3"></div>
-                <p>Robert Spears</p>
-              </figure>
-
-              
-            </div>
-          </div>
-
-          <div>
-            <div class="testimonial">
-
-              <blockquote class="mb-5">
-                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-              </blockquote>
-              <figure class="mb-4 d-flex align-items-center justify-content-center">
-                <div><img src="images/person_4.jpg" alt="Image" class="w-50 img-fluid mb-3"></div>
-                <p>Bruce Rogers</p>
-              </figure>
-
-            </div>
-          </div>
-
-        </div>
-    </section> --}}
 
 
 
@@ -446,36 +299,7 @@
 
 
 
-<!-- <div class="row">
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <div class="h-entry">
-              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-              <h2 class="font-size-regular"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h2>
-              <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2019<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-              <p><a href="#">Continue Reading...</a></p>
-            </div> 
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <div class="h-entry">
-              <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-              <h2 class="font-size-regular"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h2>
-              <div class="meta mb-4">James Phelps <span class="mx-2">&bullet;</span> Jan 18, 2019<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-              <p><a href="#">Continue Reading...</a></p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <div class="h-entry">
-              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-              <h2 class="font-size-regular"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h2>
-              <div class="meta mb-4">James Phelps <span class="mx-2">&bullet;</span> Jan 18, 2019<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-              <p><a href="#">Continue Reading...</a></p>
-            </div> 
-          </div>
-          
-        </div> -->
+
 
 
 

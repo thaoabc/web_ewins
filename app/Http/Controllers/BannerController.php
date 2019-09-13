@@ -50,7 +50,7 @@ class BannerController extends Controller
             'content' => $request->content,
         ]);
 
-        return redirect()->route('banner.list');
+        return redirect()->route('banner.list')->with('thongbao','Thêm banner thành công');
     }
 
     public function edit($id)
@@ -86,7 +86,7 @@ class BannerController extends Controller
             'content' => $request->content,
         ]);
 
-        return redirect()->route('banner.list');
+        return redirect()->route('banner.list')->with('thongbao','Sửa banner thành công');
     }
 
     public function delete($id)

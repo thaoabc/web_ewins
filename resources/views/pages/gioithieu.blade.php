@@ -51,7 +51,7 @@
 
             <!-- column right -->
             <div class="col-md-6" style="text-align: center" data-aos="fade-up" data-aos-delay="200">
-              <img src="http://trinam.com.vn/images/trinam/gioithieu1.png" alt="">
+              <img src="../public/images/gioithieu1.png" alt="">
             </div>
           </div>
 
@@ -80,7 +80,7 @@
             @foreach ($cateprize as $item)
               @if ($row->id==$item->prize_id)
                 <div class="col-sm-6 cc1" data-aos="fade-up" data-aos-delay="400"> 
-                    <img src="http://trinam.com.vn/images/trinam/{{ $item->image }}">
+                    <img src="../public/images/{{ $item->image }}">
                     <div class="cm">{{ $item->note }}</div>
                   </div>
               @endif 
@@ -102,7 +102,7 @@
           <div class="row">
               @foreach ($cateprizenew as $item)
                 <div class="col-sm-4 col-xs-4 cc1" data-aos="fade-up" data-aos-delay="100">
-                  <img src="http://trinam.com.vn/images/trinam/{{ $item->image }}"  height="280">
+                  <img src="../public/images/{{ $item->image }}"  height="280">
                   <div class="cm">{{ $item->note }}</div>
                 </div>
             @endforeach

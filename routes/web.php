@@ -30,14 +30,16 @@ Route::get('tintuc','NewController@show')->name('tintuc');
 
 Route::get('traiNghiem','HomeController@product')->name('traiNghiem');
 
-Route::get('dichvu','HomeController@service')->name('dichvu');
+// Route::get('dichvu','HomeController@service')->name('dichvu');
 
 Route::get('gioithieu','HomeController@about')->name('gioithieu');
 
 
 Route::get('talentwins','HomeController@talenwin')->name('talentwins');
 
-Route::get('tinTuc/{slug}','NewController@detail')->name('tinTuc');
+Route::get('tintucchitiet/{slug}','NewController@detail')->name('tintucchitiet');
+Route::get('dichvu/{slug}','Cate_serviceController@show')->name('dichvu');
+Route::get('chitietdichvu/{slug}','ServiceController@show')->name('chitietdichvu');
 Route::get('talentchitiet','HomeController@talenchitiet')->name('talentchitiet');
 
 
@@ -94,7 +96,7 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
 		Route::get('add','BannerController@add')->name('banner.add');
 		Route::post('add','BannerController@insert')->name('banner.insert');
 		Route::get('edit/{id}','BannerController@edit')->name('banner.edit');
-		Route::post('update/{id}','BannerController@update')->name('banner.update');
+		Route::post('edit/{id}','BannerController@update')->name('banner.update');
 		Route::get('delete/{id}','BannerController@delete')->name('banner.delete');
 	});
 
@@ -176,6 +178,38 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
 		Route::post('update/{id}','ProductController@update')->name('product.update');
 		Route::get('delete/{id}','ProductController@delete')->name('product.delete');
 	});
+
+	Route::prefix('introduct')->group(function () {
+		Route::get('','IntroductController@list');
+		Route::get('edit/{id}','IntroductController@edit');
+		Route::post('edit/{id}','IntroductController@PostEdit');
+
+
+		Route::prefix('prize')->group(function () {
+			Route::get('','IntroductController@ListPrize');
+			Route::get('edit/{id}','IntroductController@EditPrize');
+			Route::post('edit/{id}','IntroductController@PostEditPrize');
+		});
+
+		Route::prefix('cate_prize')->group(function () {
+			Route::get('','IntroductController@ListcatePrize');
+			Route::get('edit/{id}','IntroductController@EditcatePrize');
+			Route::post('edit/{id}','IntroductController@PostEditcatePrize');
+		});
+
+		Route::prefix('cate_prize_new')->group(function () {
+			Route::get('','IntroductController@ListcatePrizenew');
+			Route::get('edit/{id}','IntroductController@EditcatePrizenew');
+			Route::post('edit/{id}','IntroductController@PostEditcatePrizenew');
+		});
+		
+
+
+	});
+
+
+
+
 });
 
 
