@@ -3,13 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\models\{inforcompany,product,elearning,subelearning,cate_new,talentwins,service,support,cate_service};
+use App\models\{inforcompany,product,elearning,cate_service,cateprizenew,subelearning,cate_new,talentwins,service,support,introduce,prize,cateprize};
 
 use DB;
 
 class HomeController extends Controller
+
 {
+    public function home()
+    {
+        
+        return view('admins.dashboard');
+    }
+
+
+
     public function index()
     {
         $array['cate_new']=DB::table('cate_new')
@@ -63,13 +71,12 @@ class HomeController extends Controller
                         ->skip(9)
                         ->take(3)
                         ->get();
-                        $array['infocompany']=inforcompany::all();
-                        $array['product']=product::all();
+                       
+                        $array['talentwins']=talentwins::all();
                         $array['elearning']=elearning::all();
                         $array['subelearnings']=subelearning::all();
-                        $array['talentwins']=talentwins::all();
                         $array['service']=service::all();
-                        $array['support']=support::all();
+                        $array['introduce']=introduce::all();       
         return view('pages.home',$array);
     }
     public function menu()
@@ -84,26 +91,18 @@ class HomeController extends Controller
 
     public function list()
     {
-        $data['support']=support::all();
+        
         $data['service']=service::all();
-        $data['talentwins']=talentwins::all();
-        $data['cate_new']=cate_new::all();
-        $data['infocompany']=inforcompany::all();
-        $data['product']=product::all();
-        $data['cate_service']=cate_service::all();
+        
         return view('pages.lienhe',$data);
     }
 
 
     public function talenwin()
     {
-        $data['support']=support::all();
+       
         $data['service']=service::all();
-        $data['talentwins']=talentwins::all();
-        $data['cate_new']=cate_new::all();
-        $data['infocompany']=inforcompany::all();
-        $data['product']=product::all();
-        $data['cate_service']=cate_service::all();
+        
         return view('pages.talentwins',$data);
     }
 
@@ -111,89 +110,62 @@ class HomeController extends Controller
 
     public function trainghiem()
     {
-        $data['support']=support::all();
+       
         $data['service']=service::all();
-        $data['talentwins']=talentwins::all();
-        $data['cate_new']=cate_new::all();
-        $data['infocompany']=inforcompany::all();
-        $data['product']=product::all();
-        $data['cate_service']=cate_service::all();
+       
         return view('pages.traiNghiem',$data);
     }
 
     public function about()
     {
-        $data['support']=support::all();
-        $data['service']=service::all();
-        $data['talentwins']=talentwins::all();
-        $data['cate_new']=cate_new::all();
-        $data['infocompany']=inforcompany::all();
-        $data['product']=product::all();
-        $data['cate_service']=cate_service::all();
+        $data['cateprizenew']=cateprizenew::all();
+        $data['prize']=prize::all();
+        $data['cateprize']=cateprize::all();
+        $data['introduce']=introduce::all();        
         return view('pages.gioithieu',$data);
     }
 
     public function news()
     {
-        $data['support']=support::all();
+        
         $data['service']=service::all();
-        $data['talentwins']=talentwins::all();
-        $data['cate_new']=cate_new::all();
-        $data['infocompany']=inforcompany::all();
-        $data['product']=product::all();
-        $data['cate_service']=cate_service::all();
+        
         return view('pages.tinTuc',$data);
     }
 
 
     public function service()
     {
-        $data['support']=support::all();
+       
         $data['service']=service::all();
-        $data['talentwins']=talentwins::all();
-        $data['cate_new']=cate_new::all();
-        $data['infocompany']=inforcompany::all();
-        $data['product']=product::all();
-        $data['service']=service::all();
-        $data['cate_service']=cate_service::all();
+       
+       
         return view('pages.dichvu',$data);
     }
 
 
     public function newchitiet()
     {
-        $data['support']=support::all();
+        
         $data['service']=service::all();
-        $data['talentwins']=talentwins::all();
-        $data['cate_new']=cate_new::all();
-        $data['infocompany']=inforcompany::all();
-        $data['product']=product::all();
-        $data['cate_service']=cate_service::all();
+       
         return view('pages.tintucchitiet',$data);
     }
 
     public function talenchitiet()
     {
-        $data['support']=support::all();
+        
         $data['service']=service::all();
-        $data['talentwins']=talentwins::all();
-        $data['cate_new']=cate_new::all();
-        $data['infocompany']=inforcompany::all();
-        $data['product']=product::all();
-        $data['cate_service']=cate_service::all();
+       
         return view('pages.talentchitiet',$data);
     }
 
     public function product()
     {
-        $support=support::all();
+       
         $service=service::all();
-        $talentwins=talentwins::all();
-        $cate_new=cate_new::all();
-        $infocompany=inforcompany::all();
-        $cate_service=cate_service::all();
         $product=DB::table('product')->paginate(9);
-        return view('pages.traiNghiem',compact('talentwins','cate_new','infocompany','product','service','support','cate_service'));
+        return view('pages.traiNghiem',compact('product','service'));
     }
 
 

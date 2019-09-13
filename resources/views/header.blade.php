@@ -49,39 +49,37 @@
 
     <div class="container">
         <div class="row align-items-center">
+          
+          <div class="col-6  col-xl-2 d-none d-xl-block">
+            <h1 class="mb-0 site-logo"><a href="{{ route('home') }}" class="text-black h2 mb-0"><img src="{{ asset('images/logo1.jpg')}}" style="width: 75%; height: 75%" alt=""></a></h1>
+          </div>
+          <div class="col-12 col-md-10 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right main-navbar dt" role="navigation">
 
-            <div class="col-6  col-xl-2 d-none d-xl-block">
-                <h1 class="mb-0 site-logo"><a href="{{ route('home') }}" class="text-black h2 mb-0"><img
-                            src="{{ asset('images/logo1.jpg')}}" style="width: 75%; height: 75%" alt=""></a></h1>
-            </div>
-            <div class="col-12 col-md-10 d-none d-xl-block">
-                <nav class="site-navigation position-relative text-right main-navbar dt" role="navigation">
-
-                    <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                        <li><a href="" class="nav-link" style="font-size: 18px"> Trang chủ </a>
-
-                        </li>
-                        <li><a href="{{ route('gioithieu') }}" class="nav-link" style="font-size: 18px"> Giới thiệu <i
-                                    class="fa fa-angle-down" aria-hidden="true"
-                                    style="font-size: 14px;padding-left:5px"></i></a>
-                            <ul class="sub-menu ">
-                                <li><a href="" style="font-size: 16px">Công ty Talent Wins</a></li>
-
-                                <li><a href="#" style="font-size: 16px">E-Learning</a></li>
-
-                                <li><a href="#" style="font-size: 16px">Ban cố vấn</a></li>
-
-                            </ul>
-                        </li>
-                        <li><a href="{{ route('tintuc') }}" class="nav-link" style="font-size: 18px">Tin tức <i
-                                    class="fa fa-angle-down" aria-hidden="true"
-                                    style="font-size: 14px;padding-left:5px"></i></a>
-                            <ul class="sub-menu">
-                                @foreach($cate_new as $value)
-                                <li><a href="#home" style="font-size: 16px">{{$value->name}}</a></li>
-                                @endforeach
-
-                                <!-- <li><a href="#menu1"style="font-size: 16px">Tin tức về đào tạo phát triển</a></li>
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li><a href="" class="nav-link" style="font-size: 18px">  Trang chủ </a> 
+                
+                </li>
+                <li><a href="{{ route('gioithieu') }}" class="nav-link" style="font-size: 18px">  Giới thiệu </a> 
+                
+                </li>
+                {{-- <li><a href="{{ route('gioithieu') }}" class="nav-link"style="font-size: 18px"> Giới thiệu <i class="fa fa-angle-down" aria-hidden="true" style="font-size: 14px;padding-left:5px"></i></a>
+                <ul class="sub-menu ">
+                    <li><a href=""style="font-size: 16px">Công ty Talent Wins</a></li>
+                  
+                    <li><a href="#"style="font-size: 16px">E-Learning</a></li>
+                  
+                    <li><a href="#"style="font-size: 16px">Ban cố vấn</a></li>
+                    
+                  </ul>
+                </li> --}}
+                <li><a href="{{ route('tintuc') }}" class="nav-link" style="font-size: 18px">Tin tức  <i class="fa fa-angle-down" aria-hidden="true" style="font-size: 14px;padding-left:5px"></i></a>
+                  <ul class="sub-menu">
+                        @foreach($cate_new as $value)
+                        <li><a href="#home"style="font-size: 16px">{{$value->name}}</a></li>
+                        @endforeach
+                   
+                    <!-- <li><a href="#menu1"style="font-size: 16px">Tin tức về đào tạo phát triển</a></li>
                     <li><a href="#menu2"style="font-size: 16px">Tin tức quản trị doanh nghiệp</a></li> -->
 
 
@@ -197,7 +195,7 @@
                                         aria-hidden="true" style="font-size: 18px;padding-right:10px"></i></a>
                                 <ul class=" dropdown-menu showlist">
                                         @foreach ($talentwins as $value)
-                                        <li><a href="{{ route('talentwins',['slug'=>$value->slug]) }}" style="font-size: 16px">{{ $item->title }}</a></li>
+                                        <li><a href="{{ route('talentwins',['slug'=>$value->slug]) }}" style="font-size: 16px">{{ $value->title }}</a></li>
                                         @endforeach
 
                                 </ul>

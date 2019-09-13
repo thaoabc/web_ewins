@@ -84,7 +84,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{Route('adviser.list')}}"><i class="fa fa-circle-o"></i>Danh sách cố vấn</a></li>
-                    <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+                    {{-- <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li> --}}
                 </ul>
             </li>
             <li class="treeview">
@@ -132,7 +132,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{Route('infor_company.list')}}"><i class="fa fa-circle-o"></i>Thông tin công ty</a></li>
-                    <li><a href="{{Route('infor_company.add')}}"><i class="fa fa-circle-o"></i> Thêm thông tin</a></li>
+                  
                 </ul>
             </li>
             <li class="treeview">
@@ -171,6 +171,24 @@
                     <li><a href="{{Route('product.add')}}"><i class="fa fa-circle-o"></i>Thêm sản phẩm</a></li>
                 </ul>
             </li>
+
+
+
+
+            <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-table"></i> <span>Giới thiệu</span>
+                        <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="admin/introduct"><i class="fa fa-circle-o"></i>Giới thiệu</a></li>
+                        <li><a href="admin/introduct/prize"><i class="fa fa-circle-o"></i>Giải thưởng</a></li>
+                        <li><a href="admin/introduct/cate_prize"><i class="fa fa-circle-o"></i>Ảnh giải thưởng</a></li>
+                        <li><a href="admin/introduct/cate_prize_new"><i class="fa fa-circle-o"></i>Giải thưởng khác</a></li>
+                    </ul>
+                </li>
             {{-- <li class="active treeview">
                 <a href="#">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
@@ -341,11 +359,14 @@
             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li> --}}
+            
+
+
 
             <li class="header">ACCOUNT</li>
             <li><a href="admin/list"><i class="fa fa-circle-o text-red"></i> <span>List Member</span></a></li>
              <li><a href="admin/register"><i class="fa fa-circle-o text-yellow"></i> <span>Add Member</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Edit Member</span></a></li> 
+            {{-- <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Edit Member</span></a></li>  --}}
         </ul>
     </section>
     <!-- /.sidebar -->
