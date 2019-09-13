@@ -19,9 +19,9 @@
 
             <section class="content">
                 <div class="row">
-                <div class="box-header">
+                {{-- <div class="box-header">
                     <a href="{{route('infor_company.add')}}" class="btn btn-primary">Thêm thông tin công ty</a>
-                </div>
+                </div> --}}
                     <div class="col-xs-12">
                         <div class="box">
                             <div class="box-body">

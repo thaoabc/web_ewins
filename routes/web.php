@@ -58,7 +58,7 @@ Route::group(['prefix' => 'admin',], function() {
 	});
 
 Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
-	Route::get('/','HomeController@index');
+	Route::get('/','HomeController@home');
 	Route::get('logout','LoginController@GetLogout');
 
 
@@ -96,7 +96,7 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
 		Route::get('add','BannerController@add')->name('banner.add');
 		Route::post('add','BannerController@insert')->name('banner.insert');
 		Route::get('edit/{id}','BannerController@edit')->name('banner.edit');
-		Route::post('update/{id}','BannerController@update')->name('banner.update');
+		Route::post('edit/{id}','BannerController@update')->name('banner.update');
 		Route::get('delete/{id}','BannerController@delete')->name('banner.delete');
 	});
 
@@ -187,6 +187,38 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
 		Route::post('update/{id}','ProductController@update')->name('product.update');
 		Route::get('delete/{id}','ProductController@delete')->name('product.delete');
 	});
+
+	Route::prefix('introduct')->group(function () {
+		Route::get('','IntroductController@list');
+		Route::get('edit/{id}','IntroductController@edit');
+		Route::post('edit/{id}','IntroductController@PostEdit');
+
+
+		Route::prefix('prize')->group(function () {
+			Route::get('','IntroductController@ListPrize');
+			Route::get('edit/{id}','IntroductController@EditPrize');
+			Route::post('edit/{id}','IntroductController@PostEditPrize');
+		});
+
+		Route::prefix('cate_prize')->group(function () {
+			Route::get('','IntroductController@ListcatePrize');
+			Route::get('edit/{id}','IntroductController@EditcatePrize');
+			Route::post('edit/{id}','IntroductController@PostEditcatePrize');
+		});
+
+		Route::prefix('cate_prize_new')->group(function () {
+			Route::get('','IntroductController@ListcatePrizenew');
+			Route::get('edit/{id}','IntroductController@EditcatePrizenew');
+			Route::post('edit/{id}','IntroductController@PostEditcatePrizenew');
+		});
+		
+
+
+	});
+
+
+
+
 });
 
 

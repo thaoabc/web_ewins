@@ -41,9 +41,10 @@
 
 <div class="site-section" id="about-section">
     <div class="container">
+        @foreach ($introduce as $item)
         <div class="row align-items-lg-center">
             <div class="col-md-6 mb-lg-0 position-relative" data-aos="fade-up" data-aos-delay="100">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/YjyNxGa0ThI" frameborder="0"
+                <iframe width="100%" height="315" src="{{ $item->video }}" frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
                 <!-- <div class="experience">
@@ -52,16 +53,13 @@
             </div> -->
             </div>
             <div class="col-md-6 ml-auto" data-aos="fade-up" data-aos-delay="300">
-
-                <h2 class="section-title mb-3">Welcome To Elearning</h2>
-                <p class="mb-4">E-learning là chữ viết tắt của Electronic Learning, dịch ra tiếng Việt có nghĩa là học
-                    trực tuyến hay giáo dục trực tuyến.
-                    E-learning là phương thức học tập thông qua một thiết bị có kế nối mạng với một máy chủ ở nơi khác
-                    có lưu trữ sẵn các nội dung học tập dạng số và phần mềm cần thiết để có thể tương tác (hỏi/ yêu cầu/
-                    ra đề) với học viên học trực tuyến từ xa. Giáo viên có thể truyền tải hình ảnh, âm thanh hoặc tài
-                    liệu tương tác qua đường truyền băng thông rộng hoặc kết nối không dây (WiFi, WiMAX), mạng nội bộ
-                    (LAN).</p>
-                <p><a href="#" class="btn btn-primary " style="font-size: 18px">Đọc tiếp</a></p>
+              
+                  
+            
+                <h2 class="section-title mb-3">{{ $item->title }}</h2>
+                <p class="mb-4">{{ $item->sammary }}</p>
+                <p><a href="gioithieu" class="btn btn-primary " style="font-size: 18px">Đọc tiếp</a></p>
+                @endforeach
             </div>
         </div>
     </div>
@@ -325,7 +323,7 @@
                         trợ!</h6>
                     <div class="form-group mb-0 mt-4">
                         <label for="email" class="font-weight-bold text-ct">Tên Công ty</label>
-                        <input type="email" class="form-control" id="email" placeholder="Nhập tên Công ty..."
+                        <input type="text" class="form-control" id="email" placeholder="Nhập tên Công ty..."
                             name="email">
                     </div>
                     <div class="form-group mb-0">
