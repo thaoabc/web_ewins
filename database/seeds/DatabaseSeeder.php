@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
          $this->call(services::class); 
 
          $this->call(support::class); 
+         $this->call(sub_talentwins::class); 
         
          $this->call(prize::class); 
          $this->call(cateprize::class); 

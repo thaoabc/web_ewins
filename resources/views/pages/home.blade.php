@@ -276,7 +276,7 @@
 
         <div class="container">
             <div class="row">
-                @foreach($new1 as $value)
+                @foreach($new4 as $value)
                 <div class="col-md-4">
                     <div class="h-entry">
                         <img src="images/img_1.jpg" alt="Image" class="img-fluid">

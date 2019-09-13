@@ -1,6 +1,6 @@
 @extends('admins.layout.master-layout')
 @section('title')
-    Danh sách dịch vụ
+    Danh sách tin e-learning
 @endsection
 
 @section('content')
@@ -8,11 +8,11 @@
     <div class="container-fluid">
             <section class="content-header">
                 <h1>
-                    Danh sách dịch vụ
+                    Danh sách tin e-learning
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Danh sách dịch vụ</li>
+                    <li class="active">Danh sách tin e-learning</li>
                 </ol>
             </section>
             <hr>
@@ -20,7 +20,7 @@
             <section class="content">
                 <div class="row">
                 <div class="box-header">
-                    <a href="{{route('service.add')}}" class="btn btn-primary">Thêm dịch vụ</a>
+                    <a href="{{route('e_learning.add')}}" class="btn btn-primary">Thêm tin e-learning</a>
                 </div>
                     <div class="col-xs-12">
                         <div class="box">
@@ -28,34 +28,26 @@
                                 <table id="example1" class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th class="col-md-2">Tên dịch vụ</th>
-                                        <th class="col-md-2">Loại dịch vụ</th>
-                                        <th class="col-md-2">Ảnh</th>
-                                        <th class="col-md-2">Nội dung</th>
+                                        <th class="col-md-2">Icon</th>
+                                        <th class="col-md-2">Tiêu đề</th>
                                         <th class="col-md-2">Trạng thái</th>
                                         <th class="col-md-3">Hành động</th>
 
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($service as $value)
+                                    @foreach($e_learning as $value)
                                         <tr class="odd gradeX" >
-                                            <td >{{$value->name}}</td>
-                                            <td >{{$value->cate_name}}</td>
-                                            <td ><img style="width:100%" src="{{asset('assets/img_service/'.$value->image)}}"></td>
-                                            <td >
-                                                <div style="overflow: auto; height: 100px">{{ $value->content }}</div>
-                                            </td>
-                                            <td >
-                                                @if($value->status==1)
-                                                Cho hiện
-                                                @else
-                                                Ẩn
-                                                @endif
-                                            </td>
+                                            <td ><img style="width: 50px" src="{{ asset('assets/img_e_learning/'.$value->icon) }}" alt=""></td>
+                                            <td >{{$value->title}}</td>
+                                            @if($value->status)
+                                            <td >Cho hiện</td>
+                                            @else
+                                            <td >Ẩn</td>
+                                            @endif
                                             <td>
-                                                <a class="btn btn-default" href="{{Route('service.edit',['id'=> $value->id]) }}">Sửa</a>
-                                                <a href="{{Route('service.delete',['id'=> $value->id]) }}" class="btn btn-danger" onclick="return confirmAction()">Xóa</a>
+                                                <a class="btn btn-default" href="{{Route('e_learning.edit',['id'=> $value->id]) }}" title="Edit"><i class="fas fa-pencil-ruler"></i> Sửa</a>
+                                                <a href="{{Route('e_learning.delete',['id'=> $value->id]) }}" class="btn btn-danger" onclick="return confirmAction()">Xóa</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -88,7 +80,7 @@
                     
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h2 class="modal-title">Thông tin người dùng tin tức</h2>
+                        <h2 class="modal-title">Thông tin người dùng tin e_learning</h2>
                         {{-- <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button> --}}
                     </div>
                     

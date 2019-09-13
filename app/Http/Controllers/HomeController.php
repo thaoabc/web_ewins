@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\{inforcompany,product,elearning,cate_service,cateprizenew,subelearning,cate_new,talentwins,service,support,introduce,prize,cateprize};
+
 use DB;
 
 class HomeController extends Controller
@@ -29,6 +30,9 @@ class HomeController extends Controller
                         ->get();
         $array['banner']=DB::table('banner')
                         ->select('banner.*')
+                        ->get();
+        $array['talentwins']=DB::table('talent_wins')
+                        ->select('talent_wins.*')
                         ->get();
         $array['cate_service']=DB::table('cate_service')
                         ->select('cate_service.*')
@@ -68,7 +72,7 @@ class HomeController extends Controller
                         ->take(3)
                         ->get();
                        
-                       
+                        $array['talentwins']=talentwins::all();
                         $array['elearning']=elearning::all();
                         $array['subelearnings']=subelearning::all();
                         $array['service']=service::all();
@@ -89,7 +93,7 @@ class HomeController extends Controller
     {
         
         $data['service']=service::all();
-        $data['product']=product::all();
+        
         return view('pages.lienhe',$data);
     }
 
@@ -98,7 +102,7 @@ class HomeController extends Controller
     {
        
         $data['service']=service::all();
-        $data['product']=product::all();
+        
         return view('pages.talentwins',$data);
     }
 
@@ -108,7 +112,7 @@ class HomeController extends Controller
     {
        
         $data['service']=service::all();
-        $data['product']=product::all();
+       
         return view('pages.traiNghiem',$data);
     }
 
@@ -125,7 +129,7 @@ class HomeController extends Controller
     {
         
         $data['service']=service::all();
-        $data['product']=product::all();
+        
         return view('pages.tinTuc',$data);
     }
 
@@ -134,8 +138,8 @@ class HomeController extends Controller
     {
        
         $data['service']=service::all();
-        $data['product']=product::all();
-        $data['service']=service::all();
+       
+       
         return view('pages.dichvu',$data);
     }
 
@@ -144,7 +148,7 @@ class HomeController extends Controller
     {
         
         $data['service']=service::all();
-        $data['product']=product::all();
+       
         return view('pages.tintucchitiet',$data);
     }
 
@@ -152,7 +156,7 @@ class HomeController extends Controller
     {
         
         $data['service']=service::all();
-        $data['product']=product::all();
+       
         return view('pages.talentchitiet',$data);
     }
 

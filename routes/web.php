@@ -35,12 +35,12 @@ Route::get('traiNghiem','HomeController@product')->name('traiNghiem');
 Route::get('gioithieu','HomeController@about')->name('gioithieu');
 
 
-Route::get('talentwins','HomeController@talenwin')->name('talentwins');
+Route::get('talentwins/{slug}','TalentWinsController@show')->name('talentwins');
+Route::get('talentchitiet/{slug}','TalentWinsController@detail')->name('talentchitiet');
 
 Route::get('tintucchitiet/{slug}','NewController@detail')->name('tintucchitiet');
 Route::get('dichvu/{slug}','Cate_serviceController@show')->name('dichvu');
 Route::get('chitietdichvu/{slug}','ServiceController@show')->name('chitietdichvu');
-Route::get('talentchitiet','HomeController@talenchitiet')->name('talentchitiet');
 
 
 
@@ -161,13 +161,22 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
 		Route::get('delete/{id}','InforCompanyController@delete')->name('infor_company.delete');
 	});
 
-	Route::prefix('e-learning')->group(function () {
-		Route::get('list','ELearningController@list')->name('e-learning.list');
-		Route::get('add','ELearningController@add')->name('e-learning.add');
-		Route::post('add','ELearningController@store')->name('e-learning.add');
-		Route::get('edit/{id}','ELearningController@edit')->name('e-learning.edit');
-		Route::post('edit/{id}','ELearningController@update')->name('e-learning.edit');
-		Route::get('delete/{id}','ELearningController@delete')->name('e-learning.delete');
+	Route::prefix('e_learning')->group(function () {
+		Route::get('list','ELearningController@list')->name('e_learning.list');
+		Route::get('add','ELearningController@add')->name('e_learning.add');
+		Route::post('add','ELearningController@insert')->name('e_learning.add');
+		Route::get('edit/{id}','ELearningController@edit')->name('e_learning.edit');
+		Route::post('update/{id}','ELearningController@update')->name('e_learning.update');
+		Route::get('delete/{id}','ELearningController@delete')->name('e_learning.delete');
+	});
+
+	Route::prefix('sub_e_learning')->group(function () {
+		Route::get('list','Sub_e_learningController@list')->name('sub_e_learning.list');
+		Route::get('add','Sub_e_learningController@add')->name('sub_e_learning.add');
+		Route::post('add','Sub_e_learningController@insert')->name('sub_e_learning.add');
+		Route::get('edit/{id}','Sub_e_learningController@edit')->name('sub_e_learning.edit');
+		Route::post('update/{id}','Sub_e_learningController@update')->name('sub_e_learning.update');
+		Route::get('delete/{id}','Sub_e_learningController@delete')->name('sub_e_learning.delete');
 	});
 
 	Route::prefix('product')->group(function () {

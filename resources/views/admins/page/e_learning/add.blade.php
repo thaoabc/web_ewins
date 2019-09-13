@@ -1,6 +1,6 @@
 @extends('admins.layout.master-layout')
 @section('title')
-    Sửa tin e-learning
+    Thêm tin e-learning
 @endsection
 
 @section('content')
@@ -8,51 +8,49 @@
     <div class="container-fluid">
             <section class="content-header">
                 <h1>
-                    Sửa tin e-learning
+                    Thêm tin e-learning
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Sửa tin e-learning</li>
+                    <li class="active">Thêm tin e-learning</li>
                 </ol>
             </section>
             <hr>
 
             <section class="content">
                 <div class="row">
+                <div class="box-header">
+                    <a href="{{route('e_learning.list')}}" class="btn btn-primary">Danh sách</a>
+                </div>
                     <div class="col-xs-12">
                         <div class="box">
-                                <form role="form" method="POST" action="{{Route('e-learning.edit',['id'=>$e_learning->id])}}" enctype="multipart/form-data">
+                                <form role="form" method="POST" action="{{route('e_learning.add')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
 
                         <div class="form-group">
                             <label>Title (*)</label>
                             <input type="text" class="form-control" placeholder="Nhập tiêu đề tin e-learning" name="title"
-                                   value="{{ $e_learning->title }}">
+                                   value="{{ old('title') }}">
                             <p style="color:red">{{ $errors->first('title') }}</p>
                         </div>
 
                         <div class="form-group">
-                            <label>Nội dung (*)</label>
-                            <input type="text" class="form-control" placeholder="Nội dung" name="content"
-                                   value="{{ $e_learning->content }}">
-                            <p style="color:red">{{ $errors->first('content') }}</p>
+                            <label>Trạng thái (*)</label>
+                            <div class="radio">
+                                <label for=""><input type="radio" name="status" value="1">Cho hiện</label>
+                            </div>
+                            <div class="radio">
+                                <label for=""><input type="radio" name="status" value="0">Ẩn</label>
+                            </div>
+                            <p style="color:red">{{ $errors->first('status') }}</p>
                         </div>
 
-                        <div class="form-group">
-                            <label>Đăng bài</label>
-                            <input type="checkbox" name="status" value="1">
-                        </div>
-
-                        {{--  <div class="form-group">
-                            <label for="exampleInputEmail1">Nội dung (*)</label>
-                            <textarea name="content" rows="10" placeholder="Nhập nội dung"
-                                        class="form-control">{{ old('content') }}</textarea>
-                        </div>  --}}
                         <div class="form-group">
                             <label>Chọn ảnh icon</label>
                             <input type="file" id="image" name="icon" onchange="showIMG()">
                         </div>
+                        <p style="color:red">{{ $errors->first('icon') }}</p>
                         <div class="form-group">
                             <div id="viewImg">
 
@@ -60,8 +58,7 @@
                         </div>
                         
                         <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Sửa</button>
-                        <a href="{{Route('e-learning.list')}}"><button type="submit" class="btn btn-default">Quay lại</button></a>
+                        <button type="submit" class="btn btn-primary">Thêm</button>
                     </div>
                 </form>
                         </div>

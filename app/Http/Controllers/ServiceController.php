@@ -33,14 +33,11 @@ class ServiceController extends Controller
         $this->validate($request,
             [
                 'name' => 'required',
-                'image' => 'required|image',
                 'content' => 'required',
                 'cate_id' => 'required',
             ],
             [
                 'name.required' => 'Tên dịch vụ là trường bắt buộc',
-                'image.required' => 'Ảnh là trường bắt buộc',
-                'image.required' => 'Bắt buộc phải là ảnh',
                 'content.required' => 'Nội dung là trường bắt buộc',
                 'cate_id.required' => 'Loại dịch vụ là trường bắt buộc'
             ]
@@ -49,16 +46,18 @@ class ServiceController extends Controller
         if ($request->hasFile('image')) {
             $file=$request->file('image');
             $name=$file->getClientOriginalName();
+            $str=str_random(5);
+            $name_file=$str."_".$name;
 
-            $file->move('assets/img_service/',$name);
+            $file->move('assets/img_service/',$name_file);
         }
         DB::table('service')->insert([
             'name' => $request->name,
-            'image' => $name,
+            'image' => $name_file,
             'content' => $request->content,
             'cate_id' => $request->cate_id,
             'slug' => str_slug($request->name),
-            'status' => 0,
+            'status' => $request->status,
         ]);
 
         return redirect()->route('service.list');
@@ -88,16 +87,16 @@ class ServiceController extends Controller
 
         $img_old=DB::table('service')->find($id)->image;
 
-        if($request->hasFile('image')){
-            $file=$request->file('image');
-            $name=$file->getClientOriginalName();
+        if(!empty($_FILES['image']['name'])){
+                $file = $_FILES['image'];
+                $name_file = time().'-'.$file['name'];
             if(file_exists('assets/img_service/'.$img_old)&&($img_old !='')){
                 unlink('assets/img_service/'.$img_old);
             }
-            $file->move('assets/img_service/',$name);
+            move_uploaded_file($file['tmp_name'], 'assets/img_service/'.$name_file);
         }
         else{
-            $name=$img_old;
+            $name_file=$img_old;
         }
 
         if(empty($request->status)){
@@ -109,7 +108,7 @@ class ServiceController extends Controller
 
         DB::table('service')->where('id',$id)->update([
             'name' => $request->name,
-            'image' => $name,
+            'image' => $name_file,
             'content' => $request->content,
             'cate_id' => $request->cate_id,
             'slug' => str_slug($request->name),

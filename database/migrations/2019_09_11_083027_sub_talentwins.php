@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNewTable extends Migration
+class SubTalentwins extends Migration
 {
     /**
      * Run the migrations.
@@ -13,30 +13,22 @@ class CreateNewTable extends Migration
      */
     public function up()
     {
-        
-        Schema::create('cate_new', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->timestamps();
-        });
-        
-
-        Schema::create('new', function (Blueprint $table) {
+        Schema::create('sub_talentwins', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('summary');
+            $table->text('summary');
             $table->text('content');
             $table->string('image');
-            $table->string('slug');
+            $table->text('slug');
             $table->tinyInteger('status');
-            $table->bigInteger('id_admin')->unsigned();
-            $table->bigInteger('cate_new')->unsigned();
+            $table->BigInteger('id_admin')->unsigned();
+            $table->BigInteger('cate_id')->unsigned();
             $table->foreign('id_admin')
                   ->references('id')
                   ->on('admin');
-            $table->foreign('cate_new')
+            $table->foreign('cate_id')
                   ->references('id')
-                  ->on('cate_new');
+                  ->on('talent_wins');
             $table->timestamps();
         });
     }
@@ -48,6 +40,6 @@ class CreateNewTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('new');
+        Schema::dropIfExists('sub_talentwins');
     }
 }
