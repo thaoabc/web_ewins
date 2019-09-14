@@ -36,6 +36,15 @@ Thêm tin tức
                                 </div>
 
                                 <div class="form-group">
+                                    <label>Loại tin tức (*)</label>
+                                    <select name="name" class="form-control">
+                                        @foreach ($catenew as $row)
+                                        <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
                                     <label>Tóm tắt (*)</label>
                                     <input type="text" class="form-control" placeholder="Tóm tắt" name="summary"
                                         value="{{ old('summary') }}">
@@ -51,15 +60,14 @@ Thêm tin tức
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Loại tin tức (*)</label>
-                                    <select name="name" class="form-control">
-                                        @foreach ($catenew as $row)
-                                        <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                        @endforeach
-
-                                        {{-- <option value="">Giải trí</option>
-                                <option value="">Kinh doanh</option>   --}}
-                                    </select>
+                                    <label>Trạng thái (*)</label>
+                                    <div class="radio">
+                                        <label for=""><input type="radio" name="status" value="1">Cho hiện</label>
+                                    </div>
+                                    <div class="radio">
+                                        <label for=""><input type="radio" name="status" value="0">Ẩn</label>
+                                    </div>
+                                    <p style="color:red">{{ $errors->first('status') }}</p>
                                 </div>
 
                                 <div class="form-group">

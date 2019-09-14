@@ -29,6 +29,7 @@ Danh sách tin tức
                                 <thead>
                                     <tr>
                                         <th class="col-md-2">Tiêu đề</th>
+                                        <th class="col-md-2">Loại tin tức</th>
                                         <th class="col-md-2">Tóm tắt</th>
                                         <th class="col-md-2">Nội dung</th>
                                         <th class="col-md-2">Ảnh</th>
@@ -42,6 +43,7 @@ Danh sách tin tức
                                     @foreach($new as $value)
                                     <tr class="odd gradeX">
                                         <td>{{$value->title}}</td>
+                                        <td>{{$value->cate_name}}</td>
                                         <td>{{$value->summary}}</td>
                                         <td>
                                             <div style="width:200px; height: 100px; overflow:auto">{{$value->content}}</div>
@@ -49,7 +51,13 @@ Danh sách tin tức
                                         <td><img width="100px" src="images/{{ $value->image }}"></td>
                                         <td>{{$value->name}}</td>
                                         
-                                        <td>{{$value->status}}</td>
+                                        <td>
+                                            @if( $value->status ==1)
+                                            Cho hiện
+                                            @else
+                                            Ẩn
+                                            @endif
+                                        </td>
                                         <td>
                                             <a class="btn btn-default" href="{{Route('new.edit',['id'=> $value->id]) }}"
                                                 title="Edit"><i class="fas fa-pencil-ruler"></i> Sửa</a>

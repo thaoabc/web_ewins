@@ -48,6 +48,24 @@
                             <p style="color:red">{{ $errors->first('content') }}</p>
                         </div>
 
+                        <?php if($service->status ==1){
+                            $check1 = 'checked="select"';
+                           $check0 = '';
+                       }else{
+                           $check1 = '';
+                           $check0 = 'checked="select"';
+                       } ?>
+                       <div class="form-group">
+                           <label>Trạng thái (*)</label>
+                           <div class="radio">
+                               <label for=""><input {{$check1}} type="radio" name="status" value="1">Cho hiện</label>
+                           </div>
+                           <div class="radio">
+                               <label for=""><input {{$check0}} type="radio" name="status" value="0">Ẩn</label>
+                           </div>
+                           <p style="color:red">{{ $errors->first('status') }}</p>
+                       </div>
+
                         <div class="form-group">
                             <label>Chọn ảnh</label>
                             <input type="file" id="image" name="image" onchange="showIMG()">
@@ -110,7 +128,4 @@
     
     </script>
 
-{{-- modal --}}
-
-    </div>
 @stop
