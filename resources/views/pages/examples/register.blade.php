@@ -81,9 +81,9 @@
         <div class="form-group has-feedback">
             <label>Phân quyền</label>
             <select name="level" class="form-control">
-                <option value="1">Quản trị viên</option>
-                <option value="2">Cộng tác viên</option>
-                <option value="3">Người dùng</option>
+                <option value="1">Admin</option>
+                <option value="2">Editor</option>
+                <option value="3">User</option>
             </select>
         </div>
 
@@ -108,9 +108,9 @@
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
-            <label>
+            {{-- <label>
               <input type="checkbox"> I agree to the <a href="#">terms</a>
-            </label>
+            </label> --}}
           </div>
         </div>
         <!-- /.col -->
@@ -129,7 +129,7 @@
         Google+</a>
     </div>  --}}
 
-    <a href="admin/login" class="text-center">I already have a membership</a>
+    <a href="admin/list" class="text-center">I already have a membership</a>
   </div>
   <!-- /.form-box -->
 </div>

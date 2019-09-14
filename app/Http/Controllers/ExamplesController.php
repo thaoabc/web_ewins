@@ -47,7 +47,7 @@ class ExamplesController extends Controller
         $admin->phone=$request->phone;
         $admin->level=$request->level;
         $admin->save();
-        return redirect('admin')->with('thongbao','Đã thêm thành viên thành công');
+        return redirect('admin/list')->with('thongbao','Đã thêm thành viên thành công');
     }
 
 
