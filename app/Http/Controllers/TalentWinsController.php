@@ -92,19 +92,22 @@ class TalentWinsController extends Controller
         ->join('talent_wins','talent_wins.id','=','sub_talentwins.cate_id')
         ->join('admin','admin.id','=','sub_talentwins.id_admin')
         ->select('sub_talentwins.*','admin.name as name')
-        ->where('talent_wins.slug',$slug)
+        ->where('talent_wins.title','Talent Wins Technology')
+        ->where('sub_talentwins.status',1)
         ->get();
         $array['solution']=DB::table('sub_talentwins')
         ->join('talent_wins','talent_wins.id','=','sub_talentwins.cate_id')
         ->join('admin','admin.id','=','sub_talentwins.id_admin')
         ->select('sub_talentwins.*','admin.name as name')
-        ->where('talent_wins.slug',$slug)
+        ->where('talent_wins.title','Talent Wins Solution')
+        ->where('sub_talentwins.status',1)
         ->get();
         $array['academy']=DB::table('sub_talentwins')
         ->join('talent_wins','talent_wins.id','=','sub_talentwins.cate_id')
         ->join('admin','admin.id','=','sub_talentwins.id_admin')
         ->select('sub_talentwins.*','admin.name as name')
-        ->where('talent_wins.slug',$slug)
+        ->where('talent_wins.title','Talent Wins Academy')
+        ->where('sub_talentwins.status',1)
         ->get();
         return view('pages.talentwins',$array);
     }

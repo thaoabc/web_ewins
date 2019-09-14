@@ -22,7 +22,7 @@
                             <h1 style="color: #088A08 ">{{ $row->title }}</h1>
                             <p class="mb-5">{{ $row->content }}</p>
                             <div>
-                                <a href="#" class="btn btn-primary mr-2 mb-2">{{ $row->link }}</a>
+                                <a href="{{ $row->link }}" class="btn btn-primary mr-2 mb-2">Get Stated</a>
                             </div>
                         </div>
                     </div>

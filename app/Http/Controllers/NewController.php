@@ -12,7 +12,8 @@ class NewController extends Controller
         
         $array['new']=DB::table('new')
                         ->join('admin','admin.id','=','new.id_admin')
-                        ->select('new.*','admin.name as name')
+                        ->join('cate_new','cate_new.id','=','cate_new.id')
+                        ->select('new.*','admin.name as name','cate_new.name as cate_name')
                         ->get();
         return view('admins.page.new.list',$array);
     }
@@ -59,7 +60,7 @@ class NewController extends Controller
             'content' => $request->content,
             'image' => $name,
             'slug' => str_slug($request->title),
-            'status' => 0,
+            'status' => $request->stauts,
             'id_admin' => $request->namehdd ,
             'cate_new'=>$request->name
             
@@ -139,13 +140,6 @@ class NewController extends Controller
             $name=$img_old;
         }
 
-        if(empty($request->status)){
-            $status=0;
-        }
-        else{
-            $status=1;
-        }
-
         DB::table('new')->where('id',$id)->update([
             'title' => $request->title,
             'summary' => $request->summary,
@@ -153,7 +147,7 @@ class NewController extends Controller
             'image' => $name,
             'slug' => str_slug($request->title),
             'id_admin' => 1,
-            'status' => $status,
+            'status' => $request->status,
         ]);
 
         return redirect()->route('new.list');
@@ -169,7 +163,7 @@ class NewController extends Controller
         return redirect()->route('new.list');
     }
     
-    public function show($slug)
+    public function show()
     {
         $array['cate_new']=DB::table('cate_new')
                         ->select('cate_new.*')
@@ -178,19 +172,22 @@ class NewController extends Controller
                         ->join('cate_new','cate_new.id','=','new.cate_new')
                         ->join('admin','admin.id','=','new.id_admin')
                         ->select('new.*','cate_new.name as cate_name','admin.name as ad_name')
-                        ->where('cate_new.slug',$slug)
+                        ->where('new.cate_new',1)
+                        ->where('new.status','=',1)
                         ->get();
         $array['phattrien']=DB::table('new')
                         ->join('cate_new','cate_new.id','=','new.cate_new')
                         ->join('admin','admin.id','=','new.id_admin')
                         ->select('new.*','cate_new.name as cate_name','admin.name as ad_name')
-                        ->where('cate_new.slug',$slug)
+                        ->where('new.cate_new',2)
+                        ->where('new.status','=',1)
                         ->get();
         $array['doanhnghiep']=DB::table('new')
                         ->join('cate_new','cate_new.id','=','new.cate_new')
                         ->join('admin','admin.id','=','new.id_admin')
                         ->select('new.*','cate_new.name as cate_name','admin.name as ad_name')
-                        ->where('cate_new.slug',$slug)
+                        ->where('new.cate_new',3)
+                        ->where('new.status','=',1)
                         ->get();
         $array['cate_service']=DB::table('cate_service')
                         ->select('cate_service.*')

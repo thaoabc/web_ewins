@@ -133,7 +133,10 @@ class ServiceController extends Controller
                         ->select('service.*')
                         ->where('service.slug',$slug)
                         ->first();
-        $array['service']=service::all();
+        $array['service']=DB::table('service')
+        ->join('cate_service','cate_service.id','=','service.cate_id')
+        ->select('service.*')
+        ->where('cate_service.slug',$slug);
         $array['talentwins']=talentwins::all();
         $array['cate_new']=cate_new::all();
         $array['infocompany']=inforcompany::all();
