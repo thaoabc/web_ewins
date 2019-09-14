@@ -28,7 +28,7 @@ Danh sách sản phẩm
                             <table id="example1" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th class="col-md-2">Ảnh</th>
+                                        {{-- <th class="col-md-2">Ảnh</th> --}}
                                         <th class="col-md-2">Tên</th>
                                         <th class="col-md-2">Link</th>
                                         <th class="col-md-3">Hành động</th>
@@ -38,7 +38,7 @@ Danh sách sản phẩm
                                 <tbody>
                                     @foreach($product as $value)
                                     <tr class="odd gradeX">
-                                        <td><img width="100px" src="{{asset('assets/img_product/'.$value->image)}}"></td>
+                                        {{-- <td><img width="100px" src="{{asset('assets/img_product/'.$value->image)}}"></td> --}}
                                         <td>{{$value->name}}</td>
                                         <td>{{$value->link}}</td>
                                         <td>

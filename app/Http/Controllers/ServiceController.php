@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\models\{inforcompany,product,elearning,subelearning,cate_new,talentwins,service,support,cate_service};
+use App\models\{news,elearning,subelearning,service,cate_service};
 
 use DB;
 
@@ -136,13 +136,14 @@ class ServiceController extends Controller
         $array['service']=DB::table('service')
         ->join('cate_service','cate_service.id','=','service.cate_id')
         ->select('service.*')
-        ->where('cate_service.slug',$slug);
-        $array['talentwins']=talentwins::all();
-        $array['cate_new']=cate_new::all();
-        $array['infocompany']=inforcompany::all();
-        $array['product']=product::all();
-        $array['cate_service']=cate_service::all();
-        $array['support']=support::all();
+        ->where('cate_service.slug',$slug)->first();
+        // $array['talentwins']=talentwins::all();
+        // $array['cate_new']=cate_new::all();
+        // $array['infocompany']=inforcompany::all();
+        // $array['product']=product::all();
+        // $array['cate_service']=cate_service::all();
+        $array['news']=news::all();
+        // dd($array);
         return view('pages.dichvuchitiet',$array);
     }
 }
