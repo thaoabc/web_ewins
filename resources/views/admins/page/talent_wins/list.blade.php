@@ -29,9 +29,7 @@ Danh sách tin talent wins
                                 <thead>
                                     <tr>
                                         <th class="col-md-2">Tiêu đề</th>
-                                        <th class="col-md-2">Tóm tắt</th>
-                                        <th class="col-md-2">Nội dung</th>
-                                        <th class="col-md-2">Trạng thái</th>
+                                        <th class="col-md-2">Slug</th>
                                         <th class="col-md-3">Hành động</th>
 
                                     </tr>
@@ -40,9 +38,7 @@ Danh sách tin talent wins
                                     @foreach($talent_wins as $value)
                                     <tr class="odd gradeX">
                                         <td>{{$value->title}}</td>
-                                        <td>{{$value->summary}}</td>
-                                        <td>{{$value->content}}</td>
-                                        <td>{{$value->status}}</td>
+                                        <td>{{$value->slug}}</td>
                                         <td>
                                             <a class="btn btn-default"
                                                 href="{{Route('talent_wins.edit',['id'=> $value->id]) }}"

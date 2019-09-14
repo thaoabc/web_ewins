@@ -169,7 +169,7 @@ class NewController extends Controller
         return redirect()->route('new.list');
     }
     
-    public function show()
+    public function show($slug)
     {
         $array['cate_new']=DB::table('cate_new')
                         ->select('cate_new.*')
@@ -177,20 +177,20 @@ class NewController extends Controller
         $array['nhansu']=DB::table('new')
                         ->join('cate_new','cate_new.id','=','new.cate_new')
                         ->join('admin','admin.id','=','new.id_admin')
-                        ->select('new.*','cate_new.*','admin.name as ad_name')
-                        ->where('cate_new.name','=','Nhân sự')
+                        ->select('new.*','cate_new.name as cate_name','admin.name as ad_name')
+                        ->where('cate_new.slug',$slug)
                         ->get();
         $array['phattrien']=DB::table('new')
                         ->join('cate_new','cate_new.id','=','new.cate_new')
                         ->join('admin','admin.id','=','new.id_admin')
-                        ->select('new.*','cate_new.*','admin.name as ad_name')
-                        ->where('cate_new.name','=','Đào tạo phát triển')
+                        ->select('new.*','cate_new.name as cate_name','admin.name as ad_name')
+                        ->where('cate_new.slug',$slug)
                         ->get();
         $array['doanhnghiep']=DB::table('new')
                         ->join('cate_new','cate_new.id','=','new.cate_new')
                         ->join('admin','admin.id','=','new.id_admin')
-                        ->select('new.*','cate_new.*','admin.name as ad_name')
-                        ->where('cate_new.name','=','Doanh nghiệp')
+                        ->select('new.*','cate_new.name as cate_name','admin.name as ad_name')
+                        ->where('cate_new.slug',$slug)
                         ->get();
         $array['cate_service']=DB::table('cate_service')
                         ->select('cate_service.*')

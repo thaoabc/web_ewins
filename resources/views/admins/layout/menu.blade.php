@@ -84,7 +84,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{Route('adviser.list')}}"><i class="fa fa-circle-o"></i>Danh sách cố vấn</a></li>
-                    {{-- <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li> --}}
+                    <li><a href="{{Route('adviser.add')}}"><i class="fa fa-circle-o"></i>Thêm cố vấn</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -169,6 +169,32 @@
                 <ul class="treeview-menu">
                     <li><a href="{{Route('product.list')}}"><i class="fa fa-circle-o"></i>Danh sách</a></li>
                     <li><a href="{{Route('product.add')}}"><i class="fa fa-circle-o"></i>Thêm sản phẩm</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>Loại tin TalentWins</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{Route('talent_wins.list')}}"><i class="fa fa-circle-o"></i>Danh sách</a></li>
+                    <li><a href="{{Route('talent_wins.add')}}"><i class="fa fa-circle-o"></i>Thêm loại tin</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>Tin TalentWins</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{Route('sub_talentwins.list')}}"><i class="fa fa-circle-o"></i>Danh sách</a></li>
+                    <li><a href="{{Route('sub_talentwins.add')}}"><i class="fa fa-circle-o"></i>Thêm tin</a></li>
                 </ul>
             </li>
 

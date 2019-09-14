@@ -365,5 +365,7 @@
 <script src="{{ asset('') }}admins/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('') }}admins/dist/js/demo.js"></script>
+<script src="{{ asset('admins/tinymce/tinymce.min.js') }}"></script>
+<script src="{{ asset('admins/tinymce/config.js') }}"></script>
 </body>
 </html>

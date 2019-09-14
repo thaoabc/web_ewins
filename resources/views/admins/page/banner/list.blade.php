@@ -96,7 +96,9 @@
                                                 @foreach($banner as $value)
                                                     <tr class="odd gradeX" align="center">
                                                             <td>{{$value->title}}</td>
-                                                            <td>{{$value->content}}</td>
+                                                            <td>
+                                                                <div style="height: 80px;width:200px;overflow: auto">{{$value->content}}</div>
+                                                            </td>
                                                             <td>{{$value->link}}</td>
                                                         <td><img width="100px" src="{{asset('assets/img_banner/'.$value->image)}}"></td>
                                                         <td>{{$value->status}}</td>
