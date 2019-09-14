@@ -30,6 +30,7 @@ class HomeController extends Controller
                         ->get();
         $array['banner']=DB::table('banner')
                         ->select('banner.*')
+                        ->where('status','=',1)
                         ->get();
         $array['talentwins']=DB::table('talent_wins')
                         ->select('talent_wins.*')
@@ -42,6 +43,7 @@ class HomeController extends Controller
                         ->get();
         $array['elearnings']=DB::table('e_learning')
                         ->select('e_learning.*')
+                        ->where('status','=',1)
                         ->get();
         $array['infocompany']=DB::table('infor_company')
                         ->select('infor_company.*')
@@ -50,24 +52,28 @@ class HomeController extends Controller
         $array['new1']=DB::table('new')
                         ->join('admin','admin.id','=','new.id_admin')
                         ->select('new.*','admin.name as name')
+                        ->where('new.status','=',1)
                         ->skip(0)
                         ->take(3)
                         ->get();
         $array['new2']=DB::table('new')
                         ->join('admin','admin.id','=','new.id_admin')
                         ->select('new.*','admin.name as name')
+                        ->where('new.status','=',1)
                         ->skip(3)
                         ->take(3)
                         ->get();
          $array['new3']=DB::table('new')
                         ->join('admin','admin.id','=','new.id_admin')
                         ->select('new.*','admin.name as name')
+                        ->where('new.status','=',1)
                         ->skip(6)
                         ->take(3)
                         ->get();
         $array['new4']=DB::table('new')
                         ->join('admin','admin.id','=','new.id_admin')
                         ->select('new.*','admin.name as name')
+                        ->where('new.status','=',1)
                         ->skip(9)
                         ->take(3)
                         ->get();

@@ -31,6 +31,7 @@
                                         <th class="col-md-2">Tên dịch vụ</th>
                                         <th class="col-md-2">Loại dịch vụ</th>
                                         <th class="col-md-2">Ảnh</th>
+                                        <th class="col-md-2">Tóm tắt</th>
                                         <th class="col-md-2">Nội dung</th>
                                         <th class="col-md-2">Trạng thái</th>
                                         <th class="col-md-3">Hành động</th>
@@ -45,6 +46,9 @@
                                             <td ><img style="width:100%" src="{{asset('assets/img_service/'.$value->image)}}"></td>
                                             <td >
                                                 <div style="overflow: auto; height: 100px">{{ $value->content }}</div>
+                                            </td>
+                                            <td >
+                                                <div style="overflow: auto; height: 100px">{{ $value->summary }}</div>
                                             </td>
                                             <td >
                                                 @if($value->status==1)
