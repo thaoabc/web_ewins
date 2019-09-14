@@ -26,8 +26,8 @@ class RegisterRequest extends FormRequest
         return [
             'name'=>'required|min:5',
             'email'=>'required|email',
-            'password'=>'required|min:5',
-            'password_confirmation'=>'required|confirmed',
+            'password'=>'required|min:5|confirmed',
+            
             'phone'=>'required|numeric',
         ];
     }
@@ -40,6 +40,7 @@ class RegisterRequest extends FormRequest
             'email.email'=>'Email không đúng định dạng !',
             'password.required'=>'Bạn chưa nhập mật khẩu !',
             'password.min'=>'Mật khẩu không được nhỏ hơn 5 kí tự !',
+            'password.confirmed'=>'Mật khẩu chưa trùng nhau !',
             'reset.required'=>'Bạn chưa nhập lại mật khẩu !',
             'password_confirmation'=>'Nhập lại mật khẩu !',
             'phone.numeric'=>'Số điện thoại phải là kiểu số !',

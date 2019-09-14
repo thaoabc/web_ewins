@@ -19,10 +19,11 @@
             <section class="content">
                 <div class="row">
                 <div class="box-header">
-						@if (session('thongbao'))
-						<div class="alert alert-primary" role="alert">
-							<strong>{{ session('thongbao') }}</strong>
-						</div>
+                        @if (session('thongbao'))
+                        <script>
+                            alert('{{ session('thongbao') }}')
+                        </script>
+						
 					@endif
                     <a href="admin/register" class="btn btn-primary">Thêm thành viên</a>
                 </div>
@@ -49,7 +50,7 @@
 												<td >{{$row->status}}</td>
 													<td>
 														<a class="btn btn-default" href="" title="Edit"><i class="fas fa-pencil-ruler"></i> Sửa</a>
-														<a href="del/{{ $row->id }}" class="btn btn-danger" onclick="return confirmAction()">Xóa</a>
+														<a href="admin/del/{{ $row->id }}" class="btn btn-danger" onclick="return confirmAction()">Xóa</a>
 													</td>
 											</tr>
 										@endforeach	

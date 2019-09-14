@@ -20,14 +20,14 @@
             <div class=" col-12 col-md-4">
                 <div class="product">
                     <div class="image-product">
-                        <a href=""><a href=""><img src="http://huongvietgroup.com/Media/Uploads/4-CHUNG-CHI-R.png"></a></a>
+                        <a href=""><a href="{{  $value->link }}"><img src="http://huongvietgroup.com/Media/Uploads/4-CHUNG-CHI-R.png"></a></a>
                     </div>
                     <a href="">
                         <div class="title-product">{{$value->name}}</div>
                     </a>
                     <div class="btn-product text-center ">
-                        <a href="{{$value->link}}" class="btn btn-primary btn-sm mr-2 ">Dùng thử</a>
-                        <a href="{{$value->link}}" class="btn btn-primary btn-sm ">Chi tiết</a>
+                        <a href="{{  $value->link }}" class="btn btn-primary btn-sm mr-2 ">Dùng thử</a>
+                        <a href="{{   $value->link }}" class="btn btn-primary btn-sm ">Chi tiết</a>
                     </div>
                 </div>
             </div>
