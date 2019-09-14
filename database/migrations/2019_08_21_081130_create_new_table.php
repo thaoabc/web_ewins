@@ -17,6 +17,7 @@ class CreateNewTable extends Migration
         Schema::create('cate_new', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('slug');
             $table->timestamps();
         });
         

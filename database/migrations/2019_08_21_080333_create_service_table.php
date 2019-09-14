@@ -24,6 +24,7 @@ class CreateServiceTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('image');
+            $table->text('summary');
             $table->text('content');
             $table->string('slug');
             $table->tinyInteger('status');

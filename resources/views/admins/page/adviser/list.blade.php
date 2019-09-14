@@ -40,16 +40,11 @@
                                     @foreach($adviser as $value)
                                         <tr class="odd gradeX" >
                                             <td >{{$value->name}}</td>
-
-                                            {{-- <td ><img style="width:100%" src="{{asset('assets/img_adviser/'.$value->image)}}" alt=""></td>
-
-                                            <td ><img width="100px" src="{{asset('assets/img_adviser/'.$value->image)}}" alt=""></td> --}}
-
-
                                             <td ><img width="100px" src="images/{{ $value->image }}" alt=""></td>
-
                                             <td >{{$value->position}}</td>
-                                            <td >{{$value->information}}</td>
+                                            <td >
+                                                <div style="width:200px; height: 100px; overflow:auto">{{ $value->information }}</div>
+                                            </td>
                                             <td>
                                                 <a class="btn btn-default" href="{{Route('adviser.edit',['id'=> $value->id]) }}" title="Edit"><i class="fas fa-pencil-ruler"></i> Sửa</a>
                                                 <a href="{{Route('adviser.delete',['id'=> $value->id]) }}" class="btn btn-danger" onclick="return confirmAction()">Xóa</a>

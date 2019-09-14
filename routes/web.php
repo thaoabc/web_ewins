@@ -25,7 +25,6 @@ Route::get('admin/contact/delete/{id}','NewController@delete_contact')->name('co
 
 Route::get('admin/contact/edit/{id}-{status}','NewController@edit_contact')->name('contact.edit');
 
-Route::get('tintuc','NewController@show')->name('tintuc');
 // Route::get('tinTuc','frontend\Talenwins@news')->name('tinTuc');
 
 Route::get('traiNghiem','HomeController@product')->name('traiNghiem');
@@ -39,6 +38,7 @@ Route::get('talentwins/{slug}','TalentWinsController@show')->name('talentwins');
 Route::get('talentchitiet/{slug}','TalentWinsController@detail')->name('talentchitiet');
 
 Route::get('tintucchitiet/{slug}','NewController@detail')->name('tintucchitiet');
+Route::get('tintuc/{slug}','NewController@show')->name('tintuc');
 Route::get('dichvu/{slug}','Cate_serviceController@show')->name('dichvu');
 Route::get('chitietdichvu/{slug}','ServiceController@show')->name('chitietdichvu');
 
@@ -85,8 +85,9 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
 
 	Route::prefix('cate_new')->group(function () {
 		Route::get('list','CateNewController@list')->name('cate_new.list');
-		Route::post('add','CateNewController@store')->name('cate_new.add');
-		Route::post('edit','CateNewController@edit')->name('cate_new.edit');
+		Route::get('add','CateNewController@add')->name('cate_new.add');
+		Route::post('add','CateNewController@insert')->name('cate_new.add');
+		Route::get('edit','CateNewController@edit')->name('cate_new.edit');
 		Route::post('update','CateNewController@update')->name('cate_new.update');
 		Route::get('delete/{id}','CateNewController@delete')->name('cate_new.delete');
 	});
@@ -141,6 +142,15 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
 		Route::get('edit/{id}','TalentWinsController@edit')->name('talent_wins.edit');
 		Route::post('edit/{id}','TalentWinsController@update')->name('talent_wins.edit');
 		Route::get('delete/{id}','TalentWinsController@delete')->name('talent_wins.delete');
+	});
+
+	Route::prefix('sub_talentwins')->group(function () {
+		Route::get('list','SubTalentWinsController@list')->name('sub_talentwins.list');
+		Route::get('add','SubTalentWinsController@add')->name('sub_talentwins.add');
+		Route::post('add','SubTalentWinsController@insert')->name('sub_talentwins.add');
+		Route::get('edit/{id}','SubTalentWinsController@edit')->name('sub_talentwins.edit');
+		Route::post('edit/{id}','SubTalentWinsController@update')->name('sub_talentwins.edit');
+		Route::get('delete/{id}','SubTalentWinsController@delete')->name('sub_talentwins.delete');
 	});
 
 	Route::prefix('support')->group(function () {

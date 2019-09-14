@@ -25,7 +25,7 @@
                                 <a href=""style="font-size: 22px">{{$value->name}}</a>
                             </h6>
                             <small><i class='far fa-calendar-alt'></i> &nbsp;{{ $value->created_at }}</small>
-                            <p>{{ $value->content }}</p>
+                            <p>{{ $value->summary }}</p>
                                 <a href="{{ route('chitietdichvu',['slug'=>$value->slug]) }}"
                                 class="btn btn-outline-success btn-sm">
                                 Đọc tiếp >>

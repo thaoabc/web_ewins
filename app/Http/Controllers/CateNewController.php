@@ -14,7 +14,12 @@ class CateNewController extends Controller
         return view('admins.page.new.cate_new',$array);
     }
 
-    public function store(Request $request)
+    public function add()
+    {
+        return view('admins.page.new.cate_new');
+    }
+
+    public function insert(Request $request)
     {
         $this->validate($request,
         [

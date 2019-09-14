@@ -41,8 +41,7 @@
 
                         <div class="form-group">
                             <label>Thông tin (*)</label>
-                            <input type="text" class="form-control" placeholder="Nhập thông tin người cố vấn" name="information"
-                                   value="{{ $adviser->information }}">
+                            <textarea name="information" id="desc" cols="30" rows="10">{{ $adviser->information }}</textarea>
                             <p style="color:red">{{ $errors->first('information') }}</p>
                         </div>
 

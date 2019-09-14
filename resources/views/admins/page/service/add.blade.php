@@ -47,8 +47,7 @@ Thêm dịch vụ
 
                                 <div class="form-group">
                                     <label>Nội dung (*)</label>
-                                    <input type="text" class="form-control" placeholder="Nội dung" name="content"
-                                        value="">
+                                    <textarea name="content" id="desc" cols="30" rows="10"></textarea>
                                     <p style="color:red">{{ $errors->first('content') }}</p>
                                 </div>
 

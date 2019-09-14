@@ -22,3 +22,5 @@ class prize extends Seeder
         ]);
     }
 }
+
+
