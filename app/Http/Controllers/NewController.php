@@ -17,7 +17,7 @@ class NewController extends Controller
                         ->get();
         return view('admins.page.new.list',$array);
     }
-
+    
     public function add()
     {
         $data['catenew']=cate_new::all();
